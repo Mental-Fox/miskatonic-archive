@@ -39,6 +39,7 @@
   leaves.forEach(leaf=>leaf.arc='tide');
   leaves.push(...(window.ARCHIVE_EXTRA_LEAVES||[]));
   leaves.push(...(window.ARCHIVE_SINGLE_LEAVES||[]));
+  leaves.push(...(window.ARCHIVE_CATALOG_LEAVES||[]));
   const found=new Set();let storageOK=true;
   try{
     const saved=JSON.parse(localStorage.getItem(key)||'[]');
@@ -55,7 +56,7 @@
     return '<div class="owner-marginalia"><span class="folio-kicker">На полях · два почерка</span><p class="owner-scholar">'+esc(scholar)+'<cite>Доктор Артур Вельт · каталогизатор</cite></p><p class="owner-witness">'+esc(witness)+'<cite>Марта Рейн · архивистка</cite></p></div>';
   }
   function ledger(){
-    return '<aside class="owner-ledger"><span class="folio-kicker">Следы прежних владельцев</span><h3>Листы вне описи</h3><p>Пометки доктора Артура Вельта и архивистки Марты Рейн встречаются у каждого существа и божества. Некоторые записи ведут к отдельным вклейкам.</p><p>Найдено листов: '+found.size+' из '+leaves.length+'. Открытые вклейки можно перечитать.</p><div class="owner-arcs">'+arcs.map(arc=>{
+    return '<aside class="owner-ledger"><span class="folio-kicker">Следы прежних владельцев</span><h3>Листы вне описи</h3><p>Пометки доктора Артура Вельта и архивистки Марты Рейн встречаются во всех разделах каталога: у существ и богов, мест, реликвий и книг. Нажмите на большую иллюстрацию записи, чтобы открыть её тайный лист.</p><p>Найдено листов: '+found.size+' из '+leaves.length+'. Открытые вклейки можно перечитать.</p><div class="owner-arcs">'+arcs.map(arc=>{
       const chain=leaves.filter(l=>l.arc===arc.id),count=chain.filter(l=>found.has(l.id)).length;
       const start=window.ENTRIES.find(r=>r.id===arc.start);
       return '<section class="owner-arc"><h4>'+esc(arc.title)+' <span>'+count+' / '+chain.length+'</span></h4><p>'+esc(arc.hint)+'</p><a class="ink-link" href="#entry/'+arc.start+'">Начать: '+esc(start?.name||arc.start)+' →</a><nav aria-label="Найденные листы: '+esc(arc.title)+'">'+chain.filter(l=>found.has(l.id)).map(l=>'<a href="#secret/'+l.id+'">'+l.number+' · '+esc(l.title)+'</a>').join('')+'</nav></section>';
