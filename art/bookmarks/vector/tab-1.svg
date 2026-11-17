@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 84" preserveAspectRatio="none">
+<title>Старинная бумага — векторная закладка</title>
+<defs>
+ <linearGradient id="paper" x2=".2" y2="1"><stop stop-color="#786447"/><stop offset=".48" stop-color="#4b3b2b"/><stop offset="1" stop-color="#786447"/></linearGradient>
+ <linearGradient id="shade"><stop stop-color="#090907" stop-opacity=".12"/><stop offset=".65" stop-color="#080706" stop-opacity="0"/><stop offset="1" stop-color="#080605" stop-opacity=".8"/></linearGradient>
+ <linearGradient id="reverse" x2=".8" y2="1"><stop stop-color="#d7c39a"/><stop offset=".5" stop-color="#a38e68"/><stop offset="1" stop-color="#6c593c"/></linearGradient>
+ <linearGradient id="crease" x1="0" y1="0" x2="1" y2=".3"><stop stop-color="#15100b" stop-opacity="0"/><stop offset=".44" stop-color="#15100b" stop-opacity=".35"/><stop offset=".5" stop-color="#e8d4a6" stop-opacity=".4"/><stop offset=".62" stop-color="#e8d4a6" stop-opacity="0"/></linearGradient>
+ <pattern id="grain" width="23" height="17" patternUnits="userSpaceOnUse"><path d="M2 4l6-1M15 12l4 1M6 14l2-1" fill="none" stroke="#e4d1a5" stroke-width=".35" opacity=".16"/><circle cx="18" cy="3" r=".6" fill="#160f09" opacity=".19"/><circle cx="4" cy="10" r=".4" fill="#ddc79f" opacity=".2"/></pattern>
+ <clipPath id="edge"><path d="M9 8 Q47 5 80 7 L280 5 L280 78 Q176 76 98 78 L11 75 Q5 67 7 52 L5 28 Z"/></clipPath>
+</defs>
+<path d="M9 8 Q47 5 80 7 L280 5 L280 78 Q176 76 98 78 L11 75 Q5 67 7 52 L5 28 Z" fill="url(#paper)" stroke="#ad9871" stroke-opacity=".65" stroke-width="1.1"/>
+<g clip-path="url(#edge)"><path d="M9 8 Q47 5 80 7 L280 5 L280 78 Q176 76 98 78 L11 75 Q5 67 7 52 L5 28 Z" fill="url(#grain)"/>
+<path d="M17 15Q111 11 264 14 M18 68Q107 72 267 69" fill="none" stroke="#c7b18a" stroke-width=".6" opacity=".32"/>
+<path d="M13 16V32 M13 56V65 M19 11H38 M19 73H39" fill="none" stroke="#cab78d" stroke-width=".7" opacity=".33"/>
+<g fill="none" stroke="#c5af7f" stroke-width=".65" opacity=".4"><g transform="translate(64 69)"><path d="M0 5V-5L5-1 0 2 M-3 0H3"/></g><g transform="translate(79 69)"><path d="M-4-3 0-5 4-3 0 5Z"/></g><g transform="translate(94 69)"><path d="M0 5V-5 M-4-1 0-4 4-1 M0 2 4 0"/></g><g transform="translate(109 69)"><path d="M-4-4 0 5 4-4 M-3 0H3"/></g><g transform="translate(124 69)"><path d="M0 5V-5L5-1 0 2 M-3 0H3"/></g><g transform="translate(139 69)"><path d="M-4-3 0-5 4-3 0 5Z"/></g><g transform="translate(154 69)"><path d="M0 5V-5 M-4-1 0-4 4-1 M0 2 4 0"/></g><g transform="translate(169 69)"><path d="M-4-4 0 5 4-4 M-3 0H3"/></g></g><g fill="none" stroke="#cfb783" stroke-width=".55" opacity=".26"><path d="M143 18v-6m-2 3 2-2 3 2m-1 2 2 2"/><path d="M152 18v-6m-2 3 2-2 3 2m-1 2 2 2"/><path d="M161 18v-6m-2 3 2-2 3 2m-1 2 2 2"/><path d="M170 18v-6m-2 3 2-2 3 2m-1 2 2 2"/><path d="M179 18v-6m-2 3 2-2 3 2m-1 2 2 2"/><path d="M188 18v-6m-2 3 2-2 3 2m-1 2 2 2"/><path d="M197 18v-6m-2 3 2-2 3 2m-1 2 2 2"/><path d="M19 39V24L26 20 32 24V39 M22 26l7 8m-7 0 7-8 M19 45h13 M21 49h9"/></g>
+<g fill="none" stroke="#d9c18b" opacity=".27"><path d="M192 55 183 57 186 64 192 63 M188 58l5 4 M252 55l7 3-2 6-7-2 M254 58l1 3" stroke-width=".7"/>
+<path d="M212 14l-3-7m12 5 1-7m12 10 4-6 M210 68l-3 7m14-6 1 7m13-9 4 5" stroke-width=".6"/></g>
+<g transform="translate(222 42)" fill="none" stroke="#d6c194" stroke-width=".85"><circle r="25" opacity=".16"/><circle r="22" stroke-dasharray="1 4" opacity=".55"/><circle r="19.5" opacity=".25"/><path d="M0-15 -4-3 -14 1 -3 4 0 16 4 4 14 0 4-3Z M0-19V19 M-19 0H19"/><path d="M-27-5V5 M27-5V5 M-5-27H5 M-5 27H5" opacity=".6"/></g>
+<path d="M13 22q8 10 0 25 M255 10q-8 17 3 48" stroke="#110d09" stroke-width="8" opacity=".1" fill="none"/>
+<path d="M16 72Q89 68 158 73 M14 13Q72 10 114 12" fill="none" stroke="#c8b38b" stroke-width=".5" opacity=".26"/><path d="M9 8 Q47 5 80 7 L280 5 L280 78 Q176 76 98 78 L11 75 Q5 67 7 52 L5 28 Z" fill="url(#shade)"/>
+<g fill="none" stroke="#d7c098" stroke-width=".65" opacity=".6"><path d="M9 18l2 1"/><path d="M8 31l3 -1"/><path d="M11 64l4 1"/><path d="M16 72l5 -1"/><path d="M21 9l6 1"/><path d="M36 7l2 -1"/><path d="M52 77l3 1"/><path d="M78 6l4 -1"/><path d="M103 76l5 1"/><path d="M136 7l6 -1"/><path d="M151 77l2 1"/><path d="M176 6l3 -1"/><path d="M201 76l4 1"/><path d="M243 7l5 -1"/></g></g>
+</svg>

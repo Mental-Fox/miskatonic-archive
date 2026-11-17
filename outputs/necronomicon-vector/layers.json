@@ -1,0 +1,52 @@
+[
+  {
+    "file": "parts/01-binding.svg",
+    "layer": "Переплёт",
+    "paths": 477
+  },
+  {
+    "file": "parts/02-pages.svg",
+    "layer": "Блок страниц",
+    "paths": 1196
+  },
+  {
+    "file": "parts/03-spine.svg",
+    "layer": "Корешок",
+    "paths": 618
+  },
+  {
+    "file": "parts/04-cover-relief.svg",
+    "layer": "Рельеф обложки",
+    "paths": 1423
+  },
+  {
+    "file": "parts/05-ornamental-frame.svg",
+    "layer": "Орнаментальная рамка",
+    "paths": 1175
+  },
+  {
+    "file": "parts/06-central-seal.svg",
+    "layer": "Центральная печать",
+    "paths": 542
+  },
+  {
+    "file": "parts/07-upper-studs.svg",
+    "layer": "Верхние заклёпки",
+    "paths": 41
+  },
+  {
+    "file": "parts/08-lower-studs.svg",
+    "layer": "Нижние заклёпки",
+    "paths": 55
+  },
+  {
+    "file": "parts/09-upper-clasp.svg",
+    "layer": "Верхняя застёжка",
+    "paths": 74
+  },
+  {
+    "file": "parts/10-lower-clasp.svg",
+    "layer": "Нижняя застёжка",
+    "paths": 77
+  }
+]

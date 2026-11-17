@@ -1,0 +1,3596 @@
+"use strict";
+/* Культурные интерпретации хранятся отдельно от литературных записей. */
+window.CULTURE_MEDIA = [
+  {
+    "id": "nyaruko-2012",
+    "title": "Haiyore! Nyaruko-san",
+    "year": 2012,
+    "type": "anime",
+    "relation": "adaptation",
+    "creator": "Xebec · TV Tokyo",
+    "summary": "Комедийное аниме, превращающее имена Мифов в героев повседневной и романтической истории.",
+    "interpretation": "Ньяруко — девушка, представляющаяся Ньярлатхотепом. Куко и Хасута переосмысляют Ктугху и Хастура. Их внешность, отношения и поступки принадлежат миру аниме.",
+    "links": [
+      {
+        "entity": "nyarlathotep",
+        "role": "Ньяруко — главная героиня, пародийное воплощение имени и образа.",
+        "form": "Переосмысленный персонаж",
+        "presence": "shown"
+      },
+      {
+        "entity": "cthugha",
+        "role": "Куко — комедийный персонаж на основе Живого пламени.",
+        "form": "Переосмысленный персонаж",
+        "presence": "shown"
+      },
+      {
+        "entity": "hastur",
+        "role": "Хасута — персонаж на основе Хастура.",
+        "form": "Переосмысленный персонаж",
+        "presence": "shown"
+      },
+      {
+        "entity": "nightgaunts",
+        "role": "Нападающие на Махиро существа в синопсисе второго эпизода.",
+        "form": "Показаны / названы в аниме",
+        "presence": "shown"
+      },
+      {
+        "entity": "shantak",
+        "role": "Шантак-кун — питомец, переосмысляющий шантака.",
+        "form": "Комедийное переосмысление",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Имена Ньярлатхотепа, Ктугхи и Хастура из разных ветвей Мифов; не экранизация одного рассказа."
+    ],
+    "sources": [
+      {
+        "title": "TV Tokyo · эпизоды первого сезона и даты эфира",
+        "url": "https://www.tv-tokyo.co.jp/anime/nyaruko/sp/episodes/episodes01/index.html"
+      },
+      {
+        "title": "Официальный сайт аниме · персонажи и произведение",
+        "url": "https://nyaruko.com/"
+      },
+      {
+        "title": "Официальный сайт Nyaruko · Шантак-кун в списке персонажей",
+        "url": "https://nyaruko.com/cd_campaign.php"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Первый сезон: эпизоды 1, 2 и 5",
+      "names": [
+        "Ньяруко / Ньярлатхотеп",
+        "Куко / Ктугха",
+        "Хасута / Хастур",
+        "Ночные призраки",
+        "Шантак-кун"
+      ],
+      "detail": "Официальные синопсисы называют персонажей и нападающих ночных призраков. Это комедийные версии образов.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "call-of-cthulhu-2018",
+    "title": "Call of Cthulhu",
+    "year": 2018,
+    "type": "videogame",
+    "relation": "adaptation",
+    "creator": "Cyanide Studio · Focus Entertainment",
+    "summary": "Детективная RPG об Эдварде Пирсе и расследовании на острове Даркуотер.",
+    "interpretation": "Мифы и настольная RPG Chaosium становятся основой самостоятельной интерактивной истории. Даркуотер, герои и варианты развития событий не являются событиями рассказа «Зов Ктулху».",
+    "links": [
+      {
+        "entity": "cthulhu",
+        "role": "Великий Спящий — центр космической угрозы и влияния на расследование.",
+        "form": "Игровая интерпретация",
+        "presence": "mentioned"
+      }
+    ],
+    "origins": [
+      "Мифы Ктулху; настольная Call of Cthulhu от Chaosium."
+    ],
+    "sources": [
+      {
+        "title": "Focus Entertainment · страница игры, дата выпуска",
+        "url": "https://www.focus-entmt.com/en/games/call-of-cthulhu"
+      },
+      {
+        "title": "Focus Entertainment · трейлер и влияние Великого Спящего",
+        "url": "https://www.focus-entmt.com/en/news/e3-2017-call-of-cthulhu-embraces-madness-in-e3-trailer"
+      }
+    ],
+    "evidence": {
+      "mode": "mentioned",
+      "where": "Расследование Пирса; материалы издателя о Великом Спящем",
+      "names": [
+        "Ктулху / Великий Спящий"
+      ],
+      "detail": "Подтверждено влияние Великого Спящего на сюжет. Эта запись не устанавливает физическое появление в каждой ветке прохождения.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "terraria-2011",
+    "title": "Terraria · Eye of Cthulhu",
+    "year": 2011,
+    "type": "videogame",
+    "relation": "reference",
+    "creator": "Re-Logic",
+    "summary": "Имя Ктулху используется в названии босса Eye of Cthulhu — «Глаз Ктулху».",
+    "interpretation": "В этой карточке отмечена отсылка в имени. Босс и собственная мифология Terraria не доказывают, что у литературного Ктулху были такие органы или такая история.",
+    "links": [
+      {
+        "entity": "cthulhu",
+        "role": "Отсылка в имени босса; не тождество с персонажем рассказа.",
+        "form": "Имя / отсылка",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Имя Ктулху; собственный мир Terraria."
+    ],
+    "sources": [
+      {
+        "title": "Re-Logic в Steam · дата выпуска Terraria",
+        "url": "https://store.steampowered.com/app/105600/Terraria/"
+      },
+      {
+        "title": "Официальная Terraria Wiki · Eye of Cthulhu",
+        "url": "https://terraria.wiki.gg/wiki/Eye_of_Cthulhu"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Босс Eye of Cthulhu",
+      "names": [
+        "Глаз Ктулху"
+      ],
+      "detail": "Показан игровой босс с именем Ктулху. Это отдельная игровая мифология, а не буквальное изображение существа из рассказа.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "sinking-city-2019",
+    "title": "The Sinking City",
+    "year": 2019,
+    "type": "videogame",
+    "relation": "inspiration",
+    "creator": "Frogwares",
+    "summary": "Самостоятельная детективная история в затопленном городе, вдохновлённая произведениями Лавкрафта.",
+    "interpretation": "Космический ужас, тревожные сны и расследование используются как основа нового мира. Эта запись фиксирует заявленное вдохновение и не приравнивает игровых существ к конкретным существам архива.",
+    "links": [],
+    "origins": [
+      "Творчество Г. Ф. Лавкрафта; не буквальная экранизация."
+    ],
+    "sources": [
+      {
+        "title": "Xbox Wire · представление игры от команды Frogwares, 2019",
+        "url": "https://news.xbox.com/en-us/2019/06/28/part-one-origin-story-the-sinking-city-hero/"
+      }
+    ],
+    "evidence": {
+      "mode": "motif",
+      "where": "Общее описание мира и расследования",
+      "names": [
+        "Существа оригинального игрового мира"
+      ],
+      "detail": "Издательское описание подтверждает вдохновение Лавкрафтом. Само по себе это не подтверждает появление конкретной литературной сущности.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "call-of-cthulhu-film-2005",
+    "title": "The Call of Cthulhu",
+    "year": 2005,
+    "type": "film",
+    "relation": "adaptation",
+    "creator": "Andrew Leman · H. P. Lovecraft Historical Society",
+    "summary": "Немая чёрно-белая экранизация рассказа «Зов Ктулху», стилизованная под кино 1920-х.",
+    "interpretation": "Сюжет расследования и Ктулху перенесены на экран средствами немого кино и экранных эффектов. Визуальный образ принадлежит этой экранизации.",
+    "links": [
+      {
+        "entity": "cthulhu",
+        "role": "Сущность, к которой ведут документы о культе и расследование.",
+        "form": "Экранное воплощение",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Г. Ф. Лавкрафт, «Зов Ктулху»."
+    ],
+    "sources": [
+      {
+        "title": "HPLHS · фильм The Call of Cthulhu",
+        "url": "https://www.hplhs.org/mpcoc.php"
+      },
+      {
+        "title": "HPLHS · история общества и выпуск фильма в 2005 году",
+        "url": "https://www.hplhs.org/about.php"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Финальный акт",
+      "names": [
+        "Ктулху"
+      ],
+      "detail": "Показан покадровой анимацией.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "whisperer-2011",
+    "title": "The Whisperer in Darkness",
+    "year": 2011,
+    "type": "film",
+    "relation": "adaptation",
+    "creator": "Sean Branney · H. P. Lovecraft Historical Society",
+    "summary": "Экранизация «Шепчущего во тьме» в стилистике звукового хоррора 1930-х.",
+    "interpretation": "История Уилмарта получает экранную постановку и самостоятельную драматургию. Внешний вид и действия экранных пришельцев следует рассматривать в рамках фильма.",
+    "links": [
+      {
+        "entity": "mi-go",
+        "role": "Пришельцы за вермонтскими легендами, которые расследует Уилмарт.",
+        "form": "Экранное воплощение",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Г. Ф. Лавкрафт, «Шепчущий во тьме»."
+    ],
+    "sources": [
+      {
+        "title": "HPLHS · The Whisperer in Darkness и авторы фильма",
+        "url": "https://www.hplhs.org/mptwid.php"
+      },
+      {
+        "title": "HPLHS · выпуск фильма весной 2011 года",
+        "url": "https://www.hplhs.org/about.php"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Вторая половина фильма",
+      "names": [
+        "Ми-го"
+      ],
+      "detail": "Пришельцы показаны в кадре.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "south-park-2010",
+    "title": "South Park · Coon vs. Coon & Friends",
+    "year": 2010,
+    "type": "series",
+    "relation": "appearance",
+    "creator": "Trey Parker · Comedy Central",
+    "summary": "Эпизод 14-го сезона, в котором Ктулху участвует в истории Картмана и его бывших товарищей.",
+    "interpretation": "Ктулху прямо назван действующим персонажем, но включён в сатирическую вселенную South Park. Его отношения с Картманом не относятся к литературным Мифам.",
+    "links": [
+      {
+        "entity": "cthulhu",
+        "role": "Именованный участник событий эпизода и союзник Картмана.",
+        "form": "Прямое появление в сериале",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Образ Ктулху; сатирический сюжет South Park."
+    ],
+    "sources": [
+      {
+        "title": "South Park Studios · пресс-релиз эпизода, 10 ноября 2010",
+        "url": "https://southpark.cc.com/news/t6s7lm/episode-1413-coon-vs-coon-and-friends-press-release"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Сезон 14, эпизоды 11–13",
+      "names": [
+        "Ктулху"
+      ],
+      "detail": "Персонаж показан и назван.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "coc-rpg-1981",
+    "title": "Call of Cthulhu · настольная RPG",
+    "year": 1981,
+    "type": "tabletop",
+    "relation": "adaptation",
+    "creator": "Sandy Petersen · Chaosium",
+    "summary": "Ролевая игра, в которой обычные люди расследуют тайны, сталкиваются с культами и космическими угрозами.",
+    "interpretation": "Литературные Мифы преобразованы в игровую систему с Хранителем и сыщиками. Характеристики, правила рассудка и события отдельных партий — игровые условности.",
+    "links": [
+      {
+        "entity": "cthulhu",
+        "role": "Именная фигура Мифов и мира игры; участие зависит от сценария.",
+        "form": "Игровой мир / сценарии"
+      }
+    ],
+    "origins": [
+      "«Зов Ктулху» и другие произведения Мифов."
+    ],
+    "sources": [
+      {
+        "title": "Chaosium · что такое Call of Cthulhu, первое издание 1981 года",
+        "url": "https://callofcthulhuwiki.chaosium.com/rules/"
+      }
+    ]
+  },
+  {
+    "id": "masks-1984",
+    "title": "Masks of Nyarlathotep",
+    "year": 1984,
+    "type": "tabletop",
+    "relation": "adaptation",
+    "creator": "Larry DiTillio, Lynn Willis · Chaosium",
+    "summary": "Кампания Call of Cthulhu о расследовании замыслов тёмного бога в разных частях света.",
+    "interpretation": "Ньярлатхотеп и его культы развиты для настольного приключения. Кампания имеет несколько редакций; год относится к первому изданию, ссылка — к изданию в каталоге Chaosium.",
+    "links": [
+      {
+        "entity": "nyarlathotep",
+        "role": "Тёмный бог, с чьими замыслами и культами сталкиваются сыщики.",
+        "form": "Игровой антагонист"
+      }
+    ],
+    "origins": [
+      "Образ Ньярлатхотепа; игровая традиция Chaosium."
+    ],
+    "sources": [
+      {
+        "title": "Chaosium · Masks of Nyarlathotep",
+        "url": "https://www.chaosium.com/masks-of-nyarlathotep-pdf-1/"
+      }
+    ]
+  },
+  {
+    "id": "winter-tide-2017",
+    "title": "Winter Tide",
+    "year": 2017,
+    "type": "book",
+    "relation": "adaptation",
+    "creator": "Ruthanna Emrys · Tor Books",
+    "summary": "Роман цикла The Innsmouth Legacy о наследнице Иннсмута Афре Марш.",
+    "interpretation": "История Иннсмута рассказана с сочувствием к его выжившим жителям. Происхождение, культура и опыт героев переосмыслены поздней писательницей; это не продолжение, написанное Лавкрафтом.",
+    "links": [
+      {
+        "entity": "deep-ones",
+        "role": "Предки жителей Иннсмута; их наследие определяет историю героини.",
+        "form": "Литературное переосмысление"
+      },
+      {
+        "entity": "yith",
+        "role": "Йит упомянуты в опубликованном издателем фрагменте.",
+        "form": "Упоминание в тексте"
+      }
+    ],
+    "origins": [
+      "Г. Ф. Лавкрафт, «Тень над Иннсмутом»; мотивы Мифов."
+    ],
+    "sources": [
+      {
+        "title": "Tor / Macmillan · роман, описание и отрывок © 2017; карточка paperback 2018",
+        "url": "https://us.macmillan.com/books/9780765398086/wintertide/"
+      }
+    ]
+  },
+  {
+    "id": "smite-cthulhu-2020",
+    "title": "SMITE · Ктулху",
+    "year": 2020,
+    "type": "videogame",
+    "relation": "appearance",
+    "creator": "Titan Forge Games · Hi-Rez Studios",
+    "summary": "Ктулху введён как управляемый персонаж пантеона Великих Древних.",
+    "interpretation": "Визуальный образ и способности разработаны для MOBA. Класс, размеры и игровые столкновения не описывают литературную силу Ктулху. Год относится к появлению персонажа, а не к выпуску SMITE.",
+    "links": [
+      {
+        "entity": "cthulhu",
+        "role": "Игровой персонаж класса Guardian; игрок управляет его действиями.",
+        "form": "Показан / доступен для игры",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Образ Ктулху из Мифов; собственный мир SMITE."
+    ],
+    "sources": [
+      {
+        "title": "PlayStation Blog · статья разработчика о Ктулху, май 2020",
+        "url": "https://blog.playstation.com/2020/05/25/cthulhu-joins-the-pantheon-of-playable-gods-in-smite-in-june/"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Персонаж Ктулху, добавленный в 2020 году",
+      "names": [
+        "Ктулху"
+      ],
+      "detail": "Разработчик публикует модель, концепцию и описание игровых способностей.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "cthulhu-saves-world-2011",
+    "title": "Cthulhu Saves the World",
+    "year": 2011,
+    "type": "videogame",
+    "relation": "adaptation",
+    "creator": "Zeboyd Games",
+    "summary": "Пародийная RPG, в которой Ктулху должен стать героем, чтобы вернуть потерянные силы.",
+    "interpretation": "Именованный Ктулху становится главным героем комедии. Это самостоятельная пародийная история. Здесь указан год версии Steam, а не первоначального выпуска для Xbox Live Indie Games.",
+    "links": [
+      {
+        "entity": "cthulhu",
+        "role": "Главный игровой герой, спасающий мир ради собственных планов.",
+        "form": "Показан / главный герой",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Ктулху; пародийное переосмысление."
+    ],
+    "sources": [
+      {
+        "title": "Zeboyd в Steam · описание и выпуск PC-версии 13 июля 2011",
+        "url": "https://store.steampowered.com/app/107310/"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Основной сюжет и управляемый герой",
+      "names": [
+        "Ктулху"
+      ],
+      "detail": "Описание разработчика прямо называет Ктулху и его задачу.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "cthulhu-saves-christmas-2019",
+    "title": "Cthulhu Saves Christmas",
+    "year": 2019,
+    "type": "videogame",
+    "relation": "adaptation",
+    "creator": "Zeboyd Games",
+    "summary": "Комедийная RPG о Ктулху, который отправляется спасать Санта-Клауса.",
+    "interpretation": "Ктулху включён в рождественскую сказку и пошаговую боевую систему. Герои фольклора и события игры не являются продолжением литературных Мифов.",
+    "links": [
+      {
+        "entity": "cthulhu",
+        "role": "Главный герой и участник игровой группы.",
+        "form": "Показан / главный герой",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Образ Ктулху; игровая серия Cthulhu Saves."
+    ],
+    "sources": [
+      {
+        "title": "Zeboyd в Steam · сюжет и дата 23 декабря 2019",
+        "url": "https://store.steampowered.com/app/1057540/Cthulhu_Saves_Christmas/"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Основная история спасения Санта-Клауса",
+      "names": [
+        "Ктулху"
+      ],
+      "detail": "Синопсис разработчика называет Ктулху главным героем.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "dagon-game-2021",
+    "title": "Dagon: by H. P. Lovecraft",
+    "year": 2021,
+    "type": "videogame",
+    "relation": "adaptation",
+    "creator": "Bit Golem",
+    "summary": "Интерактивное трёхмерное переложение рассказа «Дагон».",
+    "interpretation": "Морское чудовище у монолита получает экранное воплощение. Название произведения не доказывает, что встреченное рассказчиком существо достоверно является самим богом Дагоном.",
+    "links": [
+      {
+        "entity": "dagon",
+        "role": "Связь через рассказ и визуализацию морского существа; личность чудовища не установлена.",
+        "form": "Показан образ из рассказа; тождество не установлено",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Г. Ф. Лавкрафт, «Дагон»."
+    ],
+    "sources": [
+      {
+        "title": "Bit Golem в Steam · интерактивная адаптация, 24 сентября 2021",
+        "url": "https://store.steampowered.com/app/1481400/"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Сцена у монолита в интерактивной адаптации",
+      "names": [
+        "Морское существо из «Дагона»"
+      ],
+      "detail": "Подтверждена визуальная адаптация рассказа. Тождество увиденного существа богу Дагону не утверждается.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "awakened-2023",
+    "title": "Sherlock Holmes The Awakened",
+    "year": 2023,
+    "type": "videogame",
+    "relation": "adaptation",
+    "creator": "Frogwares",
+    "summary": "Шерлок Холмс расследует исчезновения в истории, соединяющей детектив и Мифы Ктулху.",
+    "interpretation": "Фиксируется культовая и сюжетная связь с Ктулху. Из описания игры нельзя заключить, что Ктулху обязательно физически показан. Это ремейк 2023 года, а не исходная игра.",
+    "links": [
+      {
+        "entity": "cthulhu",
+        "role": "Центр культовой и мифологической линии расследования.",
+        "form": "Упоминание / культовая линия",
+        "presence": "mentioned"
+      }
+    ],
+    "origins": [
+      "Мифы Ктулху; самостоятельная история о Шерлоке Холмсе."
+    ],
+    "sources": [
+      {
+        "title": "Frogwares в Steam · ремейк, 11 апреля 2023",
+        "url": "https://store.steampowered.com/app/1949030/Sherlock_Holmes_The_Awakened/"
+      },
+      {
+        "title": "Frogwares · описание культовой линии исходной The Awakened",
+        "url": "https://www.sherlockholmes-thegame.com/sh3/"
+      }
+    ],
+    "evidence": {
+      "mode": "mentioned",
+      "where": "Сюжет расследования и культовая линия",
+      "names": [
+        "Ктулху"
+      ],
+      "detail": "Подтверждается связь с Мифами и культом; физическое появление божества здесь не заявляется.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "sucker-love-2022",
+    "title": "Sucker for Love: First Date",
+    "year": 2022,
+    "type": "videogame",
+    "relation": "adaptation",
+    "creator": "Akabaka · DreadXP",
+    "summary": "Ln’eta — девушка с чертами Ктулху, призываемая с помощью розового «Некрономикона».",
+    "interpretation": "Издатель прямо описывает Ln’eta как cthulhu-like. Это персонаж под собственным именем, а не буквальная женская форма литературного Ктулху. Визуальный стиль аниме не делает игру отдельным анимесериалом.",
+    "links": [
+      {
+        "entity": "cthulhu",
+        "role": "Основа узнаваемого образа Ln’eta; связь указана издателем.",
+        "form": "Показана переосмысленная героиня",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Образы Ктулху и «Некрономикона»; пародийный симулятор свиданий."
+    ],
+    "sources": [
+      {
+        "title": "Akabaka / DreadXP в Steam · Ln’eta и дата 20 января 2022",
+        "url": "https://store.steampowered.com/app/1574270/Sucker_for_Love_First_Date/"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Первая призванная героиня — Ln’eta",
+      "names": [
+        "Ln’eta — образ на основе Ктулху"
+      ],
+      "detail": "Описание издателя прямо называет героиню похожей на Ктулху. Тождество с литературной сущностью не утверждается.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "dark-corners-2005",
+    "title": "Call of Cthulhu: Dark Corners of the Earth",
+    "year": 2005,
+    "type": "videogame",
+    "relation": "adaptation",
+    "creator": "Headfirst Productions · Bethesda Softworks",
+    "summary": "Хоррор об Иннсмуте, в котором показаны глубоководные, Дагон и шогготы.",
+    "interpretation": "Встречи, перестрелки и игровые уязвимости монстров созданы для этой адаптации. Результаты игровых столкновений нельзя переносить в литературные рассказы. 2005 — версия Xbox; PC-версия вышла в 2006 году.",
+    "links": [
+      {
+        "entity": "deep-ones",
+        "role": "Противники в эпизодах морской атаки.",
+        "form": "Показаны / противники",
+        "presence": "shown"
+      },
+      {
+        "entity": "dagon",
+        "role": "Огромный морской противник, нападающий на корабль.",
+        "form": "Показан / игровое столкновение",
+        "presence": "shown"
+      },
+      {
+        "entity": "shoggoth",
+        "role": "Угроза на заводе семьи Марш.",
+        "form": "Показан / сюжетная угроза",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "«Тень над Иннсмутом» и другие мотивы Мифов."
+    ],
+    "sources": [
+      {
+        "title": "Take-Two / Bethesda · пресс-релиз выпуска Xbox-версии",
+        "url": "https://ir.take2games.com/static-files/3aa06579-8d59-42f0-99fd-b4b94fee1d30"
+      },
+      {
+        "title": "Game Developer · разбор сцен с Дагоном, шогготами и глубоководными",
+        "url": "https://www.gamedeveloper.com/design/from-innsmouth-with-love"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Морская атака и завод семьи Марш",
+      "names": [
+        "Глубоководные",
+        "Дагон",
+        "Шогготы"
+      ],
+      "detail": "Разбор игровых сцен описывает конкретных монстров. Это вторичный аналитический источник; выпуск подтверждён издателем.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "necronomico-2025",
+    "title": "Necronomico and the Cosmic Horror Show",
+    "year": 2025,
+    "type": "anime",
+    "relation": "adaptation",
+    "creator": "Studio Gokumi · Cygames",
+    "summary": "Божества Мифов устраивают VR-испытания; среди персонажей — Ктулху, Хастур, Гатаноа, Ктугха и шоггот.",
+    "interpretation": "Божества становятся организаторами шоу и принимают авторские экранные облики. Ктулху представлен персонажем, похожим на Маю. Эти внешность, роли и отношения принадлежат самостоятельному миру аниме.",
+    "links": [
+      {
+        "entity": "shoggoth",
+        "role": "Преследователь участников в третьем эпизоде.",
+        "form": "Показан / переработанный монстр",
+        "presence": "shown"
+      },
+      {
+        "entity": "cthulhu",
+        "role": "Персонаж Ктулху, представленный в основном и отдельном трейлерах.",
+        "form": "Экранное переосмысление",
+        "presence": "shown"
+      },
+      {
+        "entity": "hastur",
+        "role": "Хастур — именованный персонаж среди божеств шоу.",
+        "form": "Экранное переосмысление",
+        "presence": "shown"
+      },
+      {
+        "entity": "ghatanothoa",
+        "role": "Гатаноа — именованный персонаж среди божеств шоу.",
+        "form": "Экранное переосмысление",
+        "presence": "shown"
+      },
+      {
+        "entity": "cthugha",
+        "role": "Ктугха / Гуа — именованный персонаж среди божеств шоу.",
+        "form": "Экранное переосмысление",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Шогготы, Ктулху, Хастур, Гатаноа и Ктугха из разных авторских ветвей Мифов; самостоятельный сюжет аниме."
+    ],
+    "sources": [
+      {
+        "title": "Animate Times · официальный анонс эпизода 3, синопсис и кадры",
+        "url": "https://www.animatetimes.com/news/details.php?id=1752127959"
+      },
+      {
+        "title": "Официальный сайт аниме",
+        "url": "https://anime-necronomico.help/"
+      },
+      {
+        "title": "Anime Corner · основной трейлер и имена четырёх божеств",
+        "url": "https://animecorner.me/necronomico-and-the-cosmic-horror-show-reveals-theme-songs-in-main-trailer-more-cast-july-1-premiere/"
+      },
+      {
+        "title": "Anime Trending · трейлер Ктулху и сходство с Маю",
+        "url": "https://www.anitrendz.com/news/2025/06/01/necronomico-and-the-cosmic-horror-show-reveals-princess-cthulhu-july-1-premiere-in-main-trailer"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Эпизод 3 — шоггот; основной и персонажные трейлеры — божества",
+      "names": [
+        "Модифицированный шоггот",
+        "Ктулху",
+        "Хастур",
+        "Гатаноа",
+        "Ктугха / Гуа"
+      ],
+      "detail": "Синопсис эпизода 3 подтверждает шоггота; материалы о трейлерах подтверждают экранные версии четырёх божеств. Гуа соответствует Ктугхе, а не Цатхоггуа.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "overlord-iii-2018",
+    "title": "Overlord III · Massacre",
+    "year": 2018,
+    "type": "anime",
+    "relation": "adaptation",
+    "creator": "Madhouse · KADOKAWA",
+    "summary": "В эпизоде 12 заклинание Iä Shub-Niggurath вызывает гигантских «чёрных козлят».",
+    "interpretation": "Показаны призванные монстры, а имя Шуб-Ниггурат используется в заклинании. Это не подтверждение физического появления самой Шуб-Ниггурат. Правила призыва принадлежат миру Overlord.",
+    "links": [
+      {
+        "entity": "dark-young",
+        "role": "Переосмысленный образ призванных «чёрных козлят».",
+        "form": "Показаны / призванные монстры",
+        "presence": "shown"
+      },
+      {
+        "entity": "shub",
+        "role": "Имя используется в названии заклинания.",
+        "form": "Упоминание имени; божество не подтверждено на экране",
+        "presence": "mentioned"
+      }
+    ],
+    "origins": [
+      "Имя Шуб-Ниггурат и образ её тёмного потомства; собственная магия Overlord."
+    ],
+    "sources": [
+      {
+        "title": "Crunchyroll · Overlord III, эпизод 12 Massacre",
+        "url": "https://www.crunchyroll.com/watch/GY0XXPP06/massacre"
+      },
+      {
+        "title": "Overlord Wiki · эпизод 12 и заклинание Iä Shub-Niggurath",
+        "url": "https://overlordmaruyama.fandom.com/wiki/Overlord_III_Episode_12"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Сезон III, эпизод 12 — Massacre",
+      "names": [
+        "Чёрные козлята",
+        "Шуб-Ниггурат — имя заклинания"
+      ],
+      "detail": "Конкретное имя заклинания сверено по справочнику эпизода; существование эпизода подтверждает официальный дистрибьютор.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "digimon-02-2000",
+    "title": "Digimon Adventure 02 · The Call of Dagomon",
+    "year": 2000,
+    "type": "anime",
+    "relation": "reference",
+    "creator": "Toei Animation",
+    "summary": "Эпизод 13 посвящён Тёмному океану и Дагомону — морскому божеству мира Digimon.",
+    "interpretation": "Дагомон — собственный персонаж Digimon. Имя и заглавие эпизода связывают его с лавкрафтовскими мотивами; называть его буквально литературным Дагоном или Ктулху нельзя.",
+    "links": [
+      {
+        "entity": "dagon",
+        "role": "Связь через имя Дагомона и название эпизода; не тождество персонажей.",
+        "form": "Отсылка / отдельный персонаж Digimon",
+        "presence": "motif"
+      }
+    ],
+    "origins": [
+      "Имя Дагон и лавкрафтовские морские мотивы; собственная мифология Digimon."
+    ],
+    "sources": [
+      {
+        "title": "Toei Animation · эпизод 13 «ダゴモンの呼び声»",
+        "url": "https://lineup.toei-anim.co.jp/ja/tv/digimon02/episode/13/"
+      },
+      {
+        "title": "Bandai · официальный профиль Dagomon / Dragomon",
+        "url": "https://digimon.net/reference_en/detail.php?directory_name=dagomon"
+      },
+      {
+        "title": "Wikimon · появление Дагомона в Adventure 02",
+        "url": "https://wikimon.net/Dagomon"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Эпизод 13 — «Зов Дагомона»",
+      "names": [
+        "Дагомон / Dragomon"
+      ],
+      "detail": "Наличие персонажа и эпизода подтверждено. Лавкрафтовская связь классифицирована как отсылка, а не буквальное появление божества.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "bungo-lovecraft-2016",
+    "title": "Bungo Stray Dogs · Lovecraft",
+    "year": 2016,
+    "type": "anime",
+    "relation": "reference",
+    "creator": "BONES · KADOKAWA",
+    "summary": "В сериале действует персонаж Лавкрафт со способностью, названной «Великий Древний».",
+    "interpretation": "Это оригинальный персонаж аниме с литературной отсылкой в имени способности. Официальная карточка не отождествляет его с Ктулху или Ньярлатхотепом, поэтому связь с конкретным существом архива не назначена.",
+    "links": [],
+    "origins": [
+      "Имя Г. Ф. Лавкрафта и понятие Великих Древних."
+    ],
+    "sources": [
+      {
+        "title": "Официальный сайт аниме · Lovecraft и способность 旧支配者",
+        "url": "https://bungo-stray-dogs.jp/tv/character/?character=lovecraft"
+      },
+      {
+        "title": "Официальный сайт · истории эпизодов",
+        "url": "https://bungo-stray-dogs.jp/tv/story/"
+      }
+    ],
+    "evidence": {
+      "mode": "motif",
+      "where": "Персонаж Lovecraft и название способности",
+      "names": [
+        "Лавкрафт / способность «Великий Древний»"
+      ],
+      "detail": "Подтверждена именованная отсылка. Отождествление с определённым литературным монстром не подтверждено.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "quake-1996",
+    "title": "Quake",
+    "year": 1996,
+    "type": "videogame",
+    "relation": "reference",
+    "creator": "id Software",
+    "summary": "Шутер от первого лица, финальный противник которого назван Шуб-Ниггурат.",
+    "interpretation": "Имя Чёрной Козы Лесов дано огромному чудовищу последнего уровня. Облик и способ победы — изобретение id Software, в остальном мир Quake с Мифами не связан.",
+    "links": [
+      {
+        "entity": "shub",
+        "role": "Финальный босс эпизода 4 носит имя Шуб-Ниггурат.",
+        "form": "Имя / игровой босс",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Имя Шуб-Ниггурат; собственный мир Quake."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Quake (1996)",
+        "url": "https://en.wikipedia.org/wiki/Quake_(video_game)"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Эпизод 4, финальный уровень",
+      "names": [
+        "Шуб-Ниггурат"
+      ],
+      "detail": "Босс показан и назван в игре; его облик не следует описаниям из рассказов.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "persona2-1999",
+    "title": "Persona 2: Innocent Sin / Eternal Punishment",
+    "year": 1999,
+    "type": "videogame",
+    "relation": "appearance",
+    "creator": "Atlus",
+    "summary": "Японская RPG, где слухи становятся реальностью, а за событиями стоит Ньярлатхотеп.",
+    "interpretation": "Ньярлатхотеп — главный антагонист дилогии, воплощение тёмной стороны человеческого бессознательного. Связь с Ползучим Хаосом Лавкрафта — в имени, многоликости и роли насмешливого манипулятора.",
+    "links": [
+      {
+        "entity": "nyarlathotep",
+        "role": "Действует под множеством масок и открыто называет себя Ньярлатхотепом.",
+        "form": "Главный антагонист",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Образ Ньярлатхотепа; юнгианская мифология серии Persona."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Persona 2: Innocent Sin",
+        "url": "https://en.wikipedia.org/wiki/Persona_2:_Innocent_Sin"
+      },
+      {
+        "title": "Wikipedia · Persona 2: Eternal Punishment",
+        "url": "https://en.wikipedia.org/wiki/Persona_2:_Eternal_Punishment"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Обе части дилогии, финальные главы",
+      "names": [
+        "Ньярлатхотеп"
+      ],
+      "detail": "Персонаж показан и назван; трактовка принадлежит Atlus.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "eternal-darkness-2002",
+    "title": "Eternal Darkness: Sanity’s Requiem",
+    "year": 2002,
+    "type": "videogame",
+    "relation": "inspiration",
+    "creator": "Silicon Knights · Nintendo",
+    "summary": "Хоррор о древних сущностях и Книге Вечной Тьмы, проходящей через две тысячи лет истории.",
+    "interpretation": "Древние, их слуги и знаменитая шкала рассудка выросли из идей Лавкрафта, но имена и пантеон придуманы заново. Тождества с существами архива нет.",
+    "links": [],
+    "origins": [
+      "Космический ужас Лавкрафта; собственный пантеон Древних."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Eternal Darkness",
+        "url": "https://en.wikipedia.org/wiki/Eternal_Darkness"
+      }
+    ],
+    "evidence": {
+      "mode": "motif",
+      "where": "Вся игра",
+      "names": [
+        "Древние: Ulyaoth, Chattur’gha, Xel’lotath, Mantorok"
+      ],
+      "detail": "Существа показаны, но это оригинальные персонажи, вдохновлённые Мифами.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "wow-old-gods-2006",
+    "title": "World of Warcraft · Древние боги",
+    "year": 2006,
+    "type": "videogame",
+    "relation": "reference",
+    "creator": "Blizzard Entertainment",
+    "summary": "Щупальцастые Древние боги К’Тун, Йогг-Сарон и Н’Зот — рейдовые боссы MMORPG.",
+    "interpretation": "Имена и облик — явный кивок к Ктулху и Йог-Сототу: спящие под землёй боги, шёпот безумия, культы. История и роль в мире Азерота принадлежат Blizzard.",
+    "links": [
+      {
+        "entity": "cthulhu",
+        "role": "К’Тун (2006) и Н’Зот (2019) напоминают Ктулху именем и образом.",
+        "form": "Имя / отсылка",
+        "presence": "motif"
+      },
+      {
+        "entity": "yog",
+        "role": "Йогг-Сарон (2009) — созвучие с Йог-Сототом.",
+        "form": "Имя / отсылка",
+        "presence": "motif"
+      }
+    ],
+    "origins": [
+      "Имена Ктулху и Йог-Сотота; собственная мифология Warcraft."
+    ],
+    "sources": [
+      {
+        "title": "Warcraft Wiki · Old Gods",
+        "url": "https://warcraft.wiki.gg/wiki/Old_Gods"
+      }
+    ],
+    "evidence": {
+      "mode": "motif",
+      "where": "Рейды Ан’Кираж (2006), Ульдуар (2009), Ни’алота (2019)",
+      "names": [
+        "К’Тун",
+        "Йогг-Сарон",
+        "Н’Зот"
+      ],
+      "detail": "Боссы показаны, но это собственные персонажи Warcraft с созвучными именами.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "amnesia-2010",
+    "title": "Amnesia: The Dark Descent",
+    "year": 2010,
+    "type": "videogame",
+    "relation": "inspiration",
+    "creator": "Frictional Games",
+    "summary": "Хоррор о Даниэле, потерявшем память в прусском замке, где пробуждается Тень.",
+    "interpretation": "Запретное знание, рассудок, страх темноты и сущность из иного мира — наследие Лавкрафта. Именованных существ архива в игре нет.",
+    "links": [],
+    "origins": [
+      "Атмосфера Лавкрафта; собственный сюжет."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Amnesia: The Dark Descent",
+        "url": "https://en.wikipedia.org/wiki/Amnesia:_The_Dark_Descent"
+      }
+    ],
+    "evidence": {
+      "mode": "motif",
+      "where": "Вся игра",
+      "names": [
+        "Тень",
+        "Грунты"
+      ],
+      "detail": "Монстры собственные; связь — атмосфера и мотивы.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "bloodborne-2015",
+    "title": "Bloodborne",
+    "year": 2015,
+    "type": "videogame",
+    "relation": "inspiration",
+    "creator": "FromSoftware · Sony Interactive Entertainment",
+    "summary": "Готический экшен в Ярнаме, где охота на чудовищ оборачивается встречей с космическими Великими.",
+    "interpretation": "Великие, щупальца, прозрение, сводящее с ума, и тайны морских глубин — во многом лавкрафтовские. Это не Великие Страны Грёз из архива и не именованные Древние.",
+    "links": [],
+    "origins": [
+      "Космический ужас Лавкрафта; викторианская готика."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Bloodborne",
+        "url": "https://en.wikipedia.org/wiki/Bloodborne"
+      }
+    ],
+    "evidence": {
+      "mode": "motif",
+      "where": "Вторая половина игры и DLC The Old Hunters",
+      "names": [
+        "Великие: Ром, Эбриетас, Амигдала и др."
+      ],
+      "detail": "Монстры показаны, но придуманы FromSoftware.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "darkest-dungeon-2016",
+    "title": "Darkest Dungeon",
+    "year": 2016,
+    "type": "videogame",
+    "relation": "inspiration",
+    "creator": "Red Hook Studios",
+    "summary": "Тактическая RPG о наследнике, разбудившем под родовым поместьем древнее зло.",
+    "interpretation": "Стресс героев, рыбьи культисты в бухте и Сердце Тьмы в глубинах — открытый оммаж Лавкрафту. Имена и существа оригинальные.",
+    "links": [],
+    "origins": [
+      "Мотивы «Тени над Иннсмутом» и космического ужаса."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Darkest Dungeon",
+        "url": "https://en.wikipedia.org/wiki/Darkest_Dungeon"
+      }
+    ],
+    "evidence": {
+      "mode": "motif",
+      "where": "Бухта (Cove) и финальное подземелье",
+      "names": [
+        "Рыболюди",
+        "Сердце Тьмы"
+      ],
+      "detail": "Существа напоминают Глубоководных и Древних, но не названы ими.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "the-shore-2021",
+    "title": "The Shore",
+    "year": 2021,
+    "type": "videogame",
+    "relation": "appearance",
+    "creator": "Ares Dragonis",
+    "summary": "Рыбак Эшли ищет дочь на загадочном острове и сталкивается с Древними.",
+    "interpretation": "Игра прямо выводит на сцену существ Мифов. Сюжет об отце и дочери, остров и финал придуманы автором игры.",
+    "links": [
+      {
+        "entity": "cthulhu",
+        "role": "Великий Древний появляется в кульминации.",
+        "form": "Игровое воплощение",
+        "presence": "shown"
+      },
+      {
+        "entity": "dagon",
+        "role": "Морское божество — одно из существ острова.",
+        "form": "Игровое воплощение",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "«Зов Ктулху», «Дагон»; самостоятельный сюжет."
+    ],
+    "sources": [
+      {
+        "title": "Steam · THE SHORE",
+        "url": "https://store.steampowered.com/app/1297300/THE_SHORE/"
+      },
+      {
+        "title": "Wikipedia · The Shore",
+        "url": "https://en.wikipedia.org/wiki/The_Shore_(video_game)"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Сюжетные главы и финал",
+      "names": [
+        "Ктулху",
+        "Дагон"
+      ],
+      "detail": "Существа показаны и названы в игре.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "dredge-2023",
+    "title": "Dredge",
+    "year": 2023,
+    "type": "videogame",
+    "relation": "inspiration",
+    "creator": "Black Salt Games · Team17",
+    "summary": "Рыболовный симулятор, в котором ночное море полно аберраций и чудовищ.",
+    "interpretation": "Мутировавшая рыба, туман, шёпот глубин и культ — морская ветвь лавкрафтовского ужаса. Именованных существ архива нет.",
+    "links": [],
+    "origins": [
+      "Мотивы «Дагона» и «Тени над Иннсмутом»."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Dredge",
+        "url": "https://en.wikipedia.org/wiki/Dredge_(video_game)"
+      }
+    ],
+    "evidence": {
+      "mode": "motif",
+      "where": "Ночные плавания по всем регионам",
+      "names": [
+        "Аберрации",
+        "Морские чудовища"
+      ],
+      "detail": "Монстры собственные, вдохновлённые Мифами.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "fgo-abigail-2017",
+    "title": "Fate/Grand Order · Абигейл Уильямс",
+    "year": 2017,
+    "type": "videogame",
+    "relation": "reference",
+    "creator": "TYPE-MOON · Delightworks · Aniplex",
+    "summary": "Мобильная RPG, где героиня из Салема связана с сущностью «по ту сторону Серебряного ключа».",
+    "interpretation": "Класс Foreigner в Fate объединяет персонажей, тронутых «Внешними богами». Абигейл связана с существом, за которым угадывается Йог-Сотот; история Салема и её образ — вымысел Fate.",
+    "links": [
+      {
+        "entity": "yog",
+        "role": "Сущность за Вратами, с которой связана Абигейл.",
+        "form": "Отсылка",
+        "presence": "mentioned"
+      },
+      {
+        "entity": "silver-key",
+        "role": "Ключ — постоянный атрибут персонажа.",
+        "form": "Символ",
+        "presence": "motif"
+      }
+    ],
+    "origins": [
+      "Мотивы «Через врата Серебряного ключа»; вселенная Fate."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Fate/Grand Order",
+        "url": "https://en.wikipedia.org/wiki/Fate/Grand_Order"
+      },
+      {
+        "title": "TV Tropes · FGO Foreigners",
+        "url": "https://tvtropes.org/pmwiki/pmwiki.php/Characters/FateGrandOrderForeigners"
+      }
+    ],
+    "evidence": {
+      "mode": "mentioned",
+      "where": "Профиль персонажа и сюжет «Салем»",
+      "names": [
+        "Абигейл Уильямс",
+        "Серебряный ключ"
+      ],
+      "detail": "Йог-Сотот назван не всегда прямо; связь читается через ключ и Врата.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "demonbane-2006",
+    "title": "Demonbane (Kishin Hishō Demonbane)",
+    "year": 2006,
+    "type": "anime",
+    "relation": "adaptation",
+    "creator": "Nitroplus (визуальная новелла 2003)",
+    "summary": "Сыщик Кудзё Куро находит гримуар Аль-Азиф в облике девушки и пилотирует гигантского робота против культа.",
+    "interpretation": "Мифы стали меха-боевиком: Некрономикон — героиня, существа Мифов — противники, а за кулисами действует Ньярлатхотеп. Всё это — переосмысление Nitroplus.",
+    "links": [
+      {
+        "entity": "necronomicon",
+        "role": "Аль-Азиф — арабское имя Некрономикона — главная героиня.",
+        "form": "Персонифицированный гримуар",
+        "presence": "shown"
+      },
+      {
+        "entity": "nyarlathotep",
+        "role": "Ньярлатхотеп — скрытый кукловод событий.",
+        "form": "Антагонист",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Некрономикон и пантеон Мифов; жанр меха."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Demonbane",
+        "url": "https://en.wikipedia.org/wiki/Demonbane"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Весь сериал (12 эпизодов)",
+      "names": [
+        "Аль-Азиф / Некрономикон",
+        "Ньярлатхотеп"
+      ],
+      "detail": "Сущности показаны и названы.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "fate-zero-2011",
+    "title": "Fate/Zero",
+    "year": 2011,
+    "type": "anime",
+    "relation": "reference",
+    "creator": "ufotable · сценарий Гэна Уробути",
+    "summary": "Война за Святой Грааль; маг-Кастер вызывает из воды гигантское чудовище с щупальцами.",
+    "interpretation": "Гримуар Кастера, «Книга заклинаний Прелати», во вселенной TYPE-MOON связан с «Текстом Р’льеха». Чудовища — это призванные «демоны», а не сам Ктулху.",
+    "links": [
+      {
+        "entity": "rlyeh-text",
+        "role": "Гримуар Прелати описан как связанный с «Текстом Р’льеха».",
+        "form": "Гримуар-отсылка",
+        "presence": "mentioned"
+      }
+    ],
+    "origins": [
+      "Мотив «Текста Р’льеха»; вселенная Fate."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Fate/Zero",
+        "url": "https://en.wikipedia.org/wiki/Fate/Zero"
+      },
+      {
+        "title": "TYPE-MOON Wiki · Grimoire",
+        "url": "https://typemoon.fandom.com/wiki/Grimoire"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "1 сезон, эпизоды 11–13",
+      "names": [
+        "Гримуар Прелати",
+        "Гигантский демон в реке Мион"
+      ],
+      "detail": "Чудовище показано; связь с Мифами — через гримуар.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "haunted-palace-1963",
+    "title": "The Haunted Palace",
+    "year": 1963,
+    "type": "film",
+    "relation": "adaptation",
+    "creator": "Роджер Корман · American International Pictures",
+    "summary": "Вольная экранизация «Случая Чарльза Декстера Варда» с Винсентом Прайсом.",
+    "interpretation": "Хотя фильм продавали как экранизацию По, сюжет взят у Лавкрафта. Одним из первых на экране звучат Некрономикон, Ктулху и Йог-Сотот.",
+    "links": [
+      {
+        "entity": "necronomicon",
+        "role": "Колдун Карвен использует Некрономикон.",
+        "form": "Экранный артефакт",
+        "presence": "shown"
+      },
+      {
+        "entity": "yog",
+        "role": "Имя звучит среди сил, которым служит Карвен.",
+        "form": "Упоминание",
+        "presence": "mentioned"
+      },
+      {
+        "entity": "cthulhu",
+        "role": "Имя названо в диалоге.",
+        "form": "Упоминание",
+        "presence": "mentioned"
+      }
+    ],
+    "origins": [
+      "Г. Ф. Лавкрафт, «Случай Чарльза Декстера Варда»."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · The Haunted Palace",
+        "url": "https://en.wikipedia.org/wiki/The_Haunted_Palace_(film)"
+      }
+    ],
+    "evidence": {
+      "mode": "mentioned",
+      "where": "Весь фильм",
+      "names": [
+        "Некрономикон",
+        "Ктулху",
+        "Йог-Сотот"
+      ],
+      "detail": "Книга показана, божества названы.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "dunwich-1970",
+    "title": "The Dunwich Horror",
+    "year": 1970,
+    "type": "film",
+    "relation": "adaptation",
+    "creator": "Дэниел Хэллер · American International Pictures",
+    "summary": "Уилбур Уэйтли похищает Некрономикон из Мискатоника, чтобы открыть врата Древним.",
+    "interpretation": "Сюжет «Данвичского ужаса» перенесён в психоделичное кино 1970-х. Брат-близнец Уилбура показан короткими искажёнными вспышками.",
+    "links": [
+      {
+        "entity": "dunwich-horror",
+        "role": "Близнец Уилбура появляется в финале.",
+        "form": "Экранное воплощение",
+        "presence": "shown"
+      },
+      {
+        "entity": "yog",
+        "role": "Йог-Сотот — отец близнецов и цель ритуала.",
+        "form": "Упоминание",
+        "presence": "mentioned"
+      },
+      {
+        "entity": "necronomicon",
+        "role": "Книга из библиотеки Мискатоника.",
+        "form": "Экранный артефакт",
+        "presence": "shown"
+      },
+      {
+        "entity": "dunwich",
+        "role": "События происходят в Данвиче.",
+        "form": "Место действия",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Г. Ф. Лавкрафт, «Данвичский ужас»."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · The Dunwich Horror (film)",
+        "url": "https://en.wikipedia.org/wiki/The_Dunwich_Horror_(film)"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Финал фильма",
+      "names": [
+        "Данвичский ужас",
+        "Некрономикон",
+        "Йог-Сотот"
+      ],
+      "detail": "Чудовище показано, божество названо.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "evil-dead-1981",
+    "title": "The Evil Dead",
+    "year": 1981,
+    "type": "film",
+    "relation": "reference",
+    "creator": "Сэм Рэйми",
+    "summary": "Студенты находят в хижине Книгу мёртвых и пробуждают демонов.",
+    "interpretation": "«Некрономикон Экс-Мортис» — собственный артефакт франшизы, а демоны-кандарийцы не связаны с Мифами. Это отсылка через название книги.",
+    "links": [
+      {
+        "entity": "necronomicon",
+        "role": "Название книги отсылает к гримуару Лавкрафта.",
+        "form": "Имя / отсылка",
+        "presence": "motif"
+      }
+    ],
+    "origins": [
+      "Имя Некрономикона; собственная мифология «Зловещих мертвецов»."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · The Evil Dead",
+        "url": "https://en.wikipedia.org/wiki/The_Evil_Dead"
+      }
+    ],
+    "evidence": {
+      "mode": "motif",
+      "where": "Весь фильм и сиквелы",
+      "names": [
+        "Некрономикон Экс-Мортис"
+      ],
+      "detail": "Книга показана, но это иная, придуманная версия.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "cast-deadly-spell-1991",
+    "title": "Cast a Deadly Spell",
+    "year": 1991,
+    "type": "film",
+    "relation": "adaptation",
+    "creator": "Мартин Кэмпбелл · HBO",
+    "summary": "Нуарный детектив по имени Г. Филип Лавкрафт ищет украденный Некрономикон в Лос-Анджелесе 1948 года, где магия обыденна.",
+    "interpretation": "Мифы смешаны с жанром нуара. Ритуал призыва Древнего по Некрономикону — кульминация фильма.",
+    "links": [
+      {
+        "entity": "necronomicon",
+        "role": "Украденная книга — центр расследования.",
+        "form": "Экранный артефакт",
+        "presence": "shown"
+      },
+      {
+        "entity": "yog",
+        "role": "Ритуал в финале призывает Йог-Сотота.",
+        "form": "Экранное воплощение",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Мифы Ктулху; голливудский нуар."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Cast a Deadly Spell",
+        "url": "https://en.wikipedia.org/wiki/Cast_a_Deadly_Spell"
+      },
+      {
+        "title": "Reactor · Wise Up, Schlubcraft: Cast a Deadly Spell",
+        "url": "https://reactormag.com/wise-up-schlubcraft-cast-a-deadly-spell/"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Финал фильма",
+      "names": [
+        "Некрономикон",
+        "Йог-Сотот"
+      ],
+      "detail": "Книга и призванное существо показаны.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "necronomicon-1993",
+    "title": "Necronomicon: Book of the Dead",
+    "year": 1993,
+    "type": "film",
+    "relation": "adaptation",
+    "creator": "Брайан Юзна, Кристоф Ган, Сюсукэ Канэко",
+    "summary": "Антология: Лавкрафт (Джеффри Комбс) проникает в библиотеку монахов и читает Некрономикон.",
+    "interpretation": "Три новеллы по мотивам «Крыс в стенах», «Холодного воздуха» и «Шепчущего во тьме» связаны обрамлением с книгой. Существа новелл — версии создателей.",
+    "links": [
+      {
+        "entity": "necronomicon",
+        "role": "Книга — обрамление всей антологии.",
+        "form": "Экранный артефакт",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Г. Ф. Лавкрафт, «Крысы в стенах», «Холодный воздух», «Шепчущий во тьме»."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Necronomicon (film)",
+        "url": "https://en.wikipedia.org/wiki/Necronomicon_(film)"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Обрамляющий сюжет",
+      "names": [
+        "Некрономикон"
+      ],
+      "detail": "Книга показана; в финале обрамления появляется чудовище-страж.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "mouth-madness-1994",
+    "title": "In the Mouth of Madness",
+    "year": 1994,
+    "type": "film",
+    "relation": "inspiration",
+    "creator": "Джон Карпентер",
+    "summary": "Страховой следователь ищет пропавшего писателя ужасов и попадает в город из его романов.",
+    "interpretation": "Древние, возвращающиеся через книги Саттера Кейна, — дань Лавкрафту; Хоббс-Энд — оммаж его вымышленным городкам. Имена существ придуманы заново.",
+    "links": [],
+    "origins": [
+      "Мотивы Лавкрафта; финал «Апокалиптической трилогии» Карпентера."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · In the Mouth of Madness",
+        "url": "https://en.wikipedia.org/wiki/In_the_Mouth_of_Madness"
+      }
+    ],
+    "evidence": {
+      "mode": "motif",
+      "where": "Вторая половина фильма",
+      "names": [
+        "Древние Саттера Кейна"
+      ],
+      "detail": "Чудовища показаны, но это не существа архива.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "dagon-2001",
+    "title": "Dagon",
+    "year": 2001,
+    "type": "film",
+    "relation": "adaptation",
+    "creator": "Стюарт Гордон",
+    "summary": "После кораблекрушения Пол попадает в испанский рыбацкий посёлок Имбока, жители которого служат Дагону.",
+    "interpretation": "Несмотря на название, это экранизация «Тени над Иннсмутом»: Иннсмут превращён в Имбоку, а финал раскрывает родство героя с Глубоководными.",
+    "links": [
+      {
+        "entity": "dagon",
+        "role": "Божество появляется в финале.",
+        "form": "Экранное воплощение",
+        "presence": "shown"
+      },
+      {
+        "entity": "deep-ones",
+        "role": "Полулюди-полурыбы — жители посёлка.",
+        "form": "Экранное воплощение",
+        "presence": "shown"
+      },
+      {
+        "entity": "innsmouth",
+        "role": "Имбока — испанская версия Иннсмута.",
+        "form": "Прообраз места",
+        "presence": "motif"
+      }
+    ],
+    "origins": [
+      "Г. Ф. Лавкрафт, «Тень над Иннсмутом», «Дагон»."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Dagon (film)",
+        "url": "https://en.wikipedia.org/wiki/Dagon_(film)"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Весь фильм, финал",
+      "names": [
+        "Дагон",
+        "Глубоководные"
+      ],
+      "detail": "Существа показаны и названы.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "cabin-woods-2012",
+    "title": "The Cabin in the Woods",
+    "year": 2012,
+    "type": "film",
+    "relation": "inspiration",
+    "creator": "Дрю Годдард · Джосс Уидон",
+    "summary": "Пятеро студентов в лесной хижине оказываются частью ритуала для умиротворения подземных Древних.",
+    "interpretation": "Спящие Древние боги, которым нужна жертва, — прямой отголосок Мифов. В финале показана гигантская рука Древнего; имён архива нет.",
+    "links": [],
+    "origins": [
+      "Мотивы Великих Древних; пародия на жанр слэшера."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · The Cabin in the Woods",
+        "url": "https://en.wikipedia.org/wiki/The_Cabin_in_the_Woods"
+      }
+    ],
+    "evidence": {
+      "mode": "motif",
+      "where": "Финал",
+      "names": [
+        "Древние"
+      ],
+      "detail": "Древний показан частично; это собственное божество фильма.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "void-2016",
+    "title": "The Void",
+    "year": 2016,
+    "type": "film",
+    "relation": "inspiration",
+    "creator": "Стивен Костански, Джереми Гиллеспи",
+    "summary": "Ночная смена в больнице, окружённой культистами, оборачивается вратами в иной мир.",
+    "interpretation": "Культ в белых балахонах, практические эффекты чудовищ и иное измерение — смесь Лавкрафта, Карпентера и Баркера.",
+    "links": [],
+    "origins": [
+      "Космический ужас Лавкрафта."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · The Void (2016 film)",
+        "url": "https://en.wikipedia.org/wiki/The_Void_(2016_film)"
+      }
+    ],
+    "evidence": {
+      "mode": "motif",
+      "where": "Вторая половина фильма",
+      "names": [
+        "Мутировавшие существа",
+        "Иное измерение"
+      ],
+      "detail": "Монстры собственные.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "color-2019",
+    "title": "Color Out of Space",
+    "year": 2019,
+    "type": "film",
+    "relation": "adaptation",
+    "creator": "Ричард Стэнли · SpectreVision",
+    "summary": "Экранизация «Цвета из иных миров» с Николасом Кейджем: метеорит заражает ферму Гарднеров.",
+    "interpretation": "Цвет, мутации животных и людей переданы яркой розово-фиолетовой палитрой. Дочь Лавиния увлекается оккультизмом и обращается к Некрономикону.",
+    "links": [
+      {
+        "entity": "necronomicon",
+        "role": "Лавиния проводит ритуал по изданию Некрономикона.",
+        "form": "Экранный артефакт",
+        "presence": "shown"
+      },
+      {
+        "entity": "arkham",
+        "role": "Ферма находится в окрестностях Аркхэма.",
+        "form": "Место действия",
+        "presence": "mentioned"
+      }
+    ],
+    "origins": [
+      "Г. Ф. Лавкрафт, «Цвет из иных миров»."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Color Out of Space (film)",
+        "url": "https://en.wikipedia.org/wiki/Color_Out_of_Space_(film)"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Весь фильм",
+      "names": [
+        "Цвет из иных миров",
+        "Некрономикон"
+      ],
+      "detail": "Сущность показана; Цвета нет среди записей архива, поэтому связь — через книгу и место.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "underwater-2020",
+    "title": "Underwater",
+    "year": 2020,
+    "type": "film",
+    "relation": "appearance",
+    "creator": "Уильям Юбэнк · 20th Century Fox",
+    "summary": "Экипаж глубоководной станции бежит по дну Марианской впадины от неизвестных существ.",
+    "interpretation": "В финальном акте появляется колоссальное существо; режиссёр подтвердил, что это Ктулху, а мелкие твари — его порождения.",
+    "links": [
+      {
+        "entity": "cthulhu",
+        "role": "Гигант финала, подтверждённый режиссёром как Ктулху.",
+        "form": "Экранное воплощение",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Образ Ктулху; оригинальный сценарий."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Underwater (film)",
+        "url": "https://en.wikipedia.org/wiki/Underwater_(film)"
+      },
+      {
+        "title": "Bloody Disgusting · режиссёр подтверждает финальный акт",
+        "url": "https://bloody-disgusting.com/movie/3601266/spoilers-underwater-director-confirms-saw-thought-saw-final-act/"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Финальный акт",
+      "names": [
+        "Ктулху"
+      ],
+      "detail": "Показан в кадре; имя подтверждено режиссёром в интервью.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "ghostbusters-cathulhu-1987",
+    "title": "The Real Ghostbusters · The Collect Call of Cathulhu",
+    "year": 1987,
+    "type": "series",
+    "relation": "appearance",
+    "creator": "DiC Entertainment · Columbia Pictures Television",
+    "summary": "Охотники за привидениями спасают Нью-Йорк от культа, укравшего Некрономикон, и пробуждения Катулху.",
+    "interpretation": "Детская серия прямо цитирует Лавкрафта: Мискатоникский университет, Некрономикон, культ и Древний. Победа над ним с помощью протонных ранцев — юмор мультсериала.",
+    "links": [
+      {
+        "entity": "cthulhu",
+        "role": "Катулху пробуждается в кульминации.",
+        "form": "Прямое появление",
+        "presence": "shown"
+      },
+      {
+        "entity": "necronomicon",
+        "role": "Украденная книга из библиотеки.",
+        "form": "Экранный артефакт",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "«Зов Ктулху»; Мискатоник и Некрономикон."
+    ],
+    "sources": [
+      {
+        "title": "GBFans Wiki · The Collect Call of Cathulhu",
+        "url": "https://www.gbfans.com/wiki/The_Collect_Call_of_Cathulhu"
+      },
+      {
+        "title": "H. P. Lovecraft Film Festival · о серии",
+        "url": "https://hplfilmfestival.com/films/real-ghostbusters-collect-call-cathulhu"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Сезон 2, эпизод «The Collect Call of Cathulhu»",
+      "names": [
+        "Катулху",
+        "Некрономикон",
+        "Мискатоникский университет"
+      ],
+      "detail": "Существо показано; имя слегка изменено.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "witch-house-2005",
+    "title": "Masters of Horror · Dreams in the Witch House",
+    "year": 2005,
+    "type": "series",
+    "relation": "adaptation",
+    "creator": "Стюарт Гордон · Showtime",
+    "summary": "Студент Уолтер Гилман снимает комнату, где когда-то жила ведьма Кеция Мейсон.",
+    "interpretation": "Эпизод антологии близко следует рассказу «Сны в ведьмином доме», включая крысу с человеческим лицом — Бурого Дженкина.",
+    "links": [
+      {
+        "entity": "brown-jenkin",
+        "role": "Фамильяр ведьмы показан практическими эффектами.",
+        "form": "Экранное воплощение",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Г. Ф. Лавкрафт, «Сны в ведьмином доме»."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Dreams in the Witch House (Masters of Horror)",
+        "url": "https://en.wikipedia.org/wiki/Dreams_in_the_Witch_House_(Masters_of_Horror)"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Сезон 1, эпизод 2",
+      "names": [
+        "Бурый Дженкин",
+        "Кеция Мейсон"
+      ],
+      "detail": "Существо показано и названо.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "scooby-mi-2010",
+    "title": "Scooby-Doo! Mystery Incorporated",
+    "year": 2010,
+    "type": "series",
+    "relation": "reference",
+    "creator": "Warner Bros. Animation · Cartoon Network",
+    "summary": "Мультсериал со сквозным сюжетом о проклятии Кристал-Ков и древней Злой сущности.",
+    "interpretation": "Писатель Г. П. Хейткрафт (пародия на Лавкрафта) и пробуждаемая Сущность — шутливый оммаж Мифам. Именованных существ архива нет.",
+    "links": [],
+    "origins": [
+      "Пародия на Лавкрафта и Мифы."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Scooby-Doo! Mystery Incorporated",
+        "url": "https://en.wikipedia.org/wiki/Scooby-Doo!_Mystery_Incorporated"
+      }
+    ],
+    "evidence": {
+      "mode": "motif",
+      "where": "Сезон 2, финальная арка",
+      "names": [
+        "Г. П. Хейткрафт",
+        "Злая сущность"
+      ],
+      "detail": "Сущность показана, но она собственная.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "rick-morty-2013",
+    "title": "Rick and Morty · заставка",
+    "year": 2013,
+    "type": "series",
+    "relation": "reference",
+    "creator": "Джастин Ройланд, Дэн Хармон · Adult Swim",
+    "summary": "В заставке сериала Рика и Морти преследует огромное зелёное существо с щупальцами на лице.",
+    "interpretation": "Кадр — узнаваемая отсылка к образу Ктулху; в сюжете сериала этот монстр не назван и не играет роли.",
+    "links": [
+      {
+        "entity": "cthulhu",
+        "role": "Существо в заставке напоминает Ктулху.",
+        "form": "Образ / отсылка",
+        "presence": "motif"
+      }
+    ],
+    "origins": [
+      "Образ Ктулху."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Rick and Morty",
+        "url": "https://en.wikipedia.org/wiki/Rick_and_Morty"
+      }
+    ],
+    "evidence": {
+      "mode": "motif",
+      "where": "Начальная заставка",
+      "names": [
+        "Существо, похожее на Ктулху"
+      ],
+      "detail": "Показано без имени.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "true-detective-2014",
+    "title": "True Detective · 1 сезон",
+    "year": 2014,
+    "type": "series",
+    "relation": "reference",
+    "creator": "Ник Пиццолатто · HBO",
+    "summary": "Детективы Раст Коул и Марти Харт 17 лет расследуют ритуальные убийства в Луизиане.",
+    "interpretation": "Каркоза и Жёлтый король пришли из «Короля в жёлтом» Чемберса, который Лавкрафт вплёл в Мифы. В сериале это имена культа, а не сверхъестественные существа.",
+    "links": [
+      {
+        "entity": "carcosa",
+        "role": "Каркоза — место ритуалов культа.",
+        "form": "Название / символ",
+        "presence": "mentioned"
+      },
+      {
+        "entity": "king-in-yellow",
+        "role": "Жёлтый король упоминается в дневнике жертвы.",
+        "form": "Отсылка",
+        "presence": "mentioned"
+      }
+    ],
+    "origins": [
+      "Р. У. Чемберс, «Король в жёлтом»; Лавкрафт, «Шепчущий во тьме»."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · True Detective season 1",
+        "url": "https://en.wikipedia.org/wiki/True_Detective_season_1"
+      }
+    ],
+    "evidence": {
+      "mode": "mentioned",
+      "where": "Эпизоды 1–8",
+      "names": [
+        "Каркоза",
+        "Жёлтый король"
+      ],
+      "detail": "Названия звучат и показаны в дневнике; существ нет.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "lovecraft-country-2020",
+    "title": "Lovecraft Country",
+    "year": 2020,
+    "type": "series",
+    "relation": "appearance",
+    "creator": "Миша Грин · HBO",
+    "summary": "Атикус Фримен отправляется в Новую Англию 1950-х искать отца и сталкивается с расизмом и чудовищами Мифов.",
+    "interpretation": "Сериал по роману Мэтта Раффа переосмысляет Лавкрафта через опыт чернокожих американцев. Шогготы появляются уже в первой серии.",
+    "links": [
+      {
+        "entity": "shoggoth",
+        "role": "Многоглазые шогготы нападают в лесу в эпизоде «Sundown».",
+        "form": "Экранное воплощение",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Роман Мэтта Раффа «Страна Лавкрафта» (2016); мотивы Мифов."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Lovecraft Country (TV series)",
+        "url": "https://en.wikipedia.org/wiki/Lovecraft_Country_(TV_series)"
+      },
+      {
+        "title": "Rolling Stone · обзор премьеры",
+        "url": "https://www.rollingstone.com/tv-movies/tv-movie-recaps/lovecraft-country-hbo-premiere-recap-1038814/"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Сезон 1, эпизод 1 «Sundown» и далее",
+      "names": [
+        "Шогготы"
+      ],
+      "detail": "Существа показаны и названы.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "ldr-vaulted-2022",
+    "title": "Love, Death & Robots · In Vaulted Halls Entombed",
+    "year": 2022,
+    "type": "series",
+    "relation": "inspiration",
+    "creator": "Netflix · Blur Studio",
+    "summary": "Отряд спецназа в афганских пещерах находит скованное древнее божество.",
+    "interpretation": "Пробуждение спящего бога, щупальца и телепатический зов — лавкрафтовские мотивы. Имя существа не названо.",
+    "links": [],
+    "origins": [
+      "Мотивы «Зова Ктулху»."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Love, Death & Robots",
+        "url": "https://en.wikipedia.org/wiki/Love,_Death_%26_Robots"
+      }
+    ],
+    "evidence": {
+      "mode": "motif",
+      "where": "Сезон 3, эпизод 9",
+      "names": [
+        "Скованное божество"
+      ],
+      "detail": "Божество показано без имени.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "elder-sign-omens-2011",
+    "title": "Elder Sign: Omens",
+    "year": 2011,
+    "type": "videogame",
+    "relation": "adaptation",
+    "creator": "Fantasy Flight Interactive",
+    "summary": "Цифровая версия кооперативной игры «Знак Древних»: сыщики в музее Аркхэма бросают кубики, чтобы не дать Древнему пробудиться.",
+    "interpretation": "Каждая партия — гонка против одного из Великих Древних. Их способности и «пробуждение» — игровые правила, а не литературные описания.",
+    "links": [
+      {
+        "entity": "cthulhu",
+        "role": "Один из Древних, против которых играют.",
+        "form": "Игровой Древний",
+        "presence": "shown"
+      },
+      {
+        "entity": "azathoth",
+        "role": "Пробуждение Азатота означает мгновенное поражение.",
+        "form": "Игровой Древний",
+        "presence": "shown"
+      },
+      {
+        "entity": "yog",
+        "role": "Выбирается как противник партии.",
+        "form": "Игровой Древний",
+        "presence": "shown"
+      },
+      {
+        "entity": "shub",
+        "role": "Выбирается как противник партии.",
+        "form": "Игровой Древний",
+        "presence": "shown"
+      },
+      {
+        "entity": "nyarlathotep",
+        "role": "Выбирается как противник партии.",
+        "form": "Игровой Древний",
+        "presence": "shown"
+      },
+      {
+        "entity": "elder-sign",
+        "role": "Знаки Древних запечатывают врата.",
+        "form": "Игровой символ",
+        "presence": "shown"
+      },
+      {
+        "entity": "arkham",
+        "role": "Музей Мискатоникского университета в Аркхэме.",
+        "form": "Место действия",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Настольная игра Elder Sign (Fantasy Flight Games, 2011); Мифы Ктулху."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Elder Sign (game)",
+        "url": "https://en.wikipedia.org/wiki/Elder_Sign_(card_game)"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Выбор Древнего перед партией",
+      "names": [
+        "Ктулху",
+        "Азатот",
+        "Йог-Сотот",
+        "Шуб-Ниггурат",
+        "Ньярлатхотеп"
+      ],
+      "detail": "Древние показаны на картах и названы.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "skyrim-hermaeus-2012",
+    "title": "The Elder Scrolls V: Skyrim · Dragonborn",
+    "year": 2012,
+    "type": "videogame",
+    "relation": "inspiration",
+    "creator": "Bethesda Game Studios",
+    "summary": "Дополнение, где герой читает Чёрные книги и попадает в Апокриф — библиотеку даэдрического принца знаний Хермеуса Моры.",
+    "interpretation": "Хермеус Мора — клубок щупалец и глаз, хранитель запретного знания; его Апокриф с бесконечными книгами и чудовищами-искателями — явно лавкрафтовский. Имён Мифов в игре нет.",
+    "links": [],
+    "origins": [
+      "Мотивы запретных книг и непостижимых богов."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · The Elder Scrolls V: Skyrim – Dragonborn",
+        "url": "https://en.wikipedia.org/wiki/The_Elder_Scrolls_V:_Skyrim_%E2%80%93_Dragonborn"
+      }
+    ],
+    "evidence": {
+      "mode": "motif",
+      "where": "Апокриф и Чёрные книги",
+      "names": [
+        "Хермеус Мора",
+        "Искатели",
+        "Луркеры"
+      ],
+      "detail": "Существа показаны, но принадлежат миру The Elder Scrolls.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "secret-world-2012",
+    "title": "The Secret World",
+    "year": 2012,
+    "type": "videogame",
+    "relation": "inspiration",
+    "creator": "Funcom",
+    "summary": "MMORPG о тайных обществах; первая зона — затянутый туманом прибрежный городок Кингсмут в Новой Англии.",
+    "interpretation": "Кингсмут с его морскими культами — прямой оммаж Иннсмуту, а Скверна (Filth) из иных измерений напоминает Древних. Названия придуманы Funcom.",
+    "links": [
+      {
+        "entity": "innsmouth",
+        "role": "Кингсмут, штат Мэн, стилизован под Иннсмут.",
+        "form": "Прообраз места",
+        "presence": "motif"
+      }
+    ],
+    "origins": [
+      "Мотивы «Тени над Иннсмутом»; собственный мир Funcom."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · The Secret World",
+        "url": "https://en.wikipedia.org/wiki/The_Secret_World"
+      }
+    ],
+    "evidence": {
+      "mode": "motif",
+      "where": "Зона Соломонов остров: Кингсмут",
+      "names": [
+        "Кингсмут",
+        "Скверна"
+      ],
+      "detail": "Город и чудовища придуманы по мотивам Мифов.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "obra-dinn-2018",
+    "title": "Return of the Obra Dinn",
+    "year": 2018,
+    "type": "videogame",
+    "relation": "inspiration",
+    "creator": "Лукас Поуп · 3909 LLC",
+    "summary": "Страховой инспектор 1807 года восстанавливает судьбу экипажа корабля-призрака, на который напали морские твари.",
+    "interpretation": "Русалки, крабовые всадники и кракен — морской ужас в духе Лавкрафта, но без прямых имён Мифов.",
+    "links": [],
+    "origins": [
+      "Морской ужас; мотивы «Дагона»."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Return of the Obra Dinn",
+        "url": "https://en.wikipedia.org/wiki/Return_of_the_Obra_Dinn"
+      }
+    ],
+    "evidence": {
+      "mode": "motif",
+      "where": "Главы «Русалки», «Нападение», «Кракен»",
+      "names": [
+        "Русалки",
+        "Кракен"
+      ],
+      "detail": "Существа показаны; именованных существ архива нет.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "cultist-simulator-2018",
+    "title": "Cultist Simulator",
+    "year": 2018,
+    "type": "videogame",
+    "relation": "inspiration",
+    "creator": "Weather Factory · Humble Bundle",
+    "summary": "Карточная игра о создании культа в 1920-х и поиске пути к Часам — древним сущностям за Покровом.",
+    "interpretation": "Запретные книги, сны, культисты и сыщики-охотники — лавкрафтовская структура. Пантеон Часов полностью оригинален.",
+    "links": [],
+    "origins": [
+      "Мотивы запретного знания и культов."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Cultist Simulator",
+        "url": "https://en.wikipedia.org/wiki/Cultist_Simulator"
+      }
+    ],
+    "evidence": {
+      "mode": "motif",
+      "where": "Вся игра",
+      "names": [
+        "Часы (Hours)"
+      ],
+      "detail": "Сущности названы, но придуманы авторами.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "signalis-2022",
+    "title": "Signalis",
+    "year": 2022,
+    "type": "videogame",
+    "relation": "reference",
+    "creator": "rose-engine · Humble Games",
+    "summary": "Сай-фай хоррор о реплике Эльстер, ищущей свою напарницу в заброшенном шахтёрском комплексе.",
+    "interpretation": "Игра насыщена цитатами из «Короля в жёлтом» Чемберса — книги, которую Лавкрафт вплёл в Мифы. Это литературная отсылка, а не появление существа.",
+    "links": [
+      {
+        "entity": "king-in-yellow",
+        "role": "Цитаты и мотивы пьесы «Король в жёлтом».",
+        "form": "Литературная отсылка",
+        "presence": "mentioned"
+      }
+    ],
+    "origins": [
+      "Р. У. Чемберс, «Король в жёлтом»; Лавкрафт; «Остров мёртвых» Бёклина."
+    ],
+    "sources": [
+      {
+        "title": "Signalis Wiki · References to other media",
+        "url": "https://signalis.wiki.gg/wiki/References_to_other_media"
+      },
+      {
+        "title": "Wikipedia · Signalis",
+        "url": "https://en.wikipedia.org/wiki/Signalis"
+      }
+    ],
+    "evidence": {
+      "mode": "mentioned",
+      "where": "Записки и документы по ходу игры",
+      "names": [
+        "Король в жёлтом"
+      ],
+      "detail": "Отсылки в тексте; существ Мифов нет.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "world-of-horror-2023",
+    "title": "World of Horror",
+    "year": 2023,
+    "type": "videogame",
+    "relation": "inspiration",
+    "creator": "panstasz · Ysbryd Games",
+    "summary": "Однобитный рогалик-хоррор: японский городок Сиокава, где пробуждаются Древние боги.",
+    "interpretation": "Автор открыто соединяет Дзюндзи Ито и Лавкрафта: каждая партия — расследование под угрозой пробуждения Древнего бога. Боги игры собственные.",
+    "links": [],
+    "origins": [
+      "Лавкрафт и Дзюндзи Ито."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · World of Horror",
+        "url": "https://en.wikipedia.org/wiki/World_of_Horror"
+      }
+    ],
+    "evidence": {
+      "mode": "motif",
+      "where": "Выбор Древнего бога перед партией",
+      "names": [
+        "Древние боги"
+      ],
+      "detail": "Божества показаны, имена оригинальные.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "nyaruani-2010",
+    "title": "Haiyoru! Nyaruani",
+    "year": 2010,
+    "type": "anime",
+    "relation": "adaptation",
+    "creator": "DLE",
+    "summary": "Короткие флеш-аниме, предшествовавшие сериалу «Ньяруко»: Ньярлатхотеп в облике девушки и её проделки.",
+    "interpretation": "Пародийная версия Ньярлатхотепа и других имён Мифов в формате коротких скетчей.",
+    "links": [
+      {
+        "entity": "nyarlathotep",
+        "role": "Ньяруко — комедийное воплощение Ползучего Хаоса.",
+        "form": "Переосмысленный персонаж",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Ранобэ «Haiyore! Nyaruko-san»; имена Мифов."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Nyaruko: Crawling with Love",
+        "url": "https://en.wikipedia.org/wiki/Nyaruko:_Crawling_with_Love"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Все короткие эпизоды",
+      "names": [
+        "Ньяруко / Ньярлатхотеп"
+      ],
+      "detail": "Персонаж показан и назван.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "jjk-dagon-2023",
+    "title": "Jujutsu Kaisen · Дагон",
+    "year": 2023,
+    "type": "anime",
+    "relation": "reference",
+    "creator": "MAPPA · по манге Гэгэ Акутами",
+    "summary": "Во втором сезоне в Сибуе действует Дагон — одно из «проклятий-бедствий», рождённое человеческим страхом перед морем.",
+    "interpretation": "Имя Дагон и морские мотивы позволяют сопоставить персонажа с образом из Мифов, однако приведённые источники не подтверждают авторское заявление о заимствовании именно у Лавкрафта. Это возможная отсылка; облик и силы принадлежат Jujutsu Kaisen.",
+    "links": [
+      {
+        "entity": "dagon",
+        "role": "Проклятие моря носит имя Дагон.",
+        "form": "Возможная отсылка / совпадение имени",
+        "presence": "motif"
+      }
+    ],
+    "origins": [
+      "Имя Дагона; собственная мифология Jujutsu Kaisen."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Jujutsu Kaisen season 2",
+        "url": "https://en.wikipedia.org/wiki/Jujutsu_Kaisen_season_2"
+      },
+      {
+        "title": "MyAnimeList · Dagon",
+        "url": "https://myanimelist.net/character/184441"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Сезон 2, арка «Инцидент в Сибуе»",
+      "names": [
+        "Дагон"
+      ],
+      "detail": "Персонаж показан и назван. Лавкрафтовское происхождение трактуется как возможная отсылка, а не установленное авторское намерение.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "die-monster-die-1965",
+    "title": "Die, Monster, Die!",
+    "year": 1965,
+    "type": "film",
+    "relation": "adaptation",
+    "creator": "Дэниел Хэллер · American International Pictures",
+    "summary": "Вольная экранизация «Цвета из иных миров» с Борисом Карлоффом: упавший метеорит искажает семью Уитли и всё живое вокруг.",
+    "interpretation": "Действие перенесено в Англию, Цвет — светящийся радиоактивный камень. Сущности из архива не названы.",
+    "links": [
+      {
+        "entity": "arkham",
+        "role": "Поместье находится в английском Аркхэме.",
+        "form": "Место действия",
+        "presence": "mentioned"
+      }
+    ],
+    "origins": [
+      "Г. Ф. Лавкрафт, «Цвет из иных миров»."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Die, Monster, Die!",
+        "url": "https://en.wikipedia.org/wiki/Die,_Monster,_Die!"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Вторая половина фильма",
+      "names": [
+        "Мутанты, искажённые метеоритом"
+      ],
+      "detail": "Чудовища показаны; Цвета нет среди записей архива.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "city-living-dead-1980",
+    "title": "City of the Living Dead",
+    "year": 1980,
+    "type": "film",
+    "relation": "reference",
+    "creator": "Лючо Фульчи",
+    "summary": "Самоубийство священника открывает врата ада в городке Данвич, и мёртвые поднимаются.",
+    "interpretation": "Название города — открытая дань Лавкрафту, но сюжет о зомби и аде — итальянский хоррор Фульчи.",
+    "links": [
+      {
+        "entity": "dunwich",
+        "role": "Действие происходит в городке Данвич.",
+        "form": "Название места",
+        "presence": "motif"
+      }
+    ],
+    "origins": [
+      "Имя Данвича; трилогия «Врата ада» Фульчи."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · City of the Living Dead",
+        "url": "https://en.wikipedia.org/wiki/City_of_the_Living_Dead"
+      }
+    ],
+    "evidence": {
+      "mode": "mentioned",
+      "where": "Весь фильм",
+      "names": [
+        "Данвич"
+      ],
+      "detail": "Город назван; существ Мифов нет.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "beyond-1981",
+    "title": "The Beyond",
+    "year": 1981,
+    "type": "film",
+    "relation": "reference",
+    "creator": "Лючо Фульчи",
+    "summary": "Наследница луизианского отеля обнаруживает, что здание стоит на одних из семи врат ада.",
+    "interpretation": "Врата описаны в «Книге Эйбона» — гримуаре Кларка Эштона Смита из Мифов. В фильме это пророческая книга о вратах.",
+    "links": [
+      {
+        "entity": "eibon",
+        "role": "Книга Эйбона хранит пророчество о вратах.",
+        "form": "Экранный артефакт",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Гримуар Эйбона (К. Э. Смит); трилогия «Врата ада»."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · The Beyond (1981 film)",
+        "url": "https://en.wikipedia.org/wiki/The_Beyond_(1981_film)"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Пролог и середина фильма",
+      "names": [
+        "Книга Эйбона"
+      ],
+      "detail": "Книга показана и названа.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "thing-1982",
+    "title": "The Thing",
+    "year": 1982,
+    "type": "film",
+    "relation": "inspiration",
+    "creator": "Джон Карпентер",
+    "summary": "Полярники в Антарктиде сталкиваются с существом, копирующим любую жизнь.",
+    "interpretation": "Повесть «Кто идёт?» Кэмпбелла выросла под влиянием «Хребтов Безумия»: лёд, пришелец, бесформенная плоть. Фильм часто сравнивают с шогготами, но прямой связи нет.",
+    "links": [],
+    "origins": [
+      "Дж. Кэмпбелл, «Кто идёт?»; мотивы «Хребтов Безумия»."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · The Thing (1982 film)",
+        "url": "https://en.wikipedia.org/wiki/The_Thing_(1982_film)"
+      }
+    ],
+    "evidence": {
+      "mode": "motif",
+      "where": "Весь фильм",
+      "names": [
+        "Нечто"
+      ],
+      "detail": "Монстр показан; это не существо Мифов.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "from-beyond-1986",
+    "title": "From Beyond",
+    "year": 1986,
+    "type": "film",
+    "relation": "adaptation",
+    "creator": "Стюарт Гордон · Empire Pictures",
+    "summary": "Резонатор доктора Преториуса стимулирует шишковидную железу и делает видимыми существ иного измерения.",
+    "interpretation": "Короткий рассказ «Извне» развёрнут в боди-хоррор. Существа и превращения — творчество авторов фильма.",
+    "links": [],
+    "origins": [
+      "Г. Ф. Лавкрафт, «Извне»."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · From Beyond (film)",
+        "url": "https://en.wikipedia.org/wiki/From_Beyond_(film)"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Весь фильм",
+      "names": [
+        "Существа иного измерения"
+      ],
+      "detail": "Существа показаны; их нет среди записей архива.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "unnamable-1988",
+    "title": "The Unnamable",
+    "year": 1988,
+    "type": "film",
+    "relation": "adaptation",
+    "creator": "Жан-Поль Уэллетт",
+    "summary": "Студенты Мискатоника ночуют в старом доме Уинтропов, где заперто «неназываемое» существо.",
+    "interpretation": "Рассказ «Неименуемое» расширен до студенческого хоррора. Облик чудовища создан для фильма.",
+    "links": [
+      {
+        "entity": "arkham",
+        "role": "Действие связано с Мискатоникским университетом.",
+        "form": "Место действия",
+        "presence": "mentioned"
+      }
+    ],
+    "origins": [
+      "Г. Ф. Лавкрафт, «Неименуемое»."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · The Unnamable (film)",
+        "url": "https://en.wikipedia.org/wiki/The_Unnamable_(film)"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Вторая половина фильма",
+      "names": [
+        "Неименуемое"
+      ],
+      "detail": "Существо показано; отдельной записи в архиве нет.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "hellboy-2004",
+    "title": "Hellboy",
+    "year": 2004,
+    "type": "film",
+    "relation": "inspiration",
+    "creator": "Гильермо дель Торо · по комиксам Майка Миньолы",
+    "summary": "Распутин пытается призвать Огдру Джахад — семерых богов хаоса, скованных в иной реальности.",
+    "interpretation": "Огдру Джахад, щупальца и космические боги — открытая дань Лавкрафту у Миньолы и дель Торо. Имена собственные.",
+    "links": [],
+    "origins": [
+      "Комиксы Майка Миньолы; мотивы Великих Древних."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Hellboy (2004 film)",
+        "url": "https://en.wikipedia.org/wiki/Hellboy_(2004_film)"
+      }
+    ],
+    "evidence": {
+      "mode": "motif",
+      "where": "Пролог и финал",
+      "names": [
+        "Огдру Джахад",
+        "Бегемот"
+      ],
+      "detail": "Существа показаны, но принадлежат миру Хеллбоя.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "cthulhu-2007",
+    "title": "Cthulhu",
+    "year": 2007,
+    "type": "film",
+    "relation": "adaptation",
+    "creator": "Дэниел Гилдарк",
+    "summary": "Профессор возвращается в родной орегонский городок и раскрывает культ, ждущий возвращения Древних.",
+    "interpretation": "Вольная адаптация «Тени над Иннсмутом», перенесённая на тихоокеанское побережье. Имя Ктулху вынесено в название.",
+    "links": [
+      {
+        "entity": "cthulhu",
+        "role": "Культ ждёт пробуждения Ктулху.",
+        "form": "Упоминание",
+        "presence": "mentioned"
+      },
+      {
+        "entity": "deep-ones",
+        "role": "Жители городка связаны с морем и превращениями.",
+        "form": "Мотив",
+        "presence": "motif"
+      }
+    ],
+    "origins": [
+      "Г. Ф. Лавкрафт, «Тень над Иннсмутом»."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Cthulhu (2007 film)",
+        "url": "https://en.wikipedia.org/wiki/Cthulhu_(2007_film)"
+      }
+    ],
+    "evidence": {
+      "mode": "mentioned",
+      "where": "Весь фильм",
+      "names": [
+        "Ктулху"
+      ],
+      "detail": "Имя звучит; Великий Древний в кадре не показан полностью.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "last-lovecraft-2009",
+    "title": "The Last Lovecraft: Relic of Cthulhu",
+    "year": 2009,
+    "type": "film",
+    "relation": "adaptation",
+    "creator": "Генри Сэйн",
+    "summary": "Последний потомок Лавкрафта должен спрятать реликвию, иначе слуги Ктулху вернут его в мир.",
+    "interpretation": "Комедия о Мифах: Звёздное отродье и глубоководные гоняются за офисным клерком. Всё — пародийная версия.",
+    "links": [
+      {
+        "entity": "cthulhu",
+        "role": "Реликвия связана с возвращением Ктулху.",
+        "form": "Упоминание",
+        "presence": "mentioned"
+      },
+      {
+        "entity": "star-spawn",
+        "role": "Звёздное отродье — главный противник.",
+        "form": "Пародийное воплощение",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Мифы Ктулху; комедия."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · The Last Lovecraft: Relic of Cthulhu",
+        "url": "https://en.wikipedia.org/wiki/The_Last_Lovecraft:_Relic_of_Cthulhu"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Весь фильм",
+      "names": [
+        "Звёздное отродье Ктулху",
+        "Ктулху"
+      ],
+      "detail": "Слуги показаны, божество названо.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "endless-2017",
+    "title": "The Endless",
+    "year": 2017,
+    "type": "film",
+    "relation": "inspiration",
+    "creator": "Джастин Бенсон, Аарон Мурхед",
+    "summary": "Два брата возвращаются в «культ», из которого сбежали, и видят невидимую сущность, играющую со временем.",
+    "interpretation": "Безымянное Нечто, ловушки времени и культ — тихий космический ужас без имён Мифов.",
+    "links": [],
+    "origins": [
+      "Космический ужас Лавкрафта."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · The Endless (film)",
+        "url": "https://en.wikipedia.org/wiki/The_Endless_(film)"
+      }
+    ],
+    "evidence": {
+      "mode": "motif",
+      "where": "Весь фильм",
+      "names": [
+        "Безымянная сущность"
+      ],
+      "detail": "Сущность не показана напрямую.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "lighthouse-2019",
+    "title": "The Lighthouse",
+    "year": 2019,
+    "type": "film",
+    "relation": "inspiration",
+    "creator": "Роберт Эггерс · A24",
+    "summary": "Два смотрителя маяка в 1890-х сходят с ума на скалистом острове.",
+    "interpretation": "Русалка, щупальца и запретный свет маяка часто связывают с Лавкрафтом; прямых отсылок к Мифам в фильме нет.",
+    "links": [],
+    "origins": [
+      "Морской фольклор; мотивы Лавкрафта."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · The Lighthouse (2019 film)",
+        "url": "https://en.wikipedia.org/wiki/The_Lighthouse_(2019_film)"
+      }
+    ],
+    "evidence": {
+      "mode": "motif",
+      "where": "Видения смотрителей",
+      "names": [
+        "Русалка",
+        "Щупальца"
+      ],
+      "detail": "Образы показаны без имён.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "night-gallery-1971",
+    "title": "Night Gallery · Pickman’s Model / Professor Peabody’s Last Lecture",
+    "year": 1971,
+    "type": "series",
+    "relation": "adaptation",
+    "creator": "Род Серлинг · NBC",
+    "summary": "Антология Рода Серлинга: экранизация «Модели Пикмана» и комедийная лекция профессора о запретных культах.",
+    "interpretation": "В «Модели Пикмана» показан гуль; в «Последней лекции профессора Пибоди» звучат имена Мифов, а студентов зовут Блох, Дерлет и Лавкрафт.",
+    "links": [
+      {
+        "entity": "ghouls",
+        "role": "Гуль из картин Пикмана выходит из подземелья.",
+        "form": "Экранное воплощение",
+        "presence": "shown"
+      },
+      {
+        "entity": "cthulhu",
+        "role": "Имя звучит в лекции Пибоди.",
+        "form": "Упоминание",
+        "presence": "mentioned"
+      },
+      {
+        "entity": "necronomicon",
+        "role": "Запретная книга из лекции.",
+        "form": "Упоминание",
+        "presence": "mentioned"
+      }
+    ],
+    "origins": [
+      "Г. Ф. Лавкрафт, «Модель Пикмана»; пародия на Мифы."
+    ],
+    "sources": [
+      {
+        "title": "H. P. Lovecraft Archive · Lovecraftian TV shows",
+        "url": "https://www.hplovecraft.com/popcult/moviestv/tvshows.aspx"
+      },
+      {
+        "title": "Lawrence Person · The Cthulhu Mythos, Played for Laughs",
+        "url": "https://lawrenceperson.com/?p=9423"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Сезон 2, эпизоды 14 и 17",
+      "names": [
+        "Гуль",
+        "Ктулху",
+        "Некрономикон"
+      ],
+      "detail": "Гуль показан; имена Мифов названы в лекции.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "babylon5-1994",
+    "title": "Babylon 5 · пак’ма’ра",
+    "year": 1994,
+    "type": "series",
+    "relation": "reference",
+    "creator": "Дж. Майкл Стражински · PTEN",
+    "summary": "В научно-фантастическом сериале действует раса пак’ма’ра — инопланетяне с щупальцами на лице.",
+    "interpretation": "Внешность пак’ма’ра — узнаваемый кивок к Ктулху; их роль в сериале комическая и бытовая.",
+    "links": [
+      {
+        "entity": "cthulhu",
+        "role": "Щупальца на лице напоминают облик Ктулху.",
+        "form": "Образ / отсылка",
+        "presence": "motif"
+      }
+    ],
+    "origins": [
+      "Образ Ктулху."
+    ],
+    "sources": [
+      {
+        "title": "H. P. Lovecraft Archive · Lovecraftian TV shows",
+        "url": "https://www.hplovecraft.com/popcult/moviestv/tvshows.aspx"
+      },
+      {
+        "title": "Wikipedia · Babylon 5",
+        "url": "https://en.wikipedia.org/wiki/Babylon_5"
+      }
+    ],
+    "evidence": {
+      "mode": "motif",
+      "where": "С 1 сезона, эпизод «Deathwalker» и далее",
+      "names": [
+        "Пак’ма’ра"
+      ],
+      "detail": "Раса показана; это собственные персонажи.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "ultraman-tiga-1996",
+    "title": "Ultraman Tiga · Гатанозоа",
+    "year": 1996,
+    "type": "series",
+    "relation": "reference",
+    "creator": "Tsuburaya Productions · TBS",
+    "summary": "Токусацу-сериал, финальный враг которого — древнее морское чудовище Гатанозоа, поднявшееся из затонувшего города.",
+    "interpretation": "Имя и происхождение (бог из затонувшего древнего царства, перед которым каменеют) — отсылка к Гатаноа Лавкрафта и Хейзел Хилд. Облик кайдзю — изобретение Tsuburaya.",
+    "links": [
+      {
+        "entity": "ghatanothoa",
+        "role": "Финальный враг Гатанозоа назван в честь Гатаноа.",
+        "form": "Имя / кайдзю",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "«Из глубины веков» (Лавкрафт и Х. Хилд); жанр кайдзю."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Ultraman Tiga",
+        "url": "https://en.wikipedia.org/wiki/Ultraman_Tiga"
+      },
+      {
+        "title": "Bogleech · Gatanothor",
+        "url": "https://bogleech.com/kaiju/16-gatanothor.html"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Эпизоды 50–52",
+      "names": [
+        "Гатанозоа",
+        "Затонувшее древнее царство"
+      ],
+      "detail": "Чудовище показано и названо.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "ash-evil-dead-2015",
+    "title": "Ash vs Evil Dead",
+    "year": 2015,
+    "type": "series",
+    "relation": "reference",
+    "creator": "Сэм Рэйми · Starz",
+    "summary": "Эш Уильямс снова сражается с демонами, разбуженными Некрономиконом.",
+    "interpretation": "Как и во франшизе-источнике, «Некрономикон Экс-Мортис» — собственная книга, лишь названная в честь гримуара Лавкрафта.",
+    "links": [
+      {
+        "entity": "necronomicon",
+        "role": "Книга мёртвых носит имя Некрономикона.",
+        "form": "Имя / отсылка",
+        "presence": "motif"
+      }
+    ],
+    "origins": [
+      "Имя Некрономикона; франшиза «Зловещие мертвецы»."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Ash vs Evil Dead",
+        "url": "https://en.wikipedia.org/wiki/Ash_vs_Evil_Dead"
+      }
+    ],
+    "evidence": {
+      "mode": "motif",
+      "where": "Все сезоны",
+      "names": [
+        "Некрономикон Экс-Мортис"
+      ],
+      "detail": "Книга показана; это иная версия.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "chilling-sabrina-2020",
+    "title": "Chilling Adventures of Sabrina · часть 4",
+    "year": 2020,
+    "type": "series",
+    "relation": "inspiration",
+    "creator": "Роберто Агирре-Сакаса · Netflix",
+    "summary": "В последней части Гриндейл атакуют Жуткие Ужасы (Eldritch Terrors) — космические сущности, вплоть до Пустоты.",
+    "interpretation": "Название и концепция ужасов из-за пределов мира — открытая отсылка к Лавкрафту. Сами Ужасы придуманы для сериала.",
+    "links": [],
+    "origins": [
+      "Мотивы космического ужаса."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Chilling Adventures of Sabrina",
+        "url": "https://en.wikipedia.org/wiki/Chilling_Adventures_of_Sabrina_(TV_series)"
+      }
+    ],
+    "evidence": {
+      "mode": "motif",
+      "where": "Часть 4 (8 эпизодов)",
+      "names": [
+        "Жуткие Ужасы",
+        "Пустота"
+      ],
+      "detail": "Сущности показаны; имён архива нет.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "cabinet-curiosities-2022",
+    "title": "Guillermo del Toro’s Cabinet of Curiosities",
+    "year": 2022,
+    "type": "series",
+    "relation": "adaptation",
+    "creator": "Гильермо дель Торо · Netflix",
+    "summary": "Антология дель Торо с двумя эпизодами по Лавкрафту: «Модель Пикмана» и «Сны в ведьмином доме».",
+    "interpretation": "Обе истории экранизированы близко к рассказам: картины Пикмана с гулями и ведьма Кеция с фамильяром Бурым Дженкином.",
+    "links": [
+      {
+        "entity": "ghouls",
+        "role": "Гули с картин Пикмана.",
+        "form": "Экранное воплощение",
+        "presence": "shown"
+      },
+      {
+        "entity": "brown-jenkin",
+        "role": "Фамильяр ведьмы в «Снах в ведьмином доме».",
+        "form": "Экранное воплощение",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Г. Ф. Лавкрафт, «Модель Пикмана», «Сны в ведьмином доме»."
+    ],
+    "sources": [
+      {
+        "title": "Wikipedia · Guillermo del Toro’s Cabinet of Curiosities",
+        "url": "https://en.wikipedia.org/wiki/Guillermo_del_Toro%27s_Cabinet_of_Curiosities"
+      },
+      {
+        "title": "Screenphiles · обзор эпизодов по Лавкрафту",
+        "url": "https://screenphiles.com/2022/10/29/review-guillermo-del-toros-cabinet-of-curiosities-2022-pickmans-model-and-dreams-in-the-witch-house"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Сезон 1, эпизоды 5 и 6",
+      "names": [
+        "Гули",
+        "Бурый Дженкин"
+      ],
+      "detail": "Существа показаны и названы.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "magicka-stars-2011",
+    "title": "Magicka · The Stars Are Left",
+    "year": 2011,
+    "type": "videogame",
+    "relation": "adaptation",
+    "creator": "Arrowhead Game Studios · Paradox Interactive",
+    "summary": "Дополнение с путешествием в Р’льех и сражением с Ктулху.",
+    "interpretation": "Комедийная кампания превращает Ктулху и Дагона в боссов. Возможность победить их и игровые атаки относятся к Magicka.",
+    "links": [
+      {
+        "entity": "cthulhu",
+        "role": "Финальный босс третьей главы в Р’льехе.",
+        "form": "Игровое переосмысление",
+        "presence": "shown"
+      },
+      {
+        "entity": "dagon",
+        "role": "Именованный босс, встречающийся по ходу дополнения.",
+        "form": "Игровое переосмысление",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "«Зов Ктулху», имена Дагона и Р’льеха; пародийная история Magicka."
+    ],
+    "sources": [
+      {
+        "title": "Paradox · описание DLC и выпуск 29 ноября 2011",
+        "url": "https://store.steampowered.com/app/73058/"
+      },
+      {
+        "title": "Magickapedia · прохождение трёх глав и боссы",
+        "url": "https://magicka.fandom.com/wiki/The_Stars_Are_Left_Walkthrough"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Дополнение The Stars Are Left, главы 2–3",
+      "names": [
+        "Ктулху",
+        "Дагон"
+      ],
+      "detail": "Прохождение описывает встречи с Дагоном и финальный бой с Ктулху. Год относится к дополнению.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "magrunner-2013",
+    "title": "Magrunner: Dark Pulse",
+    "year": 2013,
+    "type": "videogame",
+    "relation": "adaptation",
+    "creator": "3AM Games · Frogwares",
+    "summary": "Магнитные головоломки переходят в историю об открытии врат для Ктулху.",
+    "interpretation": "Киберпанковая версия Мифов переносит культ и призыв Ктулху в технологический комплекс будущего.",
+    "links": [
+      {
+        "entity": "cthulhu",
+        "role": "Сущность, для которой открывают врата; появляется в финале.",
+        "form": "Игровое переосмысление",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Образ Ктулху и мотив вторжения из Мифов; самостоятельный сюжет."
+    ],
+    "sources": [
+      {
+        "title": "Frogwares · представление игры на PlayStation Blog",
+        "url": "https://blog.playstation.com/2013/10/17/magrunner-dark-pulse-on-ps3-is-a-lovecraftian-cyberpunk-puzzler/"
+      },
+      {
+        "title": "Gamepressure · финальный уровень Cthulhu Rising",
+        "url": "https://www.gamepressure.com/magrunnerdarkpulse/cthulhu-rising/ze525b"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Акт III, уровень Cthulhu Rising",
+      "names": [
+        "Ктулху"
+      ],
+      "detail": "Разработчик объясняет цель ритуала, а прохождение показывает финальную сцену.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "dusk-2018",
+    "title": "DUSK",
+    "year": 2018,
+    "type": "videogame",
+    "relation": "appearance",
+    "creator": "David Szymanski · New Blood Interactive",
+    "summary": "Ретро-шутер, в финале которого появляется Ньярлатхотеп.",
+    "interpretation": "Ньярлатхотеп становится противником и распорядителем судьбы героя. Облик, бой и развязка принадлежат игре.",
+    "links": [
+      {
+        "entity": "nyarlathotep",
+        "role": "Финальный босс после столкновения с Джейкобом.",
+        "form": "Игровое переосмысление",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Ньярлатхотеп Лавкрафта; собственный культ и история DUSK."
+    ],
+    "sources": [
+      {
+        "title": "DUSK Wiki · Nyarlathotep, уровень и встреча",
+        "url": "https://dusk.fandom.com/wiki/Nyarlathotep"
+      },
+      {
+        "title": "Wikipedia · DUSK, выпуск и сюжет",
+        "url": "https://en.wikipedia.org/wiki/Dusk_(video_game)"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Эпизод 3, уровень E3M10: Dusk",
+      "names": [
+        "Ньярлатхотеп"
+      ],
+      "detail": "Встреча привязана к конкретному финальному уровню; это именованный игровой персонаж.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "south-park-shub-2017",
+    "title": "South Park: The Fractured but Whole",
+    "year": 2017,
+    "type": "videogame",
+    "relation": "adaptation",
+    "creator": "Ubisoft San Francisco · South Park Digital Studios",
+    "summary": "В задании The Thin White Line герои сталкиваются с Шуб-Ниггурат.",
+    "interpretation": "Сатирическая версия Чёрной Козы превращена в босса под полицейским участком. Это отдельный игровой эпизод, а не появление Ктулху из мультсериала.",
+    "links": [
+      {
+        "entity": "shub",
+        "role": "Именованный босс под полицейским участком.",
+        "form": "Игровое переосмысление",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Имя и эпитеты Шуб-Ниггурат; пародийный мир South Park."
+    ],
+    "sources": [
+      {
+        "title": "SuperCheats · The Thin White Line, бой с Шуб-Ниггурат",
+        "url": "https://www.supercheats.com/south-park-fractured-but-whole/walkthrough/the-thin-white-line-part-2"
+      },
+      {
+        "title": "South Park Game Wiki · персонаж",
+        "url": "https://spgame.fandom.com/wiki/Shub-Niggurath"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Задание The Thin White Line",
+      "names": [
+        "Шуб-Ниггурат"
+      ],
+      "detail": "Руководство описывает отдельную битву с названной сущностью.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "persona5-royal-2019",
+    "title": "Persona 5 Royal · Азатот",
+    "year": 2019,
+    "type": "videogame",
+    "relation": "adaptation",
+    "creator": "Atlus",
+    "summary": "В дополнительном семестре Royal Азатот выступает персоной Такуто Маруки.",
+    "interpretation": "Это персона — образ во внутренней мифологии Persona. Его способности и связь с Маруки нельзя переносить на литературного Азатота. Указан год первого японского выпуска Royal; мировой выпуск состоялся в 2020 году.",
+    "links": [
+      {
+        "entity": "azathoth",
+        "role": "Персона Маруки, участвующая в позднем сюжетном бою.",
+        "form": "Игровое переосмысление",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Имя Азатота из Мифов; система персон Atlus."
+    ],
+    "sources": [
+      {
+        "title": "Samurai Gamers · дворец Маруки и боссы Royal",
+        "url": "https://samurai-gamers.com/persona-5/p5r-maruki-palace-guide/"
+      },
+      {
+        "title": "Megami Tensei Wiki · Azathoth",
+        "url": "https://megamitensei.fandom.com/wiki/Azathoth"
+      },
+      {
+        "title": "Wikipedia · Persona 5 и издание Royal",
+        "url": "https://en.wikipedia.org/wiki/Persona_5"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Третий семестр Royal, бой с Маруки",
+      "names": [
+        "Азатот"
+      ],
+      "detail": "Пример относится к Royal, а не к исходной Persona 5. Содержит спойлер поздней части сюжета.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "untold-stories-2019",
+    "title": "Lovecraft’s Untold Stories",
+    "year": 2019,
+    "type": "videogame",
+    "relation": "adaptation",
+    "creator": "LLC Blini Games · Fulqrum Publishing",
+    "summary": "Экшен с отдельными уровнями, посвящёнными пяти именованным сущностям Мифов.",
+    "interpretation": "Сюжеты и образы переработаны в игровые испытания. Знания о сущностях и механики столкновений — правила этой игры.",
+    "links": [
+      {
+        "entity": "cthulhu",
+        "role": "Встреча на отдельном уровне.",
+        "form": "Игровое переосмысление",
+        "presence": "shown"
+      },
+      {
+        "entity": "nyarlathotep",
+        "role": "Один из пяти противников, перечисленных издателем.",
+        "form": "Игровое переосмысление",
+        "presence": "shown"
+      },
+      {
+        "entity": "dagon",
+        "role": "Один из пяти противников, перечисленных издателем.",
+        "form": "Игровое переосмысление",
+        "presence": "shown"
+      },
+      {
+        "entity": "shub",
+        "role": "Встреча на отдельном уровне.",
+        "form": "Игровое переосмысление",
+        "presence": "shown"
+      },
+      {
+        "entity": "azathoth",
+        "role": "Один из пяти противников, перечисленных издателем.",
+        "form": "Игровое переосмысление",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Разные рассказы Лавкрафта; сборная игровая интерпретация Мифов."
+    ],
+    "sources": [
+      {
+        "title": "Fulqrum · перечисление пяти сущностей",
+        "url": "https://www.fulqrumpublishing.com/game/755-lovecraft-s-untold-stories"
+      },
+      {
+        "title": "Xbox Wire · описание игры и именованные противники",
+        "url": "https://news.xbox.com/en-us/2019/05/09/lovecrafts-untold-stories-is-now-available-for-xbox-one/"
+      },
+      {
+        "title": "Steam · выпуск PC-версии 31 января 2019",
+        "url": "https://store.steampowered.com/app/871420/"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Специальные уровни встреч с Древними",
+      "names": [
+        "Ктулху",
+        "Ньярлатхотеп",
+        "Дагон",
+        "Шуб-Ниггурат",
+        "Азатот"
+      ],
+      "detail": "Издатель прямо перечисляет эти пять имён, поэтому список не выведен из общего тега «лавкрафтовское».",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "sucker-love-die-2024",
+    "title": "Sucker for Love: Date to Die For",
+    "year": 2024,
+    "type": "videogame",
+    "relation": "adaptation",
+    "creator": "Akabaka · DreadXP",
+    "summary": "Визуальная новелла о ритуалах и Рок’зан — Чёрной Козе Лесов.",
+    "interpretation": "Рок’зан — самостоятельная героиня, переосмысляющая эпитет и образ Шуб-Ниггурат. Связь отмечена через образ, а не как буквальное тождество с литературным божеством.",
+    "links": [
+      {
+        "entity": "shub",
+        "role": "Рок’зан — переосмысление образа Чёрной Козы Лесов.",
+        "form": "Переосмысленный образ / Rhok’zan",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Образ Чёрной Козы Лесов; разработчик также указывает «Ужас Данвича» и «Тень над Иннсмутом»."
+    ],
+    "sources": [
+      {
+        "title": "DreadXP / Akabaka · описание Рок’зан, литературные ориентиры и выпуск",
+        "url": "https://store.steampowered.com/app/2240790/"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Основной сюжет и ритуал призыва Rhok’zan",
+      "names": [
+        "Рок’зан / Rhok’zan",
+        "Чёрная Коза Лесов"
+      ],
+      "detail": "Связь с Шуб-Ниггурат — интерпретация по характерному эпитету. Издатель использует собственное имя Rhok’zan.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "baby-yellow-2023",
+    "title": "The Baby in Yellow",
+    "year": 2023,
+    "type": "videogame",
+    "relation": "adaptation",
+    "creator": "Team Terrible",
+    "summary": "Хоррор о присмотре за младенцем, которого разработчики называют Хастуром.",
+    "interpretation": "Ребёнок и его сны переосмысляют образ Хастура и традицию «Короля в Жёлтом» Чемберса. Здесь указан выпуск Steam в раннем доступе; первая версия появилась раньше.",
+    "links": [
+      {
+        "entity": "hastur",
+        "role": "Именем Хастура разработчики называют младенца.",
+        "form": "Игровое переосмысление",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Роберт У. Чемберс, «Король в Жёлтом»; поздняя традиция Хастура, связанная с Мифами."
+    ],
+    "sources": [
+      {
+        "title": "Team Terrible · описание Хастура и дата Steam-версии",
+        "url": "https://store.steampowered.com/app/2291340/"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Основной персонаж и его сновидения",
+      "names": [
+        "Хастур",
+        "Младенец в жёлтом"
+      ],
+      "detail": "Имя Hastur присутствует в авторском описании игры; это больше, чем сходство по цвету одежды.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "scribblenauts-2012",
+    "title": "Scribblenauts Unlimited",
+    "year": 2012,
+    "type": "videogame",
+    "relation": "adaptation",
+    "creator": "5th Cell · Warner Bros. Interactive Entertainment",
+    "summary": "Шоггот появляется среди существ головоломки; мифологических монстров можно создавать словами.",
+    "interpretation": "Литературный монстр становится мультяшным объектом словесной песочницы. Поведение и взаимодействие с предметами относятся к правилам Scribblenauts.",
+    "links": [
+      {
+        "entity": "shoggoth",
+        "role": "Существо в Capital City Runoff и других заданиях.",
+        "form": "Игровое переосмысление",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Шоггот из «Хребтов безумия»."
+    ],
+    "sources": [
+      {
+        "title": "Scribblenauts Wiki · Shoggoth, перечень игр и конкретные задания",
+        "url": "https://scribblenauts.fandom.com/wiki/Shoggoth"
+      },
+      {
+        "title": "Scribblenauts Wiki · Capital City Runoff",
+        "url": "https://scribblenauts.fandom.com/wiki/Capital_City_Runoff"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Capital City Runoff; также задание Front Line of Defense",
+      "names": [
+        "Шоггот"
+      ],
+      "detail": "В источнике разделены появления в первой Scribblenauts и в Unlimited; здесь записана версия Unlimited.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "sundered-2017",
+    "title": "Sundered",
+    "year": 2017,
+    "type": "videogame",
+    "relation": "appearance",
+    "creator": "Thunder Lotus Games",
+    "summary": "Ньярлатхотеп — один из возможных финальных противников Эше.",
+    "interpretation": "Развилки зависят от принятия или отвержения порчи. Ньярлатхотеп присутствует не во всех вариантах финала; игровые победы не устанавливают литературный исход.",
+    "links": [
+      {
+        "entity": "nyarlathotep",
+        "role": "Финальный противник в нейтральной ветке и ветке сопротивления.",
+        "form": "Игровое переосмысление",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Имя Ньярлатхотепа; собственный мир Sundered."
+    ],
+    "sources": [
+      {
+        "title": "Thunder Lotus · официальный показ Ньярлатхотепа",
+        "url": "https://thunderlotusgames.com/press-releases/thunder-lotus-games-teases-sundereds-final-boss-fight-at-e3-2017/"
+      },
+      {
+        "title": "The Escapist · различия трёх финалов",
+        "url": "https://www.escapistmagazine.com/how-to-unlock-3-endings-and-3-final-bosses-in-sundered/"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Финал: нейтральная ветка или полное сопротивление",
+      "names": [
+        "Ньярлатхотеп"
+      ],
+      "detail": "Разработчик прямо называет босса; руководство уточняет зависимость встречи от выбранной ветки.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "eldritch-2013",
+    "title": "Eldritch",
+    "year": 2013,
+    "type": "videogame",
+    "relation": "adaptation",
+    "creator": "David Pittman · Minor Key Games",
+    "summary": "Кубическая игра с глубоководными и шогготами в мирах запретных книг.",
+    "interpretation": "Существа Мифов переработаны в противников процедурного подземелья. Название мира Dagon или Nyarlathotep само по себе не означает, что соответствующий бог показан.",
+    "links": [
+      {
+        "entity": "deep-ones",
+        "role": "Противники в мире Dagon.",
+        "form": "Игровое переосмысление",
+        "presence": "shown"
+      },
+      {
+        "entity": "shoggoth",
+        "role": "Противники, встречающиеся в подземельях.",
+        "form": "Игровое переосмысление",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "«Тень над Иннсмутом», «Хребты безумия» и другие мотивы Мифов."
+    ],
+    "sources": [
+      {
+        "title": "Разработчик · описание Eldritch и дополнения",
+        "url": "https://eldritchgame.com/about.html"
+      },
+      {
+        "title": "Eldritch Wiki · население миров",
+        "url": "https://eldritch.fandom.com/wiki/Worlds"
+      },
+      {
+        "title": "Wikipedia · выпуск 2013 года",
+        "url": "https://en.wikipedia.org/wiki/Eldritch_(video_game)"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Мир Dagon и другие подземелья",
+      "names": [
+        "Глубоководные",
+        "Шогготы"
+      ],
+      "detail": "Список жителей миров подтверждает конкретных монстров; имена книг отделены от физических появлений богов.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "cosmic-abyss-2026",
+    "title": "Cthulhu: The Cosmic Abyss",
+    "year": 2026,
+    "type": "videogame",
+    "relation": "adaptation",
+    "creator": "Big Bad Wolf · Nacon",
+    "summary": "Расследование в подводном комплексе и Р’льехе под влиянием Ктулху.",
+    "interpretation": "События перенесены в будущее. По объяснению творческой команды, увидеть Ктулху можно в зависимости от решений и порчи; встреча не гарантирована каждому прохождению.",
+    "links": [
+      {
+        "entity": "cthulhu",
+        "role": "Влияние на расследование; возможная встреча в зависимости от прохождения.",
+        "form": "Игровое переосмысление",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Ктулху и затонувший Р’льех; самостоятельный научно-фантастический сюжет."
+    ],
+    "sources": [
+      {
+        "title": "Nacon · описание игры",
+        "url": "https://www.nacongaming.com/en-GB/cthulhu-the-cosmic-abyss"
+      },
+      {
+        "title": "Creative Bloq · интервью с командой о возможной встрече с Ктулху",
+        "url": "https://www.creativebloq.com/3d/video-game-design/designing-the-lovecraftian-horror-of-cthulhu-the-cosmic-abyss"
+      },
+      {
+        "title": "Nacon · PC-издание, дата 16 апреля 2026",
+        "url": "https://www.nacongaming.com/cthulhu-the-cosmic-abyss-pc-digital"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Р’льех; встреча зависит от решений и уровня порчи",
+      "names": [
+        "Ктулху"
+      ],
+      "detail": "Интервью прямо допускает прохождение без визуальной встречи. Метка «показан» означает существование такого варианта, а не обязательную сцену.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "phantom-world-2016",
+    "title": "Myriad Colors Phantom World · Ктулху",
+    "year": 2016,
+    "type": "anime",
+    "relation": "adaptation",
+    "creator": "Kyoto Animation",
+    "summary": "Харухико призывает маленькое комедийное существо с именем Ктулху.",
+    "interpretation": "Образ превращён в забавного призываемого фантома. Он принадлежит магической системе аниме и не воспроизводит масштаб литературного Ктулху.",
+    "links": [
+      {
+        "entity": "cthulhu",
+        "role": "Призываемый фантом Харухико.",
+        "form": "Комедийное переосмысление",
+        "presence": "shown"
+      }
+    ],
+    "origins": [
+      "Имя и осьминогоподобный образ Ктулху; самостоятельный сюжет аниме."
+    ],
+    "sources": [
+      {
+        "title": "Официальный сайт · том 4, эпизоды 7–8 и бонус с Ктулху",
+        "url": "https://phantom-world.com/sp/product/bddvd/04/"
+      },
+      {
+        "title": "Японский обзор эпизода 8 · призыв Ктулху",
+        "url": "https://dondontyakutyaku.hatenablog.com/entry/2016/02/29/210905"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Эпизод 8; также бонусная анимация Blu-ray/DVD, том 4",
+      "names": [
+        "Ктулху / クトゥルー"
+      ],
+      "detail": "Официальное описание бонуса прямо называет Ктулху; обзор эпизода 8 подтверждает сцену призыва.",
+      "checked": "2026-11-11"
+    }
+  },
+  {
+    "id": "digimon-xros-2012",
+    "title": "Digimon Xros Wars · Дагомон",
+    "year": 2012,
+    "type": "anime",
+    "relation": "reference",
+    "creator": "Toei Animation",
+    "summary": "Дагомон охраняет затонувший корабль в отдельном подводном приключении.",
+    "interpretation": "Это дигимон с собственными силами и историей, а не буквальный Дагон Лавкрафта. Указан год эпизода, а не начала всей серии.",
+    "links": [
+      {
+        "entity": "dagon",
+        "role": "Дагомон — отдельный цифровой монстр, связанный с образом Дагона.",
+        "form": "Отсылка в образе Дагомона",
+        "presence": "motif"
+      }
+    ],
+    "origins": [
+      "Образ Дагона в дизайне Дагомона; самостоятельная мифология Digimon."
+    ],
+    "sources": [
+      {
+        "title": "Toei Animation · официальный синопсис эпизода 73",
+        "url": "https://lineup.toei-anim.co.jp/ja/tv/digimon_xw_th/episode/73/"
+      },
+      {
+        "title": "Wikimon · эпизод 73, дата и Дагомон",
+        "url": "https://wikimon.net/Digimon_Xros_Wars_-_Episode_73"
+      }
+    ],
+    "evidence": {
+      "mode": "shown",
+      "where": "Эпизод 73 общей нумерации Xros Wars, 12 февраля 2012",
+      "names": [
+        "Дагомон"
+      ],
+      "detail": "Официальный синопсис описывает охраняющего корабль Дагомона. Связь с литературным Дагоном отмечена как отсылка.",
+      "checked": "2026-11-11"
+    }
+  }
+];

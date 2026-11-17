@@ -1,0 +1,21 @@
+/* Коричнево-золотой переплёт и навигация заданы в reader.css.
+   Внутренние страницы сохраняют светлую состаренную бумагу. */
+.reader .desk .book-page{
+  --paper:#f1ead8;background-color:var(--paper);
+  background-image:linear-gradient(90deg,#9e8a5e30,transparent 7%,transparent 92%,#8d7b5633),
+    var(--book-image-art-paper-grain-webp, url('art/paper-grain.webp'));
+  background-blend-mode:multiply,soft-light;
+  color:#302c23;
+}
+.reader .desk .book-page.recto{
+  background-image:linear-gradient(90deg,#7d6c4755,#b6a27422 3%,transparent 10%,transparent 95%,#a9916122),
+    var(--book-image-art-paper-grain-webp, url('art/paper-grain.webp'));
+}
+.reader .desk .cover-spread .book-page.title-page{
+  --paper:#fcfbf7;
+  background-color:#fcfbf7;
+  background-image:linear-gradient(90deg,#d7d6ce88,#f6f5ef 4%,#fffefa 12%,#fcfbf7 88%,#eeede5);
+  background-blend-mode:normal;
+  color:#30352a;
+  box-shadow:inset 12px 0 28px #65634d18,inset -3px 0 18px #65634d0c;
+}

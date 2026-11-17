@@ -1,0 +1,88 @@
+.book-sample{display:inline-block;margin:18px 0 0 15px;color:#e4decc;font:italic 15px var(--serif);text-decoration:underline;text-underline-offset:5px}
+.instruments{grid-template-columns:repeat(6,minmax(0,1fr))}
+.instruments .instrument{grid-column:span 2}.instruments .atlas-door,.instruments .quiz-door{grid-column:span 3;min-height:59px;padding-block:10px}
+.instruments .atlas-door strong,.instruments .quiz-door strong{font-size:19px}
+.history-door:before{background:linear-gradient(90deg,#20251df5,#26342ce0 65%,#202c2290),var(--book-image-art-polar-reliefs-webp, url('art/polar-reliefs.webp')) right/80% auto no-repeat}
+.geography-door:before{background:linear-gradient(90deg,#162721f5,#19332de0 65%,#20332a80),var(--book-image-art-earth-surface-webp, url('art/earth-surface.webp')) right/cover no-repeat}
+.order-door:before{background:linear-gradient(90deg,#26251df5,#30291fe3 65%,#27251992),var(--book-image-art-azathoth-webp, url('art/azathoth.webp')) right/80% auto no-repeat}
+.card{border-left:4px double #647060;border-bottom:3px double #59644f}
+.notebook-mode{--ink:#302c23;--red:#84372b;--dim:#665c46;--rule:#a99875;--paper:#efe4c8;color-scheme:light;width:min(960px,calc(100% - 34px));max-height:94dvh;border:1px solid #5b5d4b;border-radius:6px;background:#222820;color:var(--ink);box-shadow:0 18px 80px #0009}
+.book-binding,.book-bottom{display:flex;align-items:center;gap:12px;padding:10px 18px;background:#1c251f;color:#dedac9}
+.book-binding{padding-right:64px;min-height:51px;font:small-caps 19px var(--serif);letter-spacing:.5px}
+.book-binding>span{display:inline-flex;gap:10px;align-items:center}.book-binding .icon{color:var(--gold)}
+.book-binding .record-save{margin:0 0 0 auto;padding:5px 10px;color:#e2e3d4;font:12px var(--sans)}
+.book-binding .record-save.saved{color:var(--gold);border-color:#8a7d58}
+.open-book{margin:0 5px;display:grid;grid-template-columns:1fr 1fr;isolation:isolate;border:1px solid #c8b68a;border-bottom:4px double #93876b;box-shadow:0 3px 6px #0007;font-family:var(--serif)}
+.book-page{position:relative;min-width:0;display:flex;flex-direction:column;align-items:stretch;padding:clamp(22px,3.3vw,48px) clamp(20px,3.3vw,47px) 17px;background-color:var(--paper);background-image:linear-gradient(90deg,#b39b6280 0%,transparent 6%,transparent 89%,#b3a37970 98%,#978359aa),var(--book-image-art-paper-grain-webp, url('art/paper-grain.webp'));background-blend-mode:multiply,normal}
+.book-page.recto{background-image:linear-gradient(90deg,#8e794fb0 0%,#ceb88960 3%,transparent 10%,transparent 95%,#a9916160),var(--book-image-art-paper-grain-webp, url('art/paper-grain.webp'))}
+.folio-kicker,.plate-number{font:600 10px/1.5 var(--sans);letter-spacing:1.4px;text-transform:uppercase;color:#7d5636}
+.book-page h2{font:600 clamp(35px,4.3vw,58px)/1.02 var(--serif);letter-spacing:-.055em;color:var(--red);margin:12px 0 5px;overflow-wrap:anywhere}
+.book-latin{font:italic 16px var(--serif);color:#6a624d}
+.book-lead{font:italic 22px/1.3 var(--serif);padding:17px 0;margin:8px 0 13px;border-block:1px solid #bdab84}
+.field-facts{margin:0}.book-term{margin-bottom:15px}.book-term dt,.book-refs h3{font:600 17px/1.25 var(--serif);color:#59412c;margin-bottom:4px}
+.book-term dd{font:16px/1.43 var(--serif);margin:0}.book-indexline{color:var(--dim);font:italic 13px/1.4 var(--serif);margin:3px 0 18px}
+.folio-page{margin-top:auto;padding-top:16px;font:12px var(--serif);color:#6b5c44}.recto .folio-page{text-align:right}
+.plate-top{display:flex;align-items:center;justify-content:space-between;gap:6px;border-bottom:1px solid #b6a57f;padding-bottom:8px}
+.specimen-art{position:relative;display:grid;place-items:center;margin:12px auto;width:100%;min-height:220px;height:clamp(225px,32vh,340px)}
+.specimen-art img{display:block;max-width:100%;width:100%;height:100%;min-height:0;object-fit:contain;mix-blend-mode:multiply}
+.specimen-art .painted{filter:drop-shadow(1px 6px 3px #84785e26)}
+.specimen-art .zoom-plate{bottom:0;left:auto;right:0;padding:5px 7px;font:11px var(--sans);color:#4d452e;background:#efe4c8f0;border:1px solid #9a8865}
+.specimen-art.full-plate{height:min(63dvh,550px)}
+.handwriting{margin:10px 0 2px;transform:rotate(-1.1deg);font:italic 17px/1.45 var(--serif);color:#694e58;border-left:2px solid #a89491;padding-left:11px}
+.book-bottom{justify-content:space-between;padding-block:12px;font:13px var(--sans)}
+.book-bottom>span{color:#bfc2b2}.leaf-link{color:#f1e4c5;text-decoration:underline;text-underline-offset:4px}
+.book-lore{font:16px/1.5 var(--serif);margin:18px 0}.book-source{display:grid;gap:4px;margin:12px 0 5px;padding-top:9px;border-top:1px solid #b9a984}
+.book-source small{font:12px/1.45 var(--sans);color:var(--dim)}
+.ink-link{display:inline-block;color:#68492b;font:14px/1.5 var(--serif);text-decoration:underline;text-decoration-color:#ab9474;text-underline-offset:3px}
+.ink-link:hover,.ink-link:focus-visible{color:#913b29;text-decoration-color:currentColor}
+.book-refs{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 14px;margin-top:12px}.book-refs h3{width:100%;margin:0}
+.notes-title{font:27px/1.15 var(--serif);color:#694837;margin:12px 0}
+#field-note{display:block;resize:vertical;width:100%;min-height:124px;font:italic 16px/26px var(--serif);color:#53404b;padding:3px 7px;background:repeating-linear-gradient(transparent 0 25px,#c3ad8d 25px 26px);border:0;border-top:1px solid #baa582}
+#field-note::placeholder{color:#776e60}.note-status{font:11px/1.4 var(--sans);color:#645944;padding:6px 0}
+.manual-mode{width:min(930px,calc(100% - 28px));background:#19221d}.manual-body{padding:16px 26px 24px}.manual-intro,.map-copy p{font:15px/1.55 var(--sans);color:#cbd0c0;margin:0 0 15px}
+.manual-sub{font:25px/1.2 var(--serif);margin:18px 0 10px;color:#ece9da}
+.species-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 18px}
+.species-list>a{display:flex;align-items:center;gap:12px;border-top:1px solid #435044;padding:8px 0}
+.species-list img{width:42px;height:47px;object-fit:cover;border:1px solid #6f745d}
+.species-list b,.species-list small{display:block}.species-list b{font:19px/1.2 var(--serif)}.species-list small{margin-top:3px;font:12px/1.45 var(--sans);color:var(--muted)}
+.species-list .icon{margin-left:auto;flex:none;width:14px;color:var(--gold)}.species-list>a:hover b{color:var(--gold)}
+.taxon-tree{display:grid;grid-template-columns:2fr 3fr;gap:15px}
+.taxon-tree section{padding:12px;border:1px solid #5b6656;background:#202d25}
+.taxon-tree h3{font:italic 19px var(--serif);margin:0 0 9px;color:var(--sage)}
+.taxon-tree section>div{margin-left:7px;border-left:1px solid #978767;padding:0 0 0 12px;display:grid;gap:5px}
+.taxon-branch{position:relative;display:flex;gap:6px;align-items:center;justify-content:space-between;padding:4px 8px;font-size:14px}
+.taxon-branch:before{content:"";width:12px;height:1px;position:absolute;right:100%;background:#978767}.taxon-branch b{font-weight:500}.taxon-branch span{font-size:11px}
+.taxon-branch[aria-current],.region-choices a[aria-current],.realm-tabs a[aria-current]{background:#c4c8ac;color:#253021}
+.epoch-layout{display:grid;grid-template-columns:225px 1fr}.epoch-nav{display:flex;flex-direction:column;padding:14px 10px;gap:3px;background:#1a231e;border-right:1px solid #4b5546}
+.epoch-step{display:flex;align-items:center;gap:9px;padding:7px 8px;color:#bec6b7;font:13px/1.25 var(--sans)}
+.epoch-step>span{flex:none;font:12px var(--serif);color:var(--gold);width:24px;text-align:center}
+.epoch-step[aria-current]{background:#334236;color:#fff0ce;box-shadow:inset 2px 0 var(--gold)}.epoch-step:hover{color:#f3ecda}
+.epoch-story{min-width:0;background:var(--paper,#efe4cd) var(--book-image-art-paper-grain-webp, url('art/paper-grain.webp'));color:#332e24}.epoch-plate{position:relative;height:clamp(109px,20vh,186px);overflow:hidden;background:#222}
+.epoch-plate img{width:100%;height:100%;object-fit:cover;object-position:50% 42%}.epoch-plate span{position:absolute;bottom:8px;left:15px;background:#17221de8;color:#eee2c8;padding:4px 9px;font:italic 14px var(--serif)}
+.epoch-text{padding:17px 24px}.epoch-text h3,.map-copy h3{font:32px/1.1 var(--serif);margin:7px 0 12px;letter-spacing:-.7px}
+.epoch-text p{font:17px/1.45 var(--serif);margin:9px 0}.epoch-text p.evidence{font:italic 15px/1.43 var(--serif);color:#675c4a}
+.epoch-turn{display:flex;justify-content:space-between;gap:12px;border-top:1px solid #b6a27c;margin-top:12px;padding-top:9px}
+.realm-tabs,.region-choices{display:flex;flex-wrap:wrap;gap:6px}.realm-tabs{padding:12px 24px;border-bottom:1px solid var(--line)}
+.realm-tabs a,.region-choices a{border:1px solid #667260;border-radius:3px;padding:5px 9px;font:13px/1.3 var(--sans)}
+.habitat-panel{display:grid;grid-template-columns:minmax(230px,.9fr) 1.2fr;border-bottom:1px solid var(--line)}
+.world-art{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:15px;background:radial-gradient(ellipse at 50% 48%,#344840,#17221e 73%);min-height:240px}
+.globe-shell{position:relative;width:min(100%,220px);aspect-ratio:1;border-radius:50%;box-shadow:0 0 0 1px #b4b090,0 0 0 7px #17261e,0 0 0 8px #707a60;overflow:visible;background:#3d5b53}
+.globe-shell canvas{display:block;width:100%;height:100%;border-radius:50%;touch-action:none;cursor:grab}.globe-shell canvas:active{cursor:grabbing}
+.globe-pins{pointer-events:none;position:absolute;inset:0}.globe-point{position:absolute;pointer-events:auto;transform:translate(-50%,-50%);width:18px;height:18px;display:grid;place-items:center;border-radius:50%;border:1px solid #f3e3af;background:#27372ab0}.globe-point[hidden]{display:none}
+.globe-point:after{content:"";width:5px;height:5px;border-radius:50%;background:#f8e2a8}.globe-point[aria-current]{box-shadow:0 0 0 4px #dac17c70}
+.spin-controls{display:flex;align-items:center;gap:9px;margin-top:13px;color:#c3cbb9;font-size:11px}.spin-controls button{background:transparent;border:1px solid #65725c;color:#e4dec4;padding:2px 9px;border-radius:2px}
+.realm-plate{width:100%;height:230px;object-fit:cover}.map-copy{padding:22px;align-self:center}.map-copy .folio-kicker{color:var(--gold)}
+.map-credit{color:var(--quiet);font-size:12px;margin-top:17px}.map-credit a{color:var(--gold);font-size:12px}
+.map-fallback{background: var(--book-image-art-earth-surface-webp, url('art/earth-surface.webp')) center/cover}
+@keyframes leaf-settle{from{opacity:.7;transform:perspective(800px) rotateY(-5deg)}to{opacity:1;transform:perspective(800px) rotateY(0)}}
+@media(prefers-reduced-motion:no-preference){.open-book .recto{transform-origin:left center;animation:leaf-settle .34s ease-out both}.epoch-story{animation:ink-in .25s ease-out both}}
+@media(max-width:780px){.instruments .instrument{padding:13px;gap:10px}.instruments .instrument-symbol{display:none}.instruments strong{font-size:20px}.book-page{padding:22px 20px 12px}.epoch-layout{grid-template-columns:180px 1fr}}
+@media(max-width:600px){
+  .instruments{grid-template-columns:repeat(2,minmax(0,1fr))}.instruments .instrument,.instruments .atlas-door,.instruments .quiz-door{grid-column:auto;min-height:66px}.instruments .history-door{grid-column:1/-1}
+  .book-sample{font-size:13px;margin:10px 0 0 9px}.notebook-mode{width:calc(100% - 14px);max-height:94dvh}.open-book{grid-template-columns:1fr}.book-page{padding:21px 21px 10px}.book-page.recto{border-top:1px solid #b2a079}.folio-page{padding-top:8px}
+  .book-binding{font-size:16px;padding-left:12px;padding-right:48px}.book-binding>span{gap:5px}.book-binding .record-save{font-size:11px;padding:4px 6px}.book-bottom{position:sticky;bottom:0;z-index:2;padding:10px 13px}
+  .book-lead{font-size:20px;padding:10px 0}.specimen-art{height:240px;min-height:160px}.book-page h2{font-size:39px}
+  .manual-body,.map-copy,.epoch-text{padding:14px}.taxon-tree{grid-template-columns:1fr;gap:6px}.taxon-tree section{padding:8px}.taxon-tree section>div{display:flex;flex-wrap:wrap}.taxon-branch:before{display:none}
+  .species-list{grid-template-columns:1fr}.epoch-layout{grid-template-columns:1fr}.epoch-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;padding:7px}.epoch-step{gap:4px;padding:4px;font-size:10px}.epoch-step>span{width:16px;font-size:10px}
+  .epoch-text h3,.map-copy h3{font-size:27px}.epoch-plate{height:105px}.realm-tabs{padding:10px;gap:5px}.realm-tabs a{font-size:12px}.habitat-panel{grid-template-columns:1fr}.world-art{min-height:170px}.globe-shell{width:158px}.realm-plate{height:155px}.map-copy h3{margin-top:3px}
+}

@@ -1,0 +1,102 @@
+/* Размер содержимого зависит от ширины разворота, включая боковые поля. */
+#book{container-type:inline-size;container-name:reader-book}
+.book-body,.book-head,.book-foot,.page-host{min-width:0}
+.book-body{overflow:hidden}
+.page-host .open-book{grid-template-columns:repeat(2,minmax(0,1fr));min-width:0}
+.page-host .book-page{min-width:0;box-sizing:border-box}
+/* Перелистывается весь лист; дополнительный наклон правой страницы сдвигал её за обрез. */
+.page-host>.open-book>.recto{animation:none;transform:none}
+.page-host .page-title h2{font-size:clamp(27px,3.2cqw,42px);overflow-wrap:break-word}
+.page-host .guide-cols{grid-template-columns:repeat(2,minmax(0,1fr))}
+.page-host .guide-cols>*,.culture-detail>*,.culture-role-list>*,.hm-columns>*{min-width:0}
+.cover-spread .cover-art{flex:1 1 0;min-height:0}
+.cover-spread .cover-art img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover}
+.cover-spread .cover-epigraph{flex:none;font-size:clamp(15px,1.5cqw,18px);padding:18px clamp(20px,2.5cqw,34px) 26px}
+.cover-spread .title-page{padding:clamp(16px,2cqw,28px);display:flex;align-items:center;justify-content:center}
+.cover-spread .title-frame{width:100%;max-width:460px;padding:16px 12px}
+.cover-spread .title-kicker{font-size:clamp(8px,.75cqw,10px);letter-spacing:1.4px;line-height:1.5}
+.cover-spread .title-crest{width:clamp(112px,13cqw,180px);height:clamp(112px,18svh,170px);margin:12px auto}
+.cover-spread .title-crest .cover-mark{width:min(100%,170px);height:100%;object-fit:contain}
+.cover-spread .title-frame h1{font-size:clamp(32px,min(4.3cqw,7.2svh),58px);line-height:1.02;margin:8px 0}
+.cover-spread .title-sub{max-width:360px;font-size:clamp(13px,1.3cqw,16px);margin:12px auto;line-height:1.45}
+.cover-spread .title-frame .cipher{font-size:clamp(10px,1cqw,14px);letter-spacing:1px;overflow-wrap:anywhere}
+.cover-spread .tentacle-rule{display:block;width:min(80%,300px);height:24px;margin:0 auto}
+.cover-spread .title-stats{gap:clamp(14px,2cqw,26px);margin:14px 0 8px}
+.cover-spread .title-stats b{font-size:clamp(23px,2.5cqw,29px)}
+@media(min-width:1450px){
+  .section-tabs{left:calc(6px - var(--book-side-space));width:calc(var(--book-side-space) - 12px)}
+  .section-tabs a,.section-tabs a.on,.section-tabs a:hover,.section-tabs a:focus-visible{width:calc(var(--book-side-space) - 12px)}
+  .section-tabs a span{font-size:clamp(10.5px,calc(var(--book-side-space)*.06),12px)}
+}
+@container reader-book (max-width:1220px){
+  .book-page:not(.chapter-plate):not(.inside-cover):not(.title-page){padding-inline:26px}
+  .chapter-records .mini-shelf{grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:14px 12px}
+  .chapter-records .mini-text b{font-size:16px}
+  .chapter-records .mini-text small{font-size:12px}
+}
+@container reader-book (max-width:1050px){
+  .catalog-chapter-covers,.culture-category-covers{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .catalog-chapter-cover,.culture-category-cover{height:340px}
+  .page-host .guide-cols{grid-template-columns:1fr}
+  .alpha-index{columns:1}
+  .toc-row span{font-size:16px}
+  .toc-row,.toc-sub{gap:7px}
+  .culture-filters{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .culture-filters .culture-query{grid-column:1/-1}
+}
+@container reader-book (max-width:850px){
+  .tree-layout,.tree-across .tree-layout,.hm-columns,.dome-layout,.hierarchy-layout{grid-template-columns:minmax(0,1fr)}
+  .tree-card,.dome-card{position:static;transform:none}
+  .culture-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .culture-detail{grid-template-columns:minmax(0,1fr)}
+  .hm-map,.hm-stage,.tree-scroll{min-width:0;max-width:100%}
+  .culture-role-list{grid-template-columns:minmax(0,1fr)}
+}
+@container reader-book (max-width:700px){
+  .page-host .open-book{grid-template-columns:minmax(0,1fr);height:auto;min-height:100%}
+  .page-host .book-page{overflow:visible}
+  .page-host.spread-mode,.page-host.notebook-mode{overflow:auto}
+  .page-host:after{display:none}
+  .book-page:not(.chapter-plate):not(.inside-cover):not(.title-page){padding-inline:20px}
+  .catalog-chapter-covers,.culture-category-covers{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .catalog-chapter-cover,.culture-category-cover{height:310px}
+  .catalog-cover-label h3{font-size:20px}
+  .culture-inner{padding:20px 16px}
+  .culture-filters{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .culture-grid{grid-template-columns:minmax(0,1fr)}
+  .culture-legend dl{grid-template-columns:minmax(0,1fr)}
+  .culture-results-heading{flex-wrap:wrap}
+  .chapter-records .mini-shelf{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cover-spread .inside-cover{min-height:390px}
+  .cover-spread .title-page{min-height:480px}
+}
+@media(max-height:700px) and (min-width:821px){
+  .cover-spread .title-page{padding-block:10px}
+  .cover-spread .title-frame{padding-block:8px}
+  .cover-spread .title-crest{height:110px;margin:8px auto}
+  .cover-spread .title-frame h1{font-size:clamp(30px,3.8cqw,44px)}
+  .cover-spread .title-sub{font-size:13px;margin-block:8px}
+  .cover-spread .title-stats{margin-block:8px}
+  .cover-spread .cover-epigraph{font-size:15px;padding-block:12px 16px}
+}
+
+/* Компактные закладки: короткие ярлыки слева, без пустого поля справа — разворот шире. */
+@media(min-width:1450px){
+  .reader .book,.reader .book:not(.has-chapter-tabs){--book-side-space:142px;max-width:1640px}
+  .reader .book:not(.has-chapter-tabs){margin-right:30px}
+  #section-tabs{left:calc(6px - var(--book-side-space));width:calc(var(--book-side-space) - 6px);top:72px;gap:clamp(8px,1.5svh,14px)}
+  #section-tabs a:nth-child(n),#section-tabs a.on:nth-child(n){width:calc(var(--book-side-space) - 6px);height:clamp(34px,4.6svh,42px);padding:3px 2px 3px 15px;gap:0}
+  #section-tabs a[href="#culture"]:nth-child(n){height:clamp(44px,6svh,54px)}
+  #section-tabs a:nth-child(n):before{inset:-4px -22px -4px -8px;background-size:165% 100%;background-position:left center}
+  #section-tabs a b{display:none}
+  #section-tabs a span{font-size:12.5px;line-height:1.2;white-space:normal}
+  #section-tabs a:not([href="#culture"]) span{white-space:nowrap}
+  #section-tabs a span small{display:none}
+  #section-tabs a:nth-child(8){--bookmark-angle:1.6deg;margin-top:2px;margin-bottom:2px}
+  #section-tabs a.on span{color:#fff3d2}
+}
+
+/* Широкие листы (каталог, коллекция, древо, карты, схемы) — цельные, без полосы сгиба. */
+.page-host.catalog-mode:after,.page-host.culture-mode:after,.page-host.tree-mode:after,.page-host.sheet-mode:after,.page-host.map-mode:after,.page-host.hm-mode:after,.page-host.hierarchy-mode:after{display:none}
+/* Под широким листом страницы без затенения у корешка — иначе сгиб проступает сквозь лист. */
+.reader .desk .catalog-book>.book-page,.reader .desk .atlas-book>.book-page,.reader .desk .pantheon-book>.book-page,.reader .desk .sizes-book>.book-page,.reader .desk .tree-book>.book-page,.reader .desk .open-book:has(>.map-across)>.book-page{background-image:var(--book-image-art-paper-grain-webp,url('art/paper-grain.webp'));background-blend-mode:soft-light;box-shadow:none}
