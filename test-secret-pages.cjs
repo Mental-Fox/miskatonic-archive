@@ -1,18 +1,28 @@
 'use strict';
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 const catalog={window:{}};vm.createContext(catalog);
-for(const f of ['entries.js','fieldwork.js','profiles.js','epochs.js','field-notes.js','books.js','bestiary-ext.js','owner-notes.js','owner-leaves.js'])vm.runInContext(fs.readFileSync(f,'utf8'),catalog,{filename:f});
+for(const f of ['entries.js','fieldwork.js','profiles.js','epochs.js','field-notes.js','books.js','bestiary-ext.js','owner-notes.js','owner-leaves.js','catalog-leaves.js'])vm.runInContext(fs.readFileSync(f,'utf8'),catalog,{filename:f});
 const records=catalog.window.ENTRIES,notes=catalog.window.ARCHIVE_OWNER_NOTES,extra=catalog.window.ARCHIVE_EXTRA_LEAVES,arcs=catalog.window.ARCHIVE_SECRET_ARCS;
 const creatures=records.filter(r=>['creatures','gods'].includes(r.group));
 assert.equal(creatures.length,64);
-assert.equal(Object.keys(notes).length,creatures.length);
+assert.equal(Object.keys(notes).length,106);
 for(const r of creatures){assert(notes[r.id]?.scholar,r.id);assert(notes[r.id]?.witness,r.id);}
-const texts=Object.values(notes).flatMap(n=>[n.scholar,n.witness]);assert.equal(new Set(texts).size,128,'Every note is individually written');
-assert.equal(arcs.length,5);assert.equal(extra.length,9);
+const texts=Object.values(notes).flatMap(n=>[n.scholar,n.witness]);assert.equal(new Set(texts).size,212,'Every note is individually written');
+assert.equal(arcs.length,8);assert.equal(extra.length,9);
 const singles=catalog.window.ARCHIVE_SINGLE_LEAVES;
 assert.equal(singles.length,53);
-const leafRecords=[{entry:'cthulhu'},{entry:'deep-ones'},{entry:'necronomicon'},...extra,...singles];
-for(const r of creatures)assert.equal(leafRecords.filter(l=>l.entry===r.id).length,1,'Exactly one leaf for '+r.id);
+const catalogLeaves=catalog.window.ARCHIVE_CATALOG_LEAVES;
+assert.equal(catalogLeaves.length,42);
+const leafRecords=[{entry:'cthulhu'},{entry:'deep-ones'},{entry:'necronomicon'},...extra,...singles,...catalogLeaves];
+assert.equal(leafRecords.length,records.length);
+assert.equal(new Set(leafRecords.map(l=>l.entry)).size,107);
+assert.equal(new Set(catalogLeaves.map(l=>l.id)).size,42);
+assert.equal(new Set(catalogLeaves.map(l=>l.number)).size,42);
+assert.equal(new Set(catalogLeaves.flatMap(l=>l.paragraphs)).size,84);
+assert.equal(catalogLeaves.filter(l=>records.find(r=>r.id===l.entry).group==='places').length,13);
+assert.equal(catalogLeaves.filter(l=>records.find(r=>r.id===l.entry).group==='signs').length,10);
+assert.equal(catalogLeaves.filter(l=>records.find(r=>r.id===l.entry).group==='books').length,19);
+for(const r of records)assert.equal(leafRecords.filter(l=>l.entry===r.id).length,1,'Exactly one leaf for '+r.id);
 assert.equal(new Set([...extra,...singles].map(l=>l.id)).size,62);
 assert.equal(new Set([...extra,...singles].map(l=>l.number)).size,62);
 assert.equal(new Set(singles.flatMap(l=>l.paragraphs)).size,106,'Independent documents have unique paragraphs');
@@ -27,9 +37,10 @@ function boot(saved='[]',blocked=false){
   const values=new Map([['miskatonic.hidden-pages.v1',saved]]);
   let html='',inserted='';
   const c={Set,JSON,localStorage:{getItem:k=>{if(blocked)throw Error();return values.get(k);},setItem:(k,v)=>{if(blocked)throw Error();values.set(k,v);}},
-    openFolio:s=>html=s,ENTRIES:records};
+    openFolio:s=>html=s,ENTRIES:records,
+    plateImage:(r,cls)=>'<img class="'+cls+'" data-record="'+r.id+'" src="art/'+r.id+'.webp">'};
   c.window=c;vm.createContext(c);
-  for(const f of ['owner-notes.js','owner-leaves.js','monster-engravings.js','secret-ornaments.js','secret-pages.js'])vm.runInContext(fs.readFileSync(f,'utf8'),c);
+  for(const f of ['owner-notes.js','owner-leaves.js','catalog-leaves.js','monster-engravings.js','secret-ornaments.js','secret-pages.js'])vm.runInContext(fs.readFileSync(f,'utf8'),c);
   return {api:c.archiveSecrets,values,html:()=>html,decorate(hash){
     inserted='';c.archiveSecrets.decorate({querySelector:()=>({querySelector:()=>null,insertAdjacentHTML:(_,s)=>inserted=s})},hash);return inserted;
   }};
@@ -55,7 +66,7 @@ for(const chain of chains){
   for(let i=0;i<chain.length;i++){
     const [id,entry]=chain[i];
     assert.equal(isolated.api.link(entry),'#secret/'+id);
-    isolated.api.open(id);assert(isolated.html().includes('Найдено '+(i+1)+' из 65'));
+    isolated.api.open(id);assert(isolated.html().includes('Найдено '+(i+1)+' из 107'));
     assert(isolated.html().includes('class="secret-traces raster-traces"'));
     assert(!isolated.html().includes('class="secret-script"'),'No ordered symbol rows');
     assert.equal((isolated.html().match(/class="rlyeh-symbol-frame"/g)||[]).length,2,'Symbol frame retained on both pages');
@@ -66,8 +77,8 @@ for(const chain of chains){
   }
   assert(isolated.html().includes('class="secret-ending"'));
 }
-assert(t.html().includes('Найдено 12 из 65'));
-t.api.open('salt');assert(t.html().includes('Найдено 12 из 65'));
+assert(t.html().includes('Найдено 12 из 107'));
+t.api.open('salt');assert(t.html().includes('Найдено 12 из 107'));
 const ledger=t.decorate('#contents');for(const chain of chains)for(const [id] of chain)assert(ledger.includes('#secret/'+id));
 for(const arc of arcs)assert(ledger.includes(arc.title));
 for(const leaf of singles){
@@ -78,11 +89,24 @@ for(const leaf of singles){
   assert.equal(t.api.anchor(leaf.id),'#entry/'+leaf.entry);
   assert.equal(t.api.onward(leaf.id),'#contents');
 }
-assert(t.html().includes('Найдено 65 из 65'));
+assert(t.html().includes('Найдено 65 из 107'));
+const legacy65=boot(t.values.get('miskatonic.hidden-pages.v1'));
+assert(legacy65.decorate('#contents').includes('Найдено листов: 65 из 107'));
+for(const leaf of catalogLeaves){
+  assert.equal(t.api.link(leaf.entry),'#secret/'+leaf.id);
+  assert.equal(t.decorate('#entry/'+leaf.entry),'');
+  t.api.open(leaf.id);
+  assert(t.html().includes(leaf.heading));
+  for(const paragraph of leaf.paragraphs)assert(t.html().includes(paragraph));
+  assert(t.html().includes(notes[leaf.entry].scholar));assert(t.html().includes(notes[leaf.entry].witness));
+  assert(t.html().includes('data-record="'+leaf.entry+'"'),'Use this entry’s illustration instead of a generic monster decoration');
+  assert.equal(t.api.anchor(leaf.id),'#entry/'+leaf.entry);
+}
+assert(t.html().includes('Найдено 107 из 107'));
 const restored=boot(t.values.get('miskatonic.hidden-pages.v1'));
-assert(restored.decorate('#contents').includes('Найдено листов: 65 из 65'));
+assert(restored.decorate('#contents').includes('Найдено листов: 107 из 107'));
 const legacy=boot('["salt","footprints","binding"]');
-assert(legacy.decorate('#contents').includes('Найдено листов: 3 из 65'),'Old progress survives unchanged');
+assert(legacy.decorate('#contents').includes('Найдено листов: 3 из 107'),'Old progress survives unchanged');
 assert.equal(legacy.api.link('necronomicon'),'#secret/binding');
 assert(!legacy.decorate('#entry/shoggoth').includes('#secret/ice-correction'));
 assert(!boot('broken json').decorate('#entry/deep-ones').includes('#secret/footprints'));
@@ -119,5 +143,7 @@ const index=fs.readFileSync('index.html','utf8');
 }
 assert(index.indexOf('owner-notes.js')<index.indexOf('owner-leaves.js'));
 assert(index.indexOf('owner-leaves.js')<index.indexOf('secret-pages.js'));
+assert(index.indexOf('catalog-leaves.js')>index.indexOf('owner-leaves.js'));
+assert(index.indexOf('catalog-leaves.js')<index.indexOf('secret-pages.js'));
 assert(index.indexOf('secret-pages.js')<index.indexOf('src="reader.js'));
-console.log('PASS: 64 catalog entries / 128 unique notes; four complete arcs + 53 independent documents / 65 discoveries; gatekeeping, navigation, endings, legacy progress, storage failures and script order.');
+console.log('PASS: all 107 unique catalog entries have one secret leaf; 42 new place/relic/book documents with individual notes and entry-specific images; story gates, progress migration, storage failures and script order.');

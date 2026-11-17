@@ -21,7 +21,11 @@
     const primaryIndex=activeVariant.get(id)||0;
     const useAlternate=variant==='secret'?primaryIndex===0:primaryIndex===1;
     const asset=useAlternate?(entry?.alternate||entry):entry;
-    if(!asset)return motif(themeFor(id),extra);
+    if(!asset){
+      const record=window.ENTRIES?.find(r=>r.id===id);
+      if(record&&typeof plateImage==='function')return plateImage(record,extra,'Архивная иллюстрация — '+record.name);
+      return motif(themeFor(id),extra);
+    }
     const col=asset.tile%4,row=Math.floor(asset.tile/4);
     const zoom=asset.zoom||1,visible=1/zoom;
     const x=(col+(1-visible)*(asset.focusX??.5))/(4-visible)*100;
