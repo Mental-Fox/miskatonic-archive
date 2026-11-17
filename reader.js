@@ -325,6 +325,8 @@ function openFolio(markup, mode = "record-mode") {
   host.className = "page-host " + mode;
   host.innerHTML = markup;
   host.scrollTop = 0;
+  window.archiveSecrets?.decorate(host, location.hash || '#cover');
+  if(location.hash.startsWith('#entry/'))window.secretOrnaments?.decorateEntry(host,location.hash.split('/')[1]);
   if (animate) turnLeaf(dir);
 }
 function turnLeaf(dir) {
@@ -695,6 +697,17 @@ function updateChrome(i) {
 }
 function route() {
   const hash = location.hash || "#cover";
+  if(hash.startsWith('#secret/')){
+    const id=hash.split('/')[1];
+    pendingDir=current>=0?1:0;
+    current=pageIndex(window.archiveSecrets.anchor(id));
+    updateChrome(current);
+    $('where').textContent='Листы вне описи';
+    $('where').title='Листы вне описи';
+    $('pagenum').textContent='Частный архив · ненумерованная вклейка';
+    document.title='Листы вне описи — Бестиарий Лавкрафта';
+    return window.archiveSecrets.open(id);
+  }
   const i = pageIndex(hash);
   if (current >= 0 && i !== current) pendingDir = i > current ? 1 : -1;
   current = i;
@@ -726,6 +739,11 @@ function route() {
   renderCover();
 }
 function go(delta) {
+  if(location.hash.startsWith('#secret/')){
+    const id=location.hash.split('/')[1];
+    location.hash=delta>0?window.archiveSecrets.onward(id):window.archiveSecrets.anchor(id);
+    return;
+  }
   const i = Math.min(pages.length - 1, Math.max(0, current + delta));
   if (i !== current) location.hash = pages[i].hash;
 }
@@ -801,10 +819,7 @@ document.addEventListener("click", (e) => {
     return;
   }
   if (t.hasAttribute("data-zoom")) {
-    const ex = t.getAttribute("aria-expanded") !== "true";
-    t.setAttribute("aria-expanded", String(ex));
-    t.closest(".specimen-art").classList.toggle("full-plate", ex);
-    t.querySelector("span").textContent = ex ? "Свернуть" : "Рассмотреть";
+    window.illustrationViewer.open(location.hash.split('/')[1],t.closest('.specimen-art').querySelector('img'),t);
     return;
   }
   if (t.hasAttribute("data-still")) {
@@ -852,7 +867,7 @@ $("search").addEventListener("keydown", (e) => {
   }
 });
 document.addEventListener("keydown", (e) => {
-  if(document.querySelector('.image-library[open], .hierarchy-info[open]'))return;
+  if(document.querySelector('.image-library[open], .hierarchy-info[open], .illustration-viewer[open]'))return;
   if (e.target.closest("input,textarea,select")) return;
   if (e.key === "ArrowRight" || e.key === "PageDown") {
     e.preventDefault();

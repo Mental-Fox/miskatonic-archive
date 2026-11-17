@@ -7,7 +7,7 @@ const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/st
   const layers=[],timers=new Map();let timerId=0;
   const host={innerHTML:'old',scrollTop:80};
   const reduced={matches:false};
-  const ctx={host,pendingDir:1,matchMedia:()=>reduced,
+  const ctx={host,pendingDir:1,window:{},location:{hash:'#entry/cthulhu'},matchMedia:()=>reduced,
     $:()=>({append(layer){layers.push(layer);}}),
     document:{createElement(){return {setAttribute(){},addEventListener(type,fn){this.end=fn;},remove(){this.removed=true;}};}},
     setTimeout(fn){timers.set(++timerId,fn);return timerId;},clearTimeout(id){timers.delete(id);}
