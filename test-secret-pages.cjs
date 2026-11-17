@@ -61,8 +61,7 @@ for(const chain of chains){
   const isolated=boot();
   assert.equal(isolated.api.link(chain[0][1]),'#secret/'+chain[0][0]);
   assert(!isolated.decorate('#entry/'+chain[1][1]).includes('#secret/'+chain[1][0]));
-  isolated.api.open(chain[2][0]);assert(isolated.html().includes('Здесь пока нет вклейки'));
-  assert(!isolated.html().includes('class="secret-transcript"'));
+  const direct=boot();direct.api.open(chain[2][0]);assert(direct.html().includes('class="secret-transcript"'),'Every existing story leaf has real content, even before earlier leaves');
   for(let i=0;i<chain.length;i++){
     const [id,entry]=chain[i];
     assert.equal(isolated.api.link(entry),'#secret/'+id);
@@ -114,7 +113,7 @@ assert(!boot('["unknown"]').decorate('#contents').includes('Найдено ли�
 const offline=boot('[]',true);offline.api.open('salt');
 assert(offline.html().includes('Хранилище недоступно'));
 offline.api.open('footprints');assert(offline.html().includes('class="secret-transcript"'));
-t.api.open('<img>');assert(t.html().includes('Здесь пока нет вклейки'));assert(!t.html().includes('<img>'));
+t.api.open('<img>');assert(t.html().includes('Запись не найдена'));assert(!t.html().includes('<img>'));
 assert.equal(t.api.anchor('binding'),'#entry/necronomicon');assert.equal(t.api.anchor('bad'),'#entry/cthulhu');
 assert.equal(boot().api.onward('footprints'),'#contents');
 const themed=boot();themed.api.open('dossier-atlach-nacha');assert(themed.html().includes('secret-theme-web'));
@@ -146,4 +145,4 @@ assert(index.indexOf('owner-leaves.js')<index.indexOf('secret-pages.js'));
 assert(index.indexOf('catalog-leaves.js')>index.indexOf('owner-leaves.js'));
 assert(index.indexOf('catalog-leaves.js')<index.indexOf('secret-pages.js'));
 assert(index.indexOf('secret-pages.js')<index.indexOf('src="reader.js'));
-console.log('PASS: all 107 unique catalog entries have one secret leaf; 42 new place/relic/book documents with individual notes and entry-specific images; story gates, progress migration, storage failures and script order.');
+console.log('PASS: all 107 unique catalog entries have one secret leaf; 42 new place/relic/book documents with individual notes and entry-specific images; direct story access, progress migration, storage failures and script order.');
