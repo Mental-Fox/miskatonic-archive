@@ -1,29 +1,56 @@
 'use strict';
-/* Первый этап: постоянный начальный показатель, без изменения при чтении. */
 (function(){
-  const key='miskatonic.reader-sanity.v1';
-  let state=null;
-  try{
-    const saved=JSON.parse(localStorage.getItem(key)||'null');
-    if(saved?.version===1&&saved.value===100&&typeof saved.createdAt==='string'&&Number.isFinite(Date.parse(saved.createdAt))){
-      state={version:1,value:100,createdAt:saved.createdAt};
-    }
-  }catch{}
-  if(!state){
-    state={version:1,value:100,createdAt:new Date().toISOString()};
-    try{localStorage.setItem(key,JSON.stringify(state));}catch{}
+  let storage=null;try{storage=localStorage;}catch{}
+  const model=window.createSanityModel({records:window.ENTRIES||[],leaves:window.archiveSecrets?.materials()||[],storage});
+  const contents=new Map(),labels={clear:'Ясность',anxious:'Тревога',haunted:'Наваждение',limit:'Предел'};
+  const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const widget=document.getElementById('reader-sanity'),number=document.getElementById('reader-sanity-number'),meter=document.getElementById('reader-sanity-meter');
+  function paint(){
+    const state=model.snapshot();
+    if(number)number.textContent=state.value+' / 100';
+    if(meter)meter.value=state.value;
+    if(widget){widget.setAttribute('aria-label','Рассудок читателя: '+state.value+' из 100');widget.dataset.stage=state.stage;widget.title='Рассудок · '+labels[state.stage];}
   }
-  const widget=document.getElementById('reader-sanity');
-  const number=document.getElementById('reader-sanity-number');
-  const meter=document.getElementById('reader-sanity-meter');
-  if(number)number.textContent='100 / 100';
-  if(meter)meter.value=100;
-  if(widget)widget.setAttribute('aria-label','Рассудок читателя: 100 из 100');
-  const book=document.getElementById('book'),header=document.querySelector?.('.book-head');
+  function has(key){return model.quote(key).opened;}
+  function wrap(key,html,title){
+    const q=model.quote(key);
+    if(!q.known||q.opened)return html;
+    contents.set(key,{html,title});
+    const reason=q.reason==='parent'?'Сначала откройте сам тайный лист.':!q.canOpen?'Рассудок на пределе. Отдохните в читальном зале.':'Плата один раз. Повторное чтение бесплатно.';
+    return '<div class="sanity-lock" data-sanity-gate="'+esc(key)+'"><div class="sanity-lock-preview" aria-hidden="true" inert>'+html+'</div><div class="sanity-lock-overlay"><strong>'+esc(title||q.title)+'</strong><button type="button" data-sanity-unlock="'+esc(key)+'" '+(!q.canOpen?'disabled':'')+'>Открыть · −'+q.cost+' рассудка</button><small>'+reason+'</small><a href="#reading-room">В читальный зал</a></div></div>';
+  }
+  function refreshGates(){
+    document.querySelectorAll('[data-sanity-gate]').forEach(gate=>{
+      const key=gate.dataset.sanityGate,entry=contents.get(key);
+      if(entry)gate.outerHTML=wrap(key,entry.html,entry.title);
+    });
+  }
+  function notify(){window.dispatchEvent(new Event('sanityunlock'));}
+  function openRoom(){
+    const s=model.snapshot();
+    openFolio('<div class="open-book sanity-room"><section class="book-page verso"><span class="folio-kicker">Читальный зал Мискатоника</span><h2>Вернуться к свету</h2><p class="sanity-room-lead">Вы откладываете чужие записи, закрываете переплёт и возвращаетесь к знакомым звукам читального зала.</p><p>Найденные вклейки и открытые материалы сохранятся. Перечитать их можно без новой платы.</p><button type="button" class="sanity-rest" data-sanity-rest '+(s.value===100?'disabled':'')+'>Закончить исследование · восстановить до 100</button><a class="ink-link" href="#contents">Вернуться к оглавлению →</a><div class="folio-page">Читальный зал</div></section><section class="book-page recto"><span class="folio-kicker">Состояние читателя</span><h3>'+labels[s.stage]+'</h3><p class="sanity-room-value">'+s.value+' <small>/ 100</small></p><p>Полевые карточки и отдельные тайные листы: <b>2</b> рассудка.<br>Сюжетные вклейки: <b>4</b>.<br>Опасные приписки: <b>6</b>.</p><p>Ниже 15 новые материалы закрыты до отдыха. Уже открытые записи и обычный каталог доступны всегда.</p><p>Ничего не списывается за ожидание, перелистывание или просмотр иллюстраций. Цена видна на кнопке открытия.</p>'+(!s.persistent?'<p role="status">Хранилище браузера недоступно. Состояние сохранится только до закрытия страницы.</p>':'')+'<div class="folio-page">Рассудок</div></section></div>','spread-mode sanity-room-mode');
+  }
+  document.addEventListener('click',event=>{
+    const button=event.target.closest('[data-sanity-unlock],[data-sanity-rest]');if(!button)return;
+    event.preventDefault();
+    if(button.hasAttribute('data-sanity-rest')){model.rest();paint();notify();return;}
+    const key=button.dataset.sanityUnlock,result=model.unlock(key);
+    paint();
+    if(!result.ok){refreshGates();return;}
+    if(key.startsWith('leaf:')){notify();return;}
+    const gate=button.closest('[data-sanity-gate]'),entry=contents.get(key);
+    if(gate&&entry)gate.outerHTML=entry.html;
+    refreshGates();
+  });
+  window.addEventListener('storage',event=>{
+    if(event.key==='miskatonic.reader-sanity.v2'){model.refresh();paint();notify();}
+  });
+  const book=document.getElementById('book'),header=document.querySelector('.book-head');
   if(widget&&book&&header&&typeof matchMedia==='function'){
     const compact=matchMedia('(max-width:820px)');
     const place=()=>{if(compact.matches)header.append(widget);else book.append(widget);};
     place();compact.addEventListener('change',place);
   }
-  window.readerSanity=Object.freeze({current:()=>state.value});
+  paint();
+  window.readerSanity=Object.freeze({current:()=>model.snapshot().value,has,wrap,openRoom});
 })();

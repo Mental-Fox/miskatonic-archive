@@ -88,11 +88,15 @@ function guideRecto(r,p,f,meta){
   const image=secretIllustration(r,plateImage(r,'plate-main','Полевой рисунок — '+r.name));
   const keys=f.key||[];
   const notesHtml=(f.notes||[]).map((n,i)=>'<p class="ink-note n'+i+'"><span>'+escapeHTML(n.t)+'</span>'+escapeHTML(n.x)+'</p>').join('');
-  return thumbTab(r)+
-    '<aside class="key-slip"><b>Ключевые приметы</b><ol>'+keys.map(k=>'<li>'+escapeHTML(k)+'</li>').join('')+'</ol></aside>'+
+  const clue='<aside class="key-slip"><b>Ключевые приметы</b><ol>'+keys.map(k=>'<li>'+escapeHTML(k)+'</li>').join('')+'</ol></aside>';
+  return thumbTab(r)+(keys.length?(window.readerSanity?window.readerSanity.wrap('clue:'+r.id,clue,'Ключевые приметы'):clue):'')+
     '<div class="specimen-art guide-art motion-'+motionOf(r.id)+'"><div class="living">'+image+'</div><div class="plate-tools"><button type="button" class="zoom-plate" data-still>'+icon(document.body.classList.contains('still-art')?'play':'pause')+(document.body.classList.contains('still-art')?'Оживить':'Замереть')+'</button><button type="button" class="zoom-plate" data-zoom aria-haspopup="dialog">'+icon('lens')+'<span>Рассмотреть</span></button></div></div>'+
     '<div class="margin-notes">'+notesHtml+'</div>'+
     '<div class="plate-foot"><span>'+escapeHTML(meta)+'</span><span class="ink">Рис. '+figNo+' — '+escapeHTML(r.name)+'</span></div>';
+}
+function sanityFieldLog(r,text){
+  const html='<aside class="log-card"><span class="pin" aria-hidden="true"></span><b>Из полевой книжки</b><p>'+escapeHTML(text)+'</p><small>— неизвестный исследователь Мискатоника</small></aside>';
+  return window.readerSanity?window.readerSanity.wrap('log:'+r.id,html,'Из полевой книжки'):html;
 }
 function openNotebook(r,notes){
   const p=window.speciesProfiles[r.id];
@@ -114,7 +118,7 @@ function openNotebook(r,notes){
     (historic.length?'<div class="book-refs"><h3>В хронике Старцев</h3>'+historic.map(e=>detailsLink('chronicle/'+e.id,e.title)).join('')+'</div>':'');
   const marg=(f.notes||[]).map((n,i)=>'<p class="ink-note n'+i+'"><span>'+escapeHTML(n.t)+'</span>'+escapeHTML(n.x)+'</p>').join('');
   const rightNotes=thumbTab(r)+
-    (log?'<aside class="log-card"><span class="pin" aria-hidden="true"></span><b>Из полевой книжки</b><p>'+escapeHTML(log)+'</p><small>— неизвестный исследователь Мискатоника</small></aside>':'')+
+    (log?sanityFieldLog(r,log):'')+
     '<div class="notes-portrait">'+plateImage(r,'sketch','')+'</div>'+
     (marg?'<div class="margin-notes">'+marg+'</div>':'')+
     '<h3 class="notes-title">Ваши заметки</h3><label class="sr" for="field-note">Моя заметка — '+escapeHTML(r.name)+'</label><textarea maxlength="4000" id="field-note" placeholder="Запишите примету, вопрос или ссылку на рассказ…"></textarea><small class="note-status" id="note-status" aria-live="polite">Заметки хранятся в этом браузере.</small>'+

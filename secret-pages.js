@@ -46,11 +46,6 @@
     if(Array.isArray(saved))for(const id of saved)if(leaves.some(l=>l.id===id))found.add(id);
   }catch{storageOK=false;}
   const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const available=leaf=>{
-    if(leaf.standalone)return true;
-    const chain=leaves.filter(l=>l.arc===leaf.arc),i=chain.indexOf(leaf);
-    return i===0||found.has(chain[i-1].id)||found.has(leaf.id);
-  };
   function save(){try{localStorage.setItem(key,JSON.stringify([...found]));storageOK=true;}catch{storageOK=false;}}
   function handwriting(scholar,witness){
     return '<div class="owner-marginalia"><span class="folio-kicker">На полях · два почерка</span><p class="owner-scholar">'+esc(scholar)+'<cite>Доктор Артур Вельт · каталогизатор</cite></p><p class="owner-witness">'+esc(witness)+'<cite>Марта Рейн · архивистка</cite></p></div>';
@@ -73,8 +68,15 @@
 
   function open(id){
     const leaf=leaves.find(l=>l.id===id);
-    if(!leaf||!available(leaf)){
-      openFolio('<div class="open-book secret-book"><section class="book-page verso"><span class="folio-kicker">Лист вне описи</span><h2>Здесь пока нет вклейки</h2><p>Сначала найдите предыдущую вклейку этой истории. В описи справа указаны начала сюжетных следов и найденные личные дела существ.</p><a class="ink-link" href="#contents">К описи найденных листов →</a></section><section class="book-page recto">'+ledger()+'</section></div>','spread-mode secret-mode');
+    if(!leaf){
+      openFolio('<div class="open-book secret-book"><section class="book-page verso"><h2>Запись не найдена</h2><p>Этот адрес не соответствует ни одному листу каталога.</p><a href="#contents">Вернуться к оглавлению →</a></section><section class="book-page recto"><h3>Архив закрыт</h3><p>Выберите существующую запись каталога и нажмите на её иллюстрацию.</p></section></div>','spread-mode secret-mode');
+      return;
+    }
+    const material='leaf:'+leaf.id;
+    if(window.readerSanity&&!window.readerSanity.has(material)){
+      const preview='<article class="sealed-transcript"><h3>'+esc(leaf.heading)+'</h3>'+leaf.paragraphs.map(p=>'<p>'+esc(p)+'</p>').join('')+'</article>';
+      const gate=window.readerSanity.wrap(material,preview,'Развернуть тайный лист');
+      openFolio(window.secretOrnaments.wrap(leaf,'<div class="open-book secret-book"><section class="book-page verso"><span class="folio-kicker">Запечатанная вклейка '+leaf.number+'</span><h2>Неразобранный лист</h2>'+gate+'<div class="folio-page">'+leaf.number+'</div></section><section class="book-page recto"><span class="folio-kicker">Частный архив</span><h3>Прочитать чужие записи</h3><p>Под размытыми строками скрывается отдельный документ. Рассудок тратится только после нажатия кнопки открытия.</p><p>Плата взимается один раз. Повторное чтение останется доступным даже на пределе рассудка.</p><nav class="secret-links"><a href="#entry/'+leaf.entry+'">← Вернуться к записи</a><a href="#reading-room">В читальный зал</a></nav><div class="folio-page">'+leaf.number+' · оборот</div></section></div>'),'spread-mode secret-mode');
       return;
     }
     found.add(leaf.id);save();
@@ -82,10 +84,12 @@
     const next=leaf.next&&window.ENTRIES.find(r=>r.id===leaf.next);
     const chain=leaves.filter(l=>l.arc===leaf.arc),arc=arcs.find(a=>a.id===leaf.arc);
     const note=notes[leaf.entry]||{scholar:leaf.reply,witness:leaf.answer};
-    const postscript=(note.scholar!==leaf.reply||note.witness!==leaf.answer)?'<details class="secret-postscript"><summary>Поздняя приписка</summary>'+handwriting(leaf.reply,leaf.answer)+'</details>':'';
+    const dangerous=handwriting(leaf.reply,leaf.answer);
+    const postscript=(note.scholar!==leaf.reply||note.witness!==leaf.answer)?'<details class="secret-postscript"><summary>Опасная приписка</summary>'+(window.readerSanity?window.readerSanity.wrap('postscript:'+leaf.id,dangerous,'Прочитать опасную приписку'):dangerous)+'</details>':'';
     openFolio(window.secretOrnaments.wrap(leaf,'<div class="open-book secret-book"><section class="book-page verso"><span class="folio-kicker">Вклейка '+leaf.number+' · частный архив</span><h2>'+esc(leaf.heading)+'</h2><div class="secret-transcript">'+leaf.paragraphs.map(p=>'<p>'+esc(p)+'</p>').join('')+'</div><p class="secret-disclaimer">Авторская история проекта. Эти документы и их владельцы вымышлены.</p><div class="folio-page">'+leaf.number+'</div></section><section class="book-page recto"><span class="folio-kicker">Два прежних владельца</span><h3>Прочитано до вас</h3>'+handwriting(note.scholar,note.witness)+postscript+'<p class="secret-progress" role="status">Найдено '+found.size+' из '+leaves.length+' вклеек. История «'+esc(arc.title)+'»: '+chain.filter(l=>found.has(l.id)).length+' из '+chain.length+'.'+(storageOK?'':' Хранилище недоступно: находки сохранятся только до закрытия страницы.')+'</p><button type="button" class="secret-inspect" data-inspect-entry="'+esc(leaf.entry)+'" aria-haspopup="dialog">Рассмотреть: '+esc(record?.name||'иллюстрацию')+'</button><nav class="secret-links" aria-label="Продолжить исследование">'+(next?'<a class="secret-tab" href="#entry/'+next.id+'">По следу пометки: '+esc(next.name)+' →</a>':'<p class="secret-ending">'+esc(arc.ending)+'</p>')+'<a href="#entry/'+leaf.entry+'">← Вернуться: '+esc(record?.name||'запись каталога')+'</a><a href="#contents">Найденные листы в оглавлении</a></nav><div class="folio-page">'+leaf.number+' · оборот</div></section></div>'),'spread-mode secret-mode');
   }
   window.archiveSecrets={decorate,open,
+    materials(){return leaves.map(({id,title,standalone})=>({id,title,standalone:!!standalone}));},
     link(entry){const leaf=leaves.find(l=>l.entry===entry);return leaf?'#secret/'+leaf.id:'';},
     anchor(id){return '#entry/'+(leaves.find(l=>l.id===id)?.entry||'cthulhu');},
     onward(id){const leaf=leaves.find(l=>l.id===id);return leaf&&found.has(leaf.id)&&leaf.next?'#entry/'+leaf.next:'#contents';}

@@ -697,6 +697,13 @@ function updateChrome(i) {
 }
 function route() {
   const hash = location.hash || "#cover";
+  if(hash==='#reading-room'){
+    current=pageIndex('#contents');updateChrome(current);
+    $('where').textContent='Читальный зал';$('where').title='Читальный зал';
+    $('pagenum').textContent='Отдых · находки сохраняются';
+    document.title='Читальный зал — Бестиарий Лавкрафта';
+    return window.readerSanity.openRoom();
+  }
   if(hash.startsWith('#secret/')){
     const id=hash.split('/')[1];
     pendingDir=current>=0?1:0;
@@ -929,5 +936,6 @@ document.querySelectorAll("[data-icon]").forEach((el) => {
 });
 $("tabs").innerHTML = chapterEdgeTabs();
 window.addEventListener("hashchange", route);
+window.addEventListener("sanityunlock", route);
 window.addEventListener("bookimageschange",route);
 route();
