@@ -28,7 +28,7 @@ function notebookPlate(r,p){
     ?'<img class="painted" src="art/plates/'+r.id+'.webp" alt="Полевой рисунок — '+escapeHTML(r.name)+'">'
     :illustration(r,true);
   return '<div class="plate-top">'+smallHeading(p?'Натурная таблица':'Иллюстрация к записи')+'<span class="plate-number">'+(records.indexOf(r)+1).toString().padStart(2,'0')+'</span></div>'+
-    '<div class="specimen-art">'+image+'<button type="button" class="zoom-plate" data-zoom aria-expanded="false">'+icon('lens')+'<span>Рассмотреть гравюру</span></button></div>'+
+    '<div class="specimen-art">'+secretIllustration(r,image)+'<button type="button" class="zoom-plate" data-zoom aria-haspopup="dialog">'+icon('lens')+'<span>Рассмотреть гравюру</span></button></div>'+
     '<p class="handwriting">'+escapeHTML(p?p.behavior:r.epithet)+'</p>';
 }
 const runeAlphabet='ᚨᛒᚲᛞᛖᚠᚷᚺᛁᛃᚴᛚᛗᚾᛟᛈᛩᚱᛊᛏᚢᚡᚹᛪᛇᛉ';
@@ -45,22 +45,23 @@ function guideFolio(p,side){
   const m=/(\d+)/.exec(p?.guide||'');
   return m?String(+m[1]+side):null;
 }
-const humanFigure='<svg class="size-human" viewBox="0 0 40 120" aria-hidden="true"><path d="M13 9.5 15 3h10l2 6.5h4v2.4H9V9.5z"/><circle cx="20" cy="18" r="6.2"/><path d="M11 27q9-4.4 18 0l3.4 35h-4.6L27 42.5V116h-5.6L20 72l-1.4 44H13V42.5L12.2 62H7.6z"/></svg>';
+const humanFigure='<img class="size-human" src="art/human-scale.svg" alt="" decoding="async" aria-hidden="true">';
 function sizeChart(r,f){
-  const s=f.size; if(!s)return '';
-  const human=humanFigure;
-  if(s.m==null){
-    return '<figure class="size-chart off-scale"><div class="size-stage"><div class="size-specimen" style="--h:100%">'+plateImage(r,'sketch')+'</div>'+
-      '<div class="size-person" style="--h:9%">'+human+'</div></div><figcaption><span class="ink">Диаграмма сравнения размеров</span><small>'+escapeHTML(s.label)+'</small><small class="scale-note">Человек — едва заметная точка у подножия</small></figcaption></figure>';
-  }
-  const top=Math.max(1.8,s.m), hp=1.8/top*100, cp=s.m/top*100;
-  const step=top<=2.5?0.5:top<=6?1:top<=12?2:5, ticks=[];
-  for(let v=step; v<=top+1e-6; v+=step) ticks.push('<i style="--y:'+(v/top*100).toFixed(1)+'%"><b>'+String(+v.toFixed(1)).replace('.',',')+' м</b></i>');
-  return '<figure class="size-chart"><div class="size-ruler">'+ticks.join('')+'</div><div class="size-stage">'+
-    '<div class="size-specimen" style="--h:'+Math.max(6,cp).toFixed(1)+'%">'+plateImage(r,'sketch')+'</div>'+
-    '<div class="size-person" style="--h:'+hp.toFixed(1)+'%">'+human+'</div></div>'+
-    '<figcaption><span class="ink">Диаграмма сравнения размеров</span><small>'+escapeHTML(s.label)+'</small><small class="scale-note">Человек — 1,8 м · '+(s.m>=1.8?'существо в '+String(+(s.m/1.8).toFixed(1)).replace('.',',')+' раза выше':'существо ниже человека')+'</small><a class="ink-link" href="#sizes/'+r.id+'">Сравнить со всеми →</a></figcaption></figure>';
+  const s=f.size;if(!s)return '';
+  const numeric=Number.isFinite(s.m)&&s.m>0;
+  const header='<header class="scale-card-head"><span>Сравнение с человеком</span><small>Эталон · 1,8 м</small></header>';
+  if(!numeric)return '<figure class="scale-card scale-unknown">'+header+'<div class="scale-unknown-body"><span class="scale-reference">'+humanFigure+'</span><div><b>Размер не установлен</b><p>'+escapeHTML(s.label||'Нет достоверных данных')+'</p><small>Соотношение с человеком не показано: числового размера нет.</small></div></div></figure>';
+  const top=Math.max(1.8,s.m),hp=1.8/top*100,cp=s.m/top*100;
+  const raw=top/4,power=10**Math.floor(Math.log10(raw)),step=[1,2,5,10].map(n=>n*power).find(n=>n>=raw);
+  const ticks=[];for(let v=step;v<=top+1e-6;v+=step)ticks.push('<span style="bottom:'+(v/top*100).toFixed(3)+'%">'+String(+v.toFixed(2)).replace('.',',')+' м</span>');
+  return '<figure class="scale-card">'+header+'<div class="scale-plot"><div class="scale-axis" aria-hidden="true">'+ticks.join('')+'</div><div class="scale-subject"><div class="scale-height" style="--h:'+cp.toFixed(3)+'%">'+plateImage(r,'scale-drawing')+'</div><small>'+escapeHTML(r.name)+' · '+String(s.m).replace('.',',')+' м</small></div><div class="scale-subject scale-subject-human"><div class="scale-height" style="--h:'+hp.toFixed(3)+'%">'+humanFigure+'</div><small>Человек · 1,8 м</small></div></div><figcaption><p>'+escapeHTML(s.label)+'</p><small>Ориентировочный масштаб по указанному в записи размеру.</small><a class="ink-link" href="#sizes/'+r.id+'">Общая шкала размеров →</a></figcaption></figure>';
 }
+function secretIllustration(r,image){
+  const href=window.archiveSecrets?.link(r.id);
+  if(!href)return image;
+  return '<a class="secret-creature-link" href="'+href+'" aria-label="Открыть тайный лист: '+escapeHTML(r.name)+'" title="Нажмите на рисунок — открыть тайный лист">'+image+'</a>';
+}
+
 function guideTitle(r){
   return '<header class="guide-title"><h2 id="dialog-title">'+escapeHTML(r.name)+'</h2><div class="cipher" aria-hidden="true">'+escapeHTML(cipherLine(r.latin))+'</div><div class="book-latin">'+escapeHTML(r.latin)+'</div></header>';
 }
@@ -84,12 +85,12 @@ function guideVerso(r,p,f){
 }
 function guideRecto(r,p,f,meta){
   const figNo=records.indexOf(r)+1;
-  const image=plateImage(r,'plate-main','Полевой рисунок — '+r.name);
+  const image=secretIllustration(r,plateImage(r,'plate-main','Полевой рисунок — '+r.name));
   const keys=f.key||[];
   const notesHtml=(f.notes||[]).map((n,i)=>'<p class="ink-note n'+i+'"><span>'+escapeHTML(n.t)+'</span>'+escapeHTML(n.x)+'</p>').join('');
   return thumbTab(r)+
     '<aside class="key-slip"><b>Ключевые приметы</b><ol>'+keys.map(k=>'<li>'+escapeHTML(k)+'</li>').join('')+'</ol></aside>'+
-    '<div class="specimen-art guide-art motion-'+motionOf(r.id)+'"><div class="living">'+image+'</div><div class="plate-tools"><button type="button" class="zoom-plate" data-still>'+icon(document.body.classList.contains('still-art')?'play':'pause')+(document.body.classList.contains('still-art')?'Оживить':'Замереть')+'</button><button type="button" class="zoom-plate" data-zoom aria-expanded="false">'+icon('lens')+'<span>Рассмотреть</span></button></div></div>'+
+    '<div class="specimen-art guide-art motion-'+motionOf(r.id)+'"><div class="living">'+image+'</div><div class="plate-tools"><button type="button" class="zoom-plate" data-still>'+icon(document.body.classList.contains('still-art')?'play':'pause')+(document.body.classList.contains('still-art')?'Оживить':'Замереть')+'</button><button type="button" class="zoom-plate" data-zoom aria-haspopup="dialog">'+icon('lens')+'<span>Рассмотреть</span></button></div></div>'+
     '<div class="margin-notes">'+notesHtml+'</div>'+
     '<div class="plate-foot"><span>'+escapeHTML(meta)+'</span><span class="ink">Рис. '+figNo+' — '+escapeHTML(r.name)+'</span></div>';
 }
