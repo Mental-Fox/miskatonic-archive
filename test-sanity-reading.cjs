@@ -20,7 +20,7 @@ function click(key,rest=false){
 const sanity=c.readerSanity,secrets=c.archiveSecrets;
 assert.equal(sanity.current(),100);
 secrets.open('case-file');
-assert(rendered.includes('Двое оценщиков'));
+assert(rendered.includes('Двое у запертой двери'));
 assert(!rendered.includes('sanity-lock'));
 assert.equal(sanity.current(),100,'Detective backstory is free');
 assert.equal(data.get('miskatonic.hidden-pages.v1'),undefined);
@@ -31,20 +31,20 @@ assert.equal(data.get('miskatonic.hidden-pages.v1'),undefined,'Viewing the seale
 click('leaf:salt');assert.equal(sanity.current(),96);assert(rendered.includes('class="secret-transcript"'));
 assert(rendered.includes('Артур Вельт · сыщик, бывший инспектор'));
 assert(rendered.includes('Марта Рейн · частная сыщица'));
-assert(rendered.includes('Сверено с бумагами Энджелла'));
+assert(rendered.includes('В валике слышны два дыхания'));
 assert(!rendered.includes('каталогизатор'));
 assert(!rendered.includes('архивистка'));
 assert.deepEqual(JSON.parse(data.get('miskatonic.hidden-pages.v1')),['salt']);
 secrets.open('salt');assert.equal(sanity.current(),96);
 assert(rendered.includes('data-sanity-unlock="postscript:salt"'));
 assert(rendered.includes('Открыть · −6 рассудка'));
-click('postscript:salt');assert.equal(sanity.current(),90);assert(gateResult.includes('Что произошло с человеком'));
+click('postscript:salt');assert.equal(sanity.current(),90);gateResult=rendered.match(/<details class="secret-postscript" open>([\s\S]*?)<\/details>/)?.[1]||'';assert(gateResult.includes('Что произошло с человеком'));
 assert(gateResult.includes('data-tier="redacted"'),'At 90 sanity the protocol is redacted');
 assert(gateResult.includes('class="ink-redacted"'));assert(!gateResult.includes('third-hand'));
-assert(!gateResult.includes('до кости'),'Deep layer hidden at high sanity');
+assert(!gateResult.includes('семью прозрачными стежками'),'Deep layer hidden at high sanity');
 const tierAt=v=>c.archiveIncidentTier('cthulhu',v);
-assert(tierAt(55).includes('data-tier="partial"'));assert(tierAt(55).includes('кто увидит город трижды'));assert(!tierAt(55).includes('до кости'));
-assert(tierAt(20).includes('data-tier="full"'));assert(tierAt(20).includes('до кости'));assert(tierAt(20).includes('Образец № 31'));
+assert(tierAt(55).includes('data-tier="partial"'));assert(tierAt(55).includes('На записи слышен второй вдох'));assert(!tierAt(55).includes('семью прозрачными стежками'));
+assert(tierAt(20).includes('data-tier="full"'));assert(tierAt(20).includes('семью прозрачными стежками'));assert(tierAt(20).includes('Слух принят'));
 for(const id of Object.keys(c.ARCHIVE_INCIDENT_TIERS)){for(const v of [100,55,20]){const h=c.archiveIncidentTier(id,v);assert(!/\[\[|\]\]|\{\{|\}\}/.test(h),id+' '+v);}}
 assert(!gateResult.includes('owner-marginalia'));
 secrets.open('salt');assert(!rendered.includes('data-sanity-unlock="postscript:salt"'));

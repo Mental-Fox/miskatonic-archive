@@ -327,6 +327,7 @@ function openFolio(markup, mode = "record-mode") {
   host.scrollTop = 0;
   if(location.hash !== '#contents')window.archiveSecrets?.decorate(host, location.hash || '#cover');
   if(location.hash.startsWith('#entry/'))window.secretOrnaments?.decorateEntry(host,location.hash.split('/')[1]);
+  window.sleeper?.decorate(host,location.hash||'#cover');
   window.homoLector?.decorate(host,location.hash||'#cover');
   window.bookAnomalies?.decorate(host,location.hash||'#cover');
   window.livingEngraving?.decorate(host,location.hash||'#cover');
@@ -629,6 +630,15 @@ function route() {
     $('pagenum').textContent='Homo lector · человек читающий';
     document.title='Homo lector — Бестиарий Лавкрафта';
     return window.homoLector.open();
+  }
+  const dream=window.sleeper?.match(hash);
+  if(dream){
+    pendingDir=current>=0?1:0;
+    current=pageIndex(dream.anchor);updateChrome(current);
+    $('where').textContent=dream.where;$('where').title=dream.where;
+    $('pagenum').textContent=dream.sub;
+    document.title=dream.title+' — Бестиарий Лавкрафта';
+    return window.sleeper.open(dream);
   }
   if(hash.startsWith('#secret/')){
     const id=hash.split('/')[1];

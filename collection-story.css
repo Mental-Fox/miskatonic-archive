@@ -16,3 +16,10 @@
 [data-document="tiered"] .third-hand cite{display:block;margin-top:.4em;font-size:.78em;font-style:normal;opacity:.7}
 [data-document="tiered"][data-tier="full"] p:not(.document-format):not(.third-hand){text-shadow:0 0 .4px rgba(90,20,14,.35)}
 [data-document="tiered"] .document-format::first-letter{font-size:inherit;float:none;margin:0;line-height:inherit}
+.owner-marginalia .owner-witness.third-hand{
+  font-family:"Palatino Linotype","Book Antiqua",Palatino,serif;
+  color:#5a1610;transform:rotate(.4deg);border-left:2px solid #80503e;
+}
+.secret-source-note{margin-block:1rem;font-size:.85em;line-height:1.5}
+.secret-source-note summary{cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.owner-marginalia .tier-hint{font-size:.82em;font-style:italic;color:#705442}

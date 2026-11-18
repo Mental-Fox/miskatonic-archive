@@ -51,7 +51,12 @@
     return {value,ranked,leaves,posts,visits,read:Object.keys(data.visits).length,notes:noteCount(),rests:data.rests,first:data.first};
   }
   function condition(v){
-    return v>=70?'Сохранен. Наблюдение продолжается.':v>=40?'Беспокоен. Это нормально для свежего образца.':v>=15?'Созревает. Не тревожить.':'Готов к описанию.';
+    return v>=70?'Различает собственные воспоминания.':v>=40?'Связывает отдельные свидетельства.':v>=15?'Удерживает чужую память.':'Бодрствует. Шов натянут.';
+  }
+  function revealed(){
+    const opened=sanity().opened;
+    if(opened.includes('leaf:key-ticket')||opened.includes('leaf:key-rest')||opened.filter(k=>k.startsWith('leaf:')).length>=10)return true;
+    try{return (JSON.parse(localStorage.getItem('miskatonic.consumed.v1')||'null')?.count||0)>0;}catch{return false;}
   }
   // Если книга уже поглотила читателя в этом браузере, она это помнит.
   function previous(){
@@ -59,10 +64,13 @@
       const r=JSON.parse(localStorage.getItem('miskatonic.consumed.v1')||'null');
       if(!r||!Number.isInteger(r.count)||r.count<1)return '';
       let d='';try{d=new Date(r.last).toLocaleDateString('ru-RU',{day:'numeric',month:'long',year:'numeric'});}catch{}
-      return '<p class="lector-previous">Прежний читатель этого тома поглощён '+esc(d)+(r.bait?', приманка — «'+esc(r.bait)+'»':'')+'. Вы — образец № '+(122+r.count)+'.</p>';
+      return '<p class="lector-previous">Переплёт уже закрывался над вашей записью '+esc(d)+(r.bait?'. Сохранённый образ — «'+esc(r.bait)+'»':'')+'. Наблюдение возобновлено. Прежние находки и заметки остались в книге.</p>';
     }catch{return '';}
   }
   function open(){
+    if(!revealed()){
+      openFolio('<div class="open-book secret-book"><section class="book-page verso"><span class="folio-kicker">Последний раздел описи</span><h2>Заклеенный клапан</h2><p>Под полоской старой бумаги прощупывается карточка. Название закрыто. Вельт оставил на полях: «Сопоставить с билетом и незанятым креслом».</p><p>Проследите историю ключа или соберите десять тайных листов: отдельные графы станут различимы.</p><a href="#entry/yog">След ключа →</a><div class="folio-page">Опись · клапан</div></section><section class="book-page recto"><h3>Место не заполнено</h3><p class="owner-witness">Здесь не пусто. Просто мы пока не умеем это прочитать.<cite>Марта Рейн</cite></p><a href="#contents">Вернуться к оглавлению →</a><div class="folio-page">Оборот клапана</div></section></div>','spread-mode secret-mode');return;
+    }
     const p=profile(),stage=p.value>=70?0:p.value>=40?1:2;
     let date='—';try{date=new Date(p.first).toLocaleDateString('ru-RU',{day:'numeric',month:'long',year:'numeric'});}catch{}
     const bait=p.ranked[0]?'«'+name(p.ranked[0])+'»':'ещё не подобрана';
@@ -71,8 +79,8 @@
     const rows=[
       ['Поступил в коллекцию',date,0],
       ['Статей прочитано',p.read+' из '+(window.ENTRIES?.length||120)+' · заходов: '+p.visits,0],
-      ['Предпочтительная приманка',bait,0],
-      ['Вторичные приманки',second,1],
+      ['Устойчивый образ',bait,0],
+      ['Сопутствующие образы',second,1],
       ['Вскрыто тайных листов',String(p.leaves),1],
       ['Прочитано опасных приписок',String(p.posts),1],
       ['Пометки на полях',p.notes?p.notes+' — почерк сохранён':'не оставлял',1],
@@ -82,10 +90,10 @@
     ];
     const card='<dl class="lector-card">'+rows.map(([k,v,need])=>'<div><dt>'+esc(k)+'</dt><dd>'+(stage>=need?esc(v):bar(Math.max(4,Math.min(18,String(v).length))))+'</dd></div>').join('')+'</dl>';
     const done=p.leaves>=10&&p.value<40;
-    const verdict=stage===2?'<p class="third-hand lector-verdict">'+(done?'Описание завершено. Приманка подобрана: '+esc(bait)+'. Графа «образец» будет заполнена при следующем открытии тома.':'Описание не завершено. Читайте дальше.')+'<cite>третий почерк · наклон старой прописи</cite></p>'
+    const verdict=stage===2?'<p class="third-hand lector-verdict">'+(done?'Память удержана. Связи между записями устойчивы. При нуле рассудка шов замкнётся; наблюдение сохранится.':'Связи ещё неполны. Наблюдение продолжается.')+'<cite>неустановленный почерк · карточка наблюдения</cite></p>'
       :'<p class="tier-hint">Часть граф ещё не проступила. Они заполняются по мере того, как падает рассудок читателя.</p>';
     openFolio('<div class="open-book secret-book lector-book"><section class="book-page verso"><span class="folio-kicker">Опись тома · запись № 122</span><h2>Homo lector</h2><p class="book-latin">Человек читающий</p>'+
-      '<p class="owner-scholar">Последняя графа описи. Мы её не заполняли. Почерк — Торпа. Даты — ваши.<cite>Артур Вельт · сыщик, бывший инспектор</cite></p>'+
+      '<p class="owner-scholar">Последняя графа описи. Основной текст похож на почерк Торпа; даты вписаны позднее. Графа меняется при чтении.<cite>Артур Вельт · сыщик, бывший инспектор</cite></p>'+
       '<p class="owner-witness">Если вы это читаете, графа уже открыта. Закройте книгу. Пожалуйста.<cite>Марта Рейн · частная сыщица</cite></p>'+
       previous()+
       '<p class="secret-disclaimer">Карточка составлена только по данным этого браузера: какие страницы вы открывали и как долго на них оставались. Ничего никуда не передаётся'+(persistent?'':'; хранилище недоступно, карточка забудется после закрытия страницы')+'.</p>'+
@@ -94,9 +102,9 @@
   }
   // Ссылки на карточку из досье и читального зала.
   function decorate(host,hash){
-    const link='<a class="ink-link lector-link" href="#lector">Последняя запись описи: Homo lector →</a>';
+    const link='<a class="ink-link lector-link" href="#lector">'+(revealed()?'Последняя запись описи: Homo lector':'Заклеенный клапан в конце описи')+' →</a>';
     if(hash==='#secret/case-file')host.querySelector('.detective-dossier .secret-links')?.insertAdjacentHTML('afterbegin',link);
     if(hash==='#reading-room')host.querySelector('.sanity-room .recto .folio-page')?.insertAdjacentHTML('beforebegin','<p>'+link+'</p>');
   }
-  window.homoLector=Object.freeze({open,decorate,visits:id=>data.visits[id]||0,profile});
+  window.homoLector=Object.freeze({open,decorate,visits:id=>data.visits[id]||0,profile,revealed});
 })();
