@@ -40,7 +40,7 @@ function boot(saved='[]',blocked=false){
     openFolio:s=>html=s,ENTRIES:records,
     plateImage:(r,cls)=>'<img class="'+cls+'" data-record="'+r.id+'" src="art/'+r.id+'.webp">'};
   c.window=c;vm.createContext(c);
-  for(const f of ['owner-notes.js','owner-leaves.js','catalog-leaves.js','monster-engravings.js','secret-ornaments.js','secret-pages.js'])vm.runInContext(fs.readFileSync(f,'utf8'),c);
+  for(const f of ['owner-notes.js','owner-leaves.js','catalog-leaves.js','detective-story.js','secret-incidents.js','collection-story.js','secret-evidence.js','monster-engravings.js','secret-ornaments.js','secret-pages.js'])vm.runInContext(fs.readFileSync(f,'utf8'),c);
   return {api:c.archiveSecrets,values,html:()=>html,decorate(hash){
     inserted='';c.archiveSecrets.decorate({querySelector:()=>({querySelector:()=>null,insertAdjacentHTML:(_,s)=>inserted=s})},hash);return inserted;
   }};
@@ -52,6 +52,52 @@ const chains=[
   [['key-imprint','yog'],['key-ticket','nyarlathotep'],['key-rest','azathoth']]
 ];
 const t=boot();
+const beforeDossier=t.values.get('miskatonic.hidden-pages.v1');
+t.api.open('case-file');
+assert(t.html().includes('Двое оценщиков'));
+assert(t.html().includes('Книга собирает коллекцию'));
+assert(t.html().includes('Homo lector'));
+assert(t.html().includes('Homo faber'));
+assert(t.html().includes('бывший инспектор'));
+assert(t.html().includes('частная сыщица'));
+assert(t.html().includes('1926'));
+assert.equal(t.values.get('miskatonic.hidden-pages.v1'),beforeDossier,'Dossier is not a discovered leaf');
+assert.equal(t.api.anchor('case-file'),'#contents');
+const storyContext={window:{}};vm.createContext(storyContext);
+vm.runInContext(fs.readFileSync('detective-story.js','utf8'),storyContext);
+const story=storyContext.window.ARCHIVE_DETECTIVES;
+vm.runInContext(fs.readFileSync('secret-incidents.js','utf8'),storyContext);
+vm.runInContext(fs.readFileSync('collection-story.js','utf8'),storyContext);
+const incidents=storyContext.window.ARCHIVE_SECRET_INCIDENTS;
+assert.equal(Object.keys(incidents).length,records.length,'Every leaf has an incident');
+assert.equal(new Set(Object.values(incidents)).size,records.length,'Incidents are individually written');
+const incidentReader=boot();
+for(const r of records){
+  assert(incidents[r.id]?.length>100,'Incident for '+r.id);
+  incidentReader.api.open(incidentReader.api.link(r.id).split('/')[1]);
+  const html=incidentReader.html();
+  assert(html.includes('Что обнаружили сыщики'),r.id);
+  assert(html.includes('Опасная приписка · <span class="secret-age-mark">18+</span>'),r.id);
+  const danger=html.match(/<details class="secret-postscript">([\s\S]*?)<\/details>/)?.[1];
+  for(const paragraph of incidents[r.id].split(/\n\n+/))assert(danger?.includes(paragraph),r.id);
+  assert.equal((html.match(/class="secret-photo secret-photo-/g)||[]).length,3,'Two evidence photos and one incident photo: '+r.id);
+  assert.equal((danger.match(/class="secret-photo secret-photo-incident"/g)||[]).length,1,r.id);
+  assert(html.includes('class="secret-blood-text"'),r.id);
+  assert(!html.includes('class="secret-evidence-figure"'),'Old isolated creature engraving removed from dossier');
+  assert(html.includes('<details class="secret-route">'),r.id);
+  assert(!danger.includes('owner-marginalia'),'Incident must not repeat the two handwritings');
+}
+assert.equal(Object.keys(story.traces).length,107);
+const storyTexts=Object.values(story.traces).flat();
+assert.equal(new Set(storyTexts).size,214,'Every detective conclusion is individually written');
+for(const r of records){
+  const original=notes[r.id]||{scholar:'Показание',witness:'Наблюдение'};
+  const rewritten=story.note(r.id,original);
+  assert(story.traces[r.id],r.id);
+  assert(rewritten.scholar.includes(story.traces[r.id][0]),r.id);
+  assert(rewritten.witness.includes(story.traces[r.id][1]),r.id);
+  assert.equal(story.note(r.id,original).scholar,rewritten.scholar,'Rendering does not accumulate text');
+}
 for(const r of creatures){
   assert.equal(t.decorate('#entry/'+r.id),'','Owner notes must not appear in the main entry');
   assert(t.api.link(r.id).startsWith('#secret/'),r.id);
@@ -84,7 +130,7 @@ for(const leaf of singles){
   assert.equal(t.api.link(leaf.entry),'#secret/'+leaf.id);
   t.api.open(leaf.id);assert(t.html().includes(leaf.heading));
   assert(t.html().includes('data-inspect-entry="'+leaf.entry+'"'));
-  assert(t.html().includes(leaf.paragraphs[0]));assert(t.html().includes(notes[leaf.entry].scholar));assert(t.html().includes(notes[leaf.entry].witness));assert(t.html().includes(leaf.paragraphs[1]));
+  assert(t.html().includes(leaf.paragraphs[0]));{const shown=story.note(leaf.entry,notes[leaf.entry]);assert(t.html().includes(shown.scholar));assert(t.html().includes(shown.witness));}assert(t.html().includes(leaf.paragraphs[1]));
   assert.equal(t.api.anchor(leaf.id),'#entry/'+leaf.entry);
   assert.equal(t.api.onward(leaf.id),'#contents');
 }
@@ -97,7 +143,7 @@ for(const leaf of catalogLeaves){
   t.api.open(leaf.id);
   assert(t.html().includes(leaf.heading));
   for(const paragraph of leaf.paragraphs)assert(t.html().includes(paragraph));
-  assert(t.html().includes(notes[leaf.entry].scholar));assert(t.html().includes(notes[leaf.entry].witness));
+  {const shown=story.note(leaf.entry,notes[leaf.entry]);assert(t.html().includes(shown.scholar));assert(t.html().includes(shown.witness));}
   assert(t.html().includes('data-record="'+leaf.entry+'"'),'Use this entry’s illustration instead of a generic monster decoration');
   assert.equal(t.api.anchor(leaf.id),'#entry/'+leaf.entry);
 }
@@ -144,5 +190,9 @@ assert(index.indexOf('owner-notes.js')<index.indexOf('owner-leaves.js'));
 assert(index.indexOf('owner-leaves.js')<index.indexOf('secret-pages.js'));
 assert(index.indexOf('catalog-leaves.js')>index.indexOf('owner-leaves.js'));
 assert(index.indexOf('catalog-leaves.js')<index.indexOf('secret-pages.js'));
+assert(index.indexOf('catalog-leaves.js')<index.indexOf('detective-story.js'));
+assert(index.indexOf('detective-story.js')<index.indexOf('secret-pages.js'));
+assert(index.indexOf('secret-incidents.js')<index.indexOf('secret-pages.js'));
+assert(index.indexOf('secret-evidence.js')<index.indexOf('secret-pages.js'));
 assert(index.indexOf('secret-pages.js')<index.indexOf('src="reader.js'));
 console.log('PASS: all 107 unique catalog entries have one secret leaf; 42 new place/relic/book documents with individual notes and entry-specific images; direct story access, progress migration, storage failures and script order.');

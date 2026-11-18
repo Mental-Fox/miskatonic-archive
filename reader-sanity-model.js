@@ -31,15 +31,15 @@
       const item=registry.get(id);
       if(!item)return {known:false,opened:false,canOpen:false,cost:0,reason:'unknown',value:state.value};
       const opened=state.opened.includes(id);
-      const reason=opened?'':item.requires&&!state.opened.includes(item.requires)?'parent':state.value<15?'limit':state.value<item.cost?'insufficient':'';
+      const reason=opened?'':item.requires&&!state.opened.includes(item.requires)?'parent':state.value<=0?'insufficient':'';
       return {known:true,opened,canOpen:opened||!reason,cost:opened?0:item.cost,title:item.title,reason,value:state.value};
     }
     function unlock(id){
       refresh();const q=quote(id);
       if(!q.canOpen)return {ok:false,...q};
       if(q.opened)return {ok:true,...q,charged:0};
-      state.value-=q.cost;state.opened.push(id);save();
-      return {ok:true,...quote(id),charged:q.cost};
+      const charged=Math.min(q.cost,state.value);state.value-=charged;state.opened.push(id);save();
+      return {ok:true,...quote(id),charged};
     }
     function rest(){refresh();state.value=100;save();return snapshot();}
     function stage(){return state.value>=70?'clear':state.value>=40?'anxious':state.value>=15?'haunted':'limit';}

@@ -22,17 +22,22 @@ const restored=boot(store);assert.equal(restored.snapshot().value,88);assert(res
 assert.equal(restored.unlock('unknown').ok,false);assert.equal(restored.snapshot().value,88);
 for(let i=0;i<37;i++)assert(restored.unlock('clue:r'+i).ok);
 assert.equal(restored.snapshot().value,14);assert.equal(restored.snapshot().stage,'limit');
-assert.equal(restored.unlock('clue:r50').ok,false);assert.equal(restored.snapshot().value,14);
-assert(restored.unlock('clue:r0').ok);assert.equal(restored.snapshot().value,14,'Previously read stays free at the limit');
+for(let i=37;i<44;i++)assert(restored.unlock('clue:r'+i).ok,'Sanity can be spent below 15');
+assert.equal(restored.snapshot().value,0,'Sanity goes all the way down to zero');
+assert.equal(restored.unlock('clue:r50').ok,false);assert.equal(restored.snapshot().value,0,'At zero new materials stay closed');
+assert(restored.unlock('clue:r0').ok);assert.equal(restored.snapshot().value,0,'Previously read stays free at zero');
 restored.rest();assert.equal(restored.snapshot().value,100);assert(restored.quote('leaf:story').opened);assert.equal(restored.quote('clue:r0').cost,0);
 const stages=[[70,'clear'],[69,'anxious'],[40,'anxious'],[39,'haunted'],[15,'haunted'],[14,'limit'],[0,'limit']];
 for(const [value,stage] of stages){
   const m=boot(storage({[key]:JSON.stringify({version:2,value,opened:[],createdAt:'date'})}));
   assert.equal(m.snapshot().stage,stage);
-  if(value<15){assert.equal(m.unlock('clue:r0').ok,false);assert.equal(m.snapshot().value,value);}
+  if(value===0){assert.equal(m.unlock('clue:r0').ok,false);assert.equal(m.snapshot().value,0);}
+  else{assert(m.unlock('clue:r0').ok);assert.equal(m.snapshot().value,Math.max(0,value-2));}
 }
 const edge=boot(storage({[key]:JSON.stringify({version:2,value:15,opened:['leaf:story']})}));
-assert(edge.unlock('postscript:story').ok);assert.equal(edge.snapshot().value,9);assert.equal(edge.unlock('leaf:single').ok,false);
+assert(edge.unlock('postscript:story').ok);assert.equal(edge.snapshot().value,9);assert(edge.unlock('leaf:single').ok);assert.equal(edge.snapshot().value,7);
+const last=boot(storage({[key]:JSON.stringify({version:2,value:1,opened:['leaf:story']})}));
+assert.equal(last.unlock('postscript:story').charged,1,'The last purchase takes whatever is left');assert.equal(last.snapshot().value,0);
 const old=boot(storage({'miskatonic.reader-sanity.v1':'{"version":1,"value":100,"createdAt":"old"}','miskatonic.hidden-pages.v1':'["story","nonexistent"]'}));
 assert(old.quote('leaf:story').opened);assert.equal(old.snapshot().value,100);assert.equal(old.unlock('leaf:story').charged,0);
 for(const broken of ['bad json','null','[]','{"version":2,"value":-1,"opened":[]}','{"version":2,"value":200,"opened":[]}']){

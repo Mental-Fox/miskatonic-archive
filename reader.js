@@ -325,8 +325,12 @@ function openFolio(markup, mode = "record-mode") {
   host.className = "page-host " + mode;
   host.innerHTML = markup;
   host.scrollTop = 0;
-  window.archiveSecrets?.decorate(host, location.hash || '#cover');
+  if(location.hash !== '#contents')window.archiveSecrets?.decorate(host, location.hash || '#cover');
   if(location.hash.startsWith('#entry/'))window.secretOrnaments?.decorateEntry(host,location.hash.split('/')[1]);
+  window.homoLector?.decorate(host,location.hash||'#cover');
+  window.bookAnomalies?.decorate(host,location.hash||'#cover');
+  window.livingEngraving?.decorate(host,location.hash||'#cover');
+  window.sanityAtmosphere?.decorate(host,location.hash||'#cover');
   if (animate) turnLeaf(dir);
 }
 function turnLeaf(dir) {
@@ -403,53 +407,6 @@ function renderCover() {
   );
 }
 function renderContents() {
-  const toc = chapters
-    .map((ch) => {
-      const i = pageIndex("#chapter/" + ch.id);
-      return (
-        '<a class="toc-row" href="#chapter/' +
-        ch.id +
-        '"><b>' +
-        ch.num +
-        "</b><span>" +
-        escapeHTML(ch.title) +
-        "<small>" +
-        (ch.ids.length
-          ? ch.ids.length + " " + plural(ch.ids.length)
-          : "шесть разделов") +
-        "</small></span><i></i><em>" +
-        (i * 2 + 1) +
-        "</em></a>"
-      );
-    })
-    .join("");
-  const atlasRows = [
-    ["#chronicle/" + window.earthEpochs[0].id, "Хроника Старцев"],
-    ["#habitats", "Где они обитали — эпохи и глобус"],
-    ["#worlds/earth", "Карта миров — Земля, Страна Грёз, космос"],
-    ["#hierarchy", "Пантеон мифов"],
-    ["#atlas/cthulhu", "Родословное древо"],
-    ["#sizes", "Шкала размеров"],
-  ]
-    .concat([
-      ["#catalog", "Каталог всех записей"],
-      ["#history", "История Мифов"],
-      ["#culture/type/book", "Книги и рассказы"],
-      ["#culture/type/tabletop", "Настольные игры"],
-      ["#culture", "Следы Древних в культуре"],
-      ["#about", "Зачем эта книга"],
-    ])
-    .map(
-      ([h, t]) =>
-        '<a class="toc-sub" href="' +
-        h +
-        '">' +
-        t +
-        "<i></i><em>" +
-        (pageIndex(h) * 2 + 1) +
-        "</em></a>"
-    )
-    .join("");
   const sorted = [...records].sort((a, b) =>
     a.name.localeCompare(b.name, "ru")
   );
@@ -480,49 +437,10 @@ function renderContents() {
         "</div>"
     )
     .join("");
-  const paths = [
-    [
-      "#culture/type/book",
-      "I",
-      "Впервые в Мифах",
-      "Рассказы и русские издания: выберите, с чего начать.",
-    ],
-    [
-      "#catalog",
-      "II",
-      "Изучить бестиарий",
-      "Существа, боги и места — с описаниями и связями.",
-    ],
-    [
-      "#habitats",
-      "III",
-      "Исследовать мир",
-      "Карта обитания; рядом — хроники, пантеон и древо.",
-    ],
-  ]
-    .map(
-      ([h, n, t, d]) =>
-        '<a class="reading-path" href="' +
-        h +
-        '"><i>' +
-        n +
-        "</i><span><b>" +
-        t +
-        "</b><small>" +
-        d +
-        '</small></span><span aria-hidden="true">→</span></a>'
-    )
-    .join("");
   openFolio(
     '<div class="open-book"><section class="book-page verso"><header class="page-title"><h2 id="dialog-title">Содержание</h2><div class="cipher">' +
       cipherLine("contents") +
-      '</div></header><p class="sheet-lead">Выберите свой путь по книге — или откройте любую главу ниже.</p><nav class="reading-paths" aria-label="С чего начать">' +
-      paths +
-      '</nav><aside class="resource-note"><b>Библиотека</b> — вымышленные трактаты Мифов. <b>Книги</b> — реальные рассказы и издания. <b>Хроники</b> рассказывают о Старцах, а <b>История</b> — о Лавкрафте и создании Мифов.</aside><nav class="toc">' +
-      toc +
-      '<div class="toc-atlas">' +
-      atlasRows +
-      '</div></nav><div class="folio-page">i</div></section>' +
+      '</div></header><div class="folio-page">i</div></section>' +
       '<section class="book-page recto"><header class="page-title"><h2>Алфавитный указатель</h2></header><div class="alpha-index">' +
       index +
       '</div><div class="folio-page">ii</div></section></div>',
@@ -704,15 +622,23 @@ function route() {
     document.title='Читальный зал — Бестиарий Лавкрафта';
     return window.readerSanity.openRoom();
   }
+  if(hash==='#lector'&&window.homoLector){
+    pendingDir=current>=0?1:0;
+    current=pageIndex('#contents');updateChrome(current);
+    $('where').textContent='Опись тома · запись № 122';$('where').title=$('where').textContent;
+    $('pagenum').textContent='Homo lector · человек читающий';
+    document.title='Homo lector — Бестиарий Лавкрафта';
+    return window.homoLector.open();
+  }
   if(hash.startsWith('#secret/')){
     const id=hash.split('/')[1];
     pendingDir=current>=0?1:0;
     current=pageIndex(window.archiveSecrets.anchor(id));
     updateChrome(current);
-    $('where').textContent='Листы вне описи';
-    $('where').title='Листы вне описи';
-    $('pagenum').textContent='Частный архив · ненумерованная вклейка';
-    document.title='Листы вне описи — Бестиарий Лавкрафта';
+    $('where').textContent=id==='case-file'?'Дело № 17 · Вельт и Рейн':'Листы вне описи';
+    $('where').title=$('where').textContent;
+    $('pagenum').textContent=id==='case-file'?'Досье сыщиков · начало расследования':'Частный архив · ненумерованная вклейка';
+    document.title=(id==='case-file'?'Дело о живой книге':'Листы вне описи')+' — Бестиарий Лавкрафта';
     return window.archiveSecrets.open(id);
   }
   const i = pageIndex(hash);
