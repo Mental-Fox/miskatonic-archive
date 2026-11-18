@@ -40,10 +40,10 @@
   function noteMark(){return '';}
   function wrap(leaf,markup){
     const figure='<figure class="secret-evidence-figure" aria-label="Гравюрная деталь из полевого архива">'+creatureMotif(leaf.entry,'secret-evidence-image','secret')+'</figure>';
-    const withFigure=markup.includes('<div class="folio-page">')
+    const withFigure=markup.includes('secret-case-layout')?markup:markup.includes('<div class="folio-page">')
       ?markup.replace('<div class="folio-page">',figure+'<div class="folio-page">')
       :markup.replace('</section>',figure+'</section>');
-    return withFigure.replace('class="open-book secret-book"','class="open-book secret-book secret-theme-'+themeFor(leaf.entry)+'"')
+    return withFigure.replace('class="open-book secret-book','class="open-book secret-book secret-theme-'+themeFor(leaf.entry))
       .replace('<section class="book-page verso">','<section class="book-page verso">'+traces(leaf.entry,'front'))
       .replace('<section class="book-page recto">','<section class="book-page recto">'+traces(leaf.entry,'back'));
   }

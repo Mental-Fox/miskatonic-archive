@@ -35,7 +35,7 @@ function renderCultureIndex(){
     const count=cultureAllMedia().filter(media=>media.type===type).length;
     return '<a class="culture-category-cover" href="#culture/type/'+type+'" aria-label="Открыть: '+escapeHTML(title)+'"><img src="art/culture/'+type+'.svg" alt=""><div><span>Раздел '+roman[i]+'</span><b>'+escapeHTML(title)+'</b><small>В коллекции: '+count+'</small></div></a>';
   }).join('');
-  cultureOpen('<header class="page-title"><h2 id="dialog-title">Следы Древних в культуре</h2><div class="cipher">'+cipherLine('culture')+'</div></header><div class="culture-index-heading"><p>Выберите вид медиа</p><a class="ink-link" href="#culture/all">Все произведения ('+cultureAllMedia().length+') →</a></div><nav class="culture-category-covers" aria-label="Разделы культуры">'+covers+'</nav>');
+  cultureOpen('<header class="page-title"><h2 id="dialog-title">Следы Древних в культуре</h2><div class="cipher">ᛊᛚᛖᛞᛁ ᛞᚱᛖᚹᚾᛁᚺ ᚹ ᚲᚢᛚᛏᚢᚱᛖ</div></header><div class="culture-index-heading"><p>Выберите вид медиа</p><a class="ink-link" href="#culture/all">Все произведения ('+cultureAllMedia().length+') →</a></div><nav class="culture-category-covers" aria-label="Разделы культуры">'+covers+'</nav>',true);
 }
 function renderCulture(mode,value){
   if(!mode)return renderCultureIndex();
@@ -53,8 +53,8 @@ function renderCulture(mode,value){
     cultureSelect('type','Вид медиа',[['all','Все виды'],...Object.entries(cultureTypes)],cultureFilters.type)+cultureSelect('relation','Связь с Мифами',[['all','Любая связь'],...Object.entries(cultureRelations).map(([id,item])=>[id,item.label]),['literature','Литературные записи']],cultureFilters.relation)+cultureSelect('entity','Существо',[['all','Все существа'],...entities.map(id=>[id,byId.get(id).name])],cultureFilters.entity)+cultureSelect('presence','Как встречается',[['all','Все варианты'],...Object.entries(culturePresence)],cultureFilters.presence)+'<button type="button" data-culture-reset>Сбросить</button></form>';
   cultureOpen(intro+(cultureFilters.type==='book'?'<p class="culture-reading-intro">Здесь собраны рассказы Лавкрафта, книги соавторов и последователей, а также поздние переосмысления. Библиографические группы указаны на карточках. Даты могут обозначать время написания или первого издания.</p>':'')+'<p class="culture-boundary">Экранизации, игры и поздние книги имеют собственные версии Мифов. Их детали не дополняют литературные описания существ в архиве.</p>'+legend+filters+'<div class="culture-results-heading"><span id="culture-count" role="status">Найдено: '+cultureMatching().length+' из '+cultureAllMedia().length+'</span><span>Год — датировка произведения или указанной версии</span></div><div class="culture-grid" id="culture-results">'+cultureResults()+'</div>'+cultureLibraryFooter(cultureFilters.type)+'<p class="culture-art-credit">Иллюстрации карточек — оригинальные эмблемы видов медиа, созданные для архива. Постеры и кадры не воспроизводятся.</p>');
 }
-function cultureOpen(content){
-  openFolio('<div class="open-book catalog-book culture-book"><section class="book-page verso"></section><section class="book-page recto"></section><div class="map-across catalog-across"><div class="catalog-inner culture-inner">'+content+'</div></div></div>','spread-mode catalog-mode culture-mode');
+function cultureOpen(content,framed=false){
+  openFolio('<div class="open-book catalog-book culture-book"><section class="book-page verso"></section><section class="book-page recto"></section><div class="map-across catalog-across'+(framed?' wide-framed wide-framed-culture':'')+'">'+(framed?'<span class="wide-frame-art" aria-hidden="true"></span>':'')+'<div class="catalog-inner culture-inner">'+content+'</div></div></div>','spread-mode catalog-mode culture-mode');
 }
 function renderCultureMedia(id){
   const media=cultureAllMedia().find(item=>item.id===id);
