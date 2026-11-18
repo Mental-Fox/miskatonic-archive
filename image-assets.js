@@ -1,5 +1,8 @@
 // Images available through the illustration manager.
 window.BOOK_IMAGE_ASSETS = [
+  "art/secret-dossier/contact-sheet-v1.png",
+  "art/engraved-margins/catalog-wide-frame-selected.png",
+  "art/engraved-margins/culture-wide-frame-v2.png",
   "art/engraved-margins/rlyeh-frame-user-v3.png",
   "art/engraved-margins/rlyeh-frame-v2.png",
   "art/engraved-margins/evidence-sea-v2.png",

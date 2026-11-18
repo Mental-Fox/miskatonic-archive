@@ -1,0 +1,18 @@
+/* Дело № 17 · документы с уровнями рассудка */
+[data-document="tiered"] .document-format{
+  font-family:inherit;font-variant:small-caps;letter-spacing:.04em;font-size:.82rem;line-height:1.35;opacity:.8;
+  border-bottom:1px solid currentColor;padding-bottom:.3em;margin-bottom:.8em;
+}
+.ink-redacted{
+  display:inline;color:#1b130d;background:#1b130d;border-radius:1px;
+  letter-spacing:-.12em;user-select:none;box-decoration-break:clone;-webkit-box-decoration-break:clone;
+}
+[data-document="tiered"] .tier-hint{font-style:italic;font-size:.85em;opacity:.7;margin-top:1em}
+[data-document="tiered"] .third-hand{
+  margin-top:1.2em;padding:.6em .8em;border-left:2px solid rgba(110,20,14,.55);
+  font-family:"Palatino Linotype","Book Antiqua",Palatino,serif;font-style:italic;
+  color:#5a1610;transform:rotate(-.6deg);
+}
+[data-document="tiered"] .third-hand cite{display:block;margin-top:.4em;font-size:.78em;font-style:normal;opacity:.7}
+[data-document="tiered"][data-tier="full"] p:not(.document-format):not(.third-hand){text-shadow:0 0 .4px rgba(90,20,14,.35)}
+[data-document="tiered"] .document-format::first-letter{font-size:inherit;float:none;margin:0;line-height:inherit}

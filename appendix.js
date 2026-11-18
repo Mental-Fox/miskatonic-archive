@@ -137,8 +137,8 @@ function catalogChapterCovers(){
 }
 function renderCatalog(filter){
   if (!filter) {
-    openFolio('<div class="open-book catalog-book"><section class="book-page verso"></section><section class="book-page recto"></section><div class="map-across catalog-across"><div class="catalog-inner catalog-chapter-index">'+
-      '<header class="page-title"><h2 id="dialog-title">Каталог</h2><div class="cipher">'+cipherLine('catalogue')+'</div></header>'+
+    openFolio('<div class="open-book catalog-book"><section class="book-page verso"></section><section class="book-page recto"></section><div class="map-across catalog-across wide-framed wide-framed-catalog"><span class="wide-frame-art" aria-hidden="true"></span><div class="catalog-inner catalog-chapter-index">'+
+      '<header class="page-title"><h2 id="dialog-title">Каталог</h2><div class="cipher" aria-hidden="true">'+cipherLine('catalogue')+'</div></header>'+
       '<div class="catalog-index-heading"><p>Выберите главу, чтобы открыть её записи</p><a class="ink-link" href="#catalog/all">Все записи →</a></div>'+
       '<nav class="catalog-chapter-covers" aria-label="Главы каталога">'+catalogChapterCovers()+'</nav></div></div></div>','spread-mode catalog-mode');
     return;

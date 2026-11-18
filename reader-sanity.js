@@ -16,7 +16,7 @@
     const q=model.quote(key);
     if(!q.known||q.opened)return html;
     contents.set(key,{html,title});
-    const reason=q.reason==='parent'?'Сначала откройте сам тайный лист.':!q.canOpen?'Рассудок на пределе. Отдохните в читальном зале.':'Плата один раз. Повторное чтение бесплатно.';
+    const reason=q.reason==='parent'?'Сначала откройте сам тайный лист.':!q.canOpen?'Рассудок исчерпан. Отдохните в читальном зале.':'Плата один раз. Повторное чтение бесплатно.';
     return '<div class="sanity-lock" data-sanity-gate="'+esc(key)+'"><div class="sanity-lock-preview" aria-hidden="true" inert>'+html+'</div><div class="sanity-lock-overlay"><strong>'+esc(title||q.title)+'</strong><button type="button" data-sanity-unlock="'+esc(key)+'" '+(!q.canOpen?'disabled':'')+'>Открыть · −'+q.cost+' рассудка</button><small>'+reason+'</small><a href="#reading-room">В читальный зал</a></div></div>';
   }
   function refreshGates(){
@@ -26,16 +26,19 @@
     });
   }
   function notify(){window.dispatchEvent(new Event('sanityunlock'));}
+  // Любое изменение рассудка (оплата, отдых, другая вкладка): для атмосферы и поглощения.
+  function changed(){const e=new Event('sanitychange');e.detail={value:model.snapshot().value};window.dispatchEvent(e);}
   function openRoom(){
     const s=model.snapshot();
-    openFolio('<div class="open-book sanity-room"><section class="book-page verso"><span class="folio-kicker">Читальный зал Мискатоника</span><h2>Вернуться к свету</h2><p class="sanity-room-lead">Вы откладываете чужие записи, закрываете переплёт и возвращаетесь к знакомым звукам читального зала.</p><p>Найденные вклейки и открытые материалы сохранятся. Перечитать их можно без новой платы.</p><button type="button" class="sanity-rest" data-sanity-rest '+(s.value===100?'disabled':'')+'>Закончить исследование · восстановить до 100</button><a class="ink-link" href="#contents">Вернуться к оглавлению →</a><div class="folio-page">Читальный зал</div></section><section class="book-page recto"><span class="folio-kicker">Состояние читателя</span><h3>'+labels[s.stage]+'</h3><p class="sanity-room-value">'+s.value+' <small>/ 100</small></p><p>Полевые карточки и отдельные тайные листы: <b>2</b> рассудка.<br>Сюжетные вклейки: <b>4</b>.<br>Опасные приписки: <b>6</b>.</p><p>Ниже 15 новые материалы закрыты до отдыха. Уже открытые записи и обычный каталог доступны всегда.</p><p>Ничего не списывается за ожидание, перелистывание или просмотр иллюстраций. Цена видна на кнопке открытия.</p>'+(!s.persistent?'<p role="status">Хранилище браузера недоступно. Состояние сохранится только до закрытия страницы.</p>':'')+'<div class="folio-page">Рассудок</div></section></div>','spread-mode sanity-room-mode');
+    openFolio('<div class="open-book sanity-room"><section class="book-page verso"><span class="folio-kicker">Читальный зал Мискатоника</span><h2>Вернуться к свету</h2><p class="sanity-room-lead">Вы откладываете чужие записи, закрываете переплёт и возвращаетесь к знакомым звукам читального зала.</p><p>Найденные вклейки и открытые материалы сохранятся. Перечитать их можно без новой платы.</p><button type="button" class="sanity-rest" data-sanity-rest '+(s.value===100?'disabled':'')+'>Закончить исследование · восстановить до 100</button><a class="ink-link" href="#contents">Вернуться к оглавлению →</a><div class="folio-page">Читальный зал</div></section><section class="book-page recto"><span class="folio-kicker">Состояние читателя</span><h3>'+labels[s.stage]+'</h3><p class="sanity-room-value">'+s.value+' <small>/ 100</small></p><p>Полевые карточки и отдельные тайные листы: <b>2</b> рассудка.<br>Сюжетные вклейки: <b>4</b>.<br>Опасные приписки: <b>6</b>.</p><p>Рассудок можно потратить до нуля. На нуле новые материалы закрыты до отдыха. Уже открытые записи и обычный каталог доступны всегда.</p><p>Ничего не списывается за ожидание, перелистывание или просмотр иллюстраций. Цена видна на кнопке открытия.</p>'+(!s.persistent?'<p role="status">Хранилище браузера недоступно. Состояние сохранится только до закрытия страницы.</p>':'')+'<div class="folio-page">Рассудок</div></section></div>','spread-mode sanity-room-mode');
   }
   document.addEventListener('click',event=>{
     const button=event.target.closest('[data-sanity-unlock],[data-sanity-rest]');if(!button)return;
     event.preventDefault();
-    if(button.hasAttribute('data-sanity-rest')){model.rest();paint();notify();return;}
+    if(button.hasAttribute('data-sanity-rest')){model.rest();paint();changed();notify();return;}
     const key=button.dataset.sanityUnlock,result=model.unlock(key);
     paint();
+    if(result.ok&&result.charged)changed();
     if(!result.ok){refreshGates();return;}
     if(key.startsWith('leaf:')){notify();return;}
     const gate=button.closest('[data-sanity-gate]'),entry=contents.get(key);
@@ -43,7 +46,7 @@
     refreshGates();
   });
   window.addEventListener('storage',event=>{
-    if(event.key==='miskatonic.reader-sanity.v2'){model.refresh();paint();notify();}
+    if(event.key==='miskatonic.reader-sanity.v2'){model.refresh();paint();changed();notify();}
   });
   const book=document.getElementById('book'),header=document.querySelector('.book-head');
   if(widget&&book&&header&&typeof matchMedia==='function'){
