@@ -1,2 +1,0 @@
-/* Под широким листом страницы без затенения у корешка — иначе сгиб проступает сквозь лист. */
-.reader .desk .catalog-book>.book-page,.reader .desk .atlas-book>.book-page,.reader .desk .pantheon-book>.book-page,.reader .desk .sizes-book>.book-page,.reader .desk .tree-book>.book-page,.reader .desk .open-book:has(>.map-across)>.book-page{background-image:var(--book-image-art-paper-grain-webp,url('art/paper-grain.webp'));background-blend-mode:soft-light;box-shadow:none}
