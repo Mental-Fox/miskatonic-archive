@@ -1,32 +1,26 @@
 'use strict';
-/* Поглощение. Когда рассудок доходит до нуля, книга забирает читателя:
-   экран заливает чернота, проступает сообщение и карточка образца Homo lector,
-   затем все записи читателя стираются, и книга закрывается — открывается заново с обложки.
-   Стираются только следы чтения (рассудок, найденные листы, заметки на полях, карточка, пятна).
-   Настройки сайта и собственные иллюстрации пользователя остаются.
-   В памяти книги остаётся одна строка: сколько читателей она уже поглотила и когда. */
+/* Ноль рассудка завершает цикл: книга закрывается, находки и заметки сохраняются.
+   В описи остаётся след; после открытия подписи Марты местами заменяет третья рука. */
 (function(){
-  const ERASE=['miskatonic.reader-sanity.v2','miskatonic.reader-sanity.v1','miskatonic.hidden-pages.v1','miskatonic.homo-lector.v1','miskatonic.anomalies.v1'];
-  const ERASE_PREFIX=['miskatonic.fieldnote.v1.'];
   const RECORD='miskatonic.consumed.v1';
   const reduce=typeof matchMedia==='function'?matchMedia('(prefers-reduced-motion: reduce)'):{matches:false};
   const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   let running=false;
 
-  function record(){try{const r=JSON.parse(localStorage.getItem(RECORD)||'null');if(r&&Number.isInteger(r.count)&&r.count>0)return r;}catch{}return null;}
-  // Стирает следы чтения; возвращает список удалённых ключей (для проверки).
-  function erase(storage){
-    const removed=[];
+  function record(storage){try{const r=JSON.parse((storage||localStorage).getItem(RECORD)||'null');if(r&&Number.isInteger(r.count)&&r.count>0)return r;}catch{}return null;}
+  function recover(storage){
     try{
-      for(const k of ERASE)if(storage.getItem(k)!==null){storage.removeItem(k);removed.push(k);}
-      const keys=[];for(let i=0;i<storage.length;i++)keys.push(storage.key(i));
-      for(const k of keys)if(k&&ERASE_PREFIX.some(p=>k.startsWith(p))){storage.removeItem(k);removed.push(k);}
-    }catch{}
-    return removed;
+      const key='miskatonic.reader-sanity.v2',s=JSON.parse(storage.getItem(key)||'null');
+      if(s?.version!==2||!Array.isArray(s.opened))return false;
+      storage.setItem(key,JSON.stringify({...s,value:100}));
+      // Новая ночь: три спички. Руны имени (пробуждение) остаются — книга помнит.
+      try{const k='miskatonic.sleeper.v1',x=JSON.parse(storage.getItem(k)||'null');if(x&&x.v===1)storage.setItem(k,JSON.stringify({...x,matches:Math.max(3,x.matches|0)}));}catch{}
+      return true;
+    }catch{return false;}
   }
   function remember(storage,bait){
     try{
-      const prev=record()||{count:0};
+      const prev=record(storage)||{count:0};
       storage.setItem(RECORD,JSON.stringify({count:prev.count+1,last:new Date().toISOString(),bait:bait||''}));
     }catch{}
   }
@@ -41,15 +35,16 @@
     const bait=p.ranked?.[0]?(window.ENTRIES||[]).find(r=>r.id===p.ranked[0])?.name||'':'';
     const prev=record(),number=122+(prev?prev.count:0);
     let date='';try{date=new Date().toLocaleDateString('ru-RU',{day:'numeric',month:'long',year:'numeric'});}catch{}
-    const lines=['Вы читали слишком долго.','Книга вас поглотила.'];
-    const card='Homo lector. Образец № '+number+' получен '+date+(date.endsWith('.')?'':'.')+(bait?' Приманка: «'+bait+'».':'')+' Читатель израсходован.';
+    const lines=window.SLEEPER_STORY?.consumed||['Седьмой стежок натянулся.','В описи появилась ваша строка.'];
+    const card='Homo lector. Наблюдение № '+number+' · '+date+(date.endsWith('.')?'':'.')+(bait?' Последний устойчивый образ: «'+bait+'».':'')+' Память удержана. Переплёт закрыть.';
     const veil=document.createElement('div');
     veil.className='consumed';veil.setAttribute('role','alertdialog');veil.setAttribute('aria-modal','true');veil.setAttribute('aria-labelledby','consumed-title');
     veil.innerHTML='<div class="consumed-inner"><h2 id="consumed-title" class="consumed-line">'+esc(lines[0])+'</h2><p class="consumed-line consumed-main">'+esc(lines[1])+'</p>'+
-      '<p class="consumed-card">'+esc(card)+'<cite>третий почерк · наклон старой прописи</cite></p><p class="consumed-close">Переплёт закрывается.</p>'+
+      '<p class="consumed-card">'+esc(card)+'<cite>неустановленный почерк · карточка наблюдения</cite></p><p class="consumed-close">Находки и заметки сохранятся. После открытия рассудок восстановится; подписи на полях изменятся.</p>'+
       '<button type="button" class="consumed-go">Закрыть книгу</button></div>';
     document.body.append(veil);
-    const finish=()=>{window.bookConsumed=true;remember(localStorage,bait);erase(localStorage);closeBook();};
+    let finished=false;
+    const finish=()=>{if(finished)return;finished=true;window.bookConsumed=true;try{remember(localStorage,bait);recover(localStorage);}catch{}closeBook();};
     veil.querySelector('.consumed-go').addEventListener('click',finish);
     const g=window.gsap;
     if(!g||reduce.matches){veil.classList.add('static');veil.querySelector('.consumed-go').focus();return;}
@@ -93,5 +88,5 @@
   }
   addEventListener('sanitychange',e=>{if(e.detail?.value===0)consume();});
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',check,{once:true});else check();
-  window.bookConsumption=Object.freeze({consume,erase,record,ERASE,ERASE_PREFIX});
+  window.bookConsumption=Object.freeze({consume,recover,record});
 })();

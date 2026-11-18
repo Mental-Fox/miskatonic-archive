@@ -54,13 +54,13 @@ const chains=[
 const t=boot();
 const beforeDossier=t.values.get('miskatonic.hidden-pages.v1');
 t.api.open('case-file');
-assert(t.html().includes('Двое оценщиков'));
-assert(t.html().includes('Книга собирает коллекцию'));
-assert(t.html().includes('Homo lector'));
-assert(t.html().includes('Homo faber'));
+assert(t.html().includes('Двое у запертой двери'));
+assert(t.html().includes('Начальная опись'));
+assert(!t.html().includes('Homo lector'),'Initial dossier keeps the final card concealed');
+assert(t.html().includes('седьмой иглы'));
 assert(t.html().includes('бывший инспектор'));
 assert(t.html().includes('частная сыщица'));
-assert(t.html().includes('1926'));
+assert(t.html().includes('1936'));
 assert.equal(t.values.get('miskatonic.hidden-pages.v1'),beforeDossier,'Dossier is not a discovered leaf');
 assert.equal(t.api.anchor('case-file'),'#contents');
 const storyContext={window:{}};vm.createContext(storyContext);

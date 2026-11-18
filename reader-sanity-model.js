@@ -1,6 +1,6 @@
 'use strict';
 (function(){
-  window.createSanityModel=function({records,leaves,storage,now=()=>new Date().toISOString()}){
+  window.createSanityModel=function({records,leaves,extra=[],storage,now=()=>new Date().toISOString()}){
     const key='miskatonic.reader-sanity.v2',registry=new Map();
     for(const record of records){
       registry.set('clue:'+record.id,{cost:2,title:'Ключевые приметы'});
@@ -10,6 +10,7 @@
       registry.set('leaf:'+leaf.id,{cost:leaf.standalone?2:4,title:leaf.title});
       registry.set('postscript:'+leaf.id,{cost:6,title:'Опасная приписка',requires:'leaf:'+leaf.id});
     }
+    for(const m of extra)registry.set(m.id,{cost:m.cost,title:m.title,requires:m.requires});
     let persistent=true;
     function read(k){try{return JSON.parse(storage.getItem(k)||'null');}catch{return null;}}
     function valid(saved){return saved?.version===2&&Number.isInteger(saved.value)&&saved.value>=0&&saved.value<=100&&Array.isArray(saved.opened);}
@@ -41,9 +42,11 @@
       const charged=Math.min(q.cost,state.value);state.value-=charged;state.opened.push(id);save();
       return {ok:true,...quote(id),charged};
     }
-    function rest(){refresh();state.value=100;save();return snapshot();}
+    function rest(to=100){refresh();state.value=Math.max(state.value,Math.min(100,Math.max(0,to|0)));save();return snapshot();}
+    // Плата за сон (режим поиска руны): списывает без материала, не ниже нуля.
+    function spend(n){refresh();const c=Math.max(0,Math.min(n|0,state.value));state.value-=c;if(c)save();return c;}
     function stage(){return state.value>=70?'clear':state.value>=40?'anxious':state.value>=15?'haunted':'limit';}
     function snapshot(){return {value:state.value,stage:stage(),opened:[...state.opened],persistent};}
-    return Object.freeze({quote,unlock,rest,snapshot,refresh});
+    return Object.freeze({quote,unlock,rest,spend,snapshot,refresh});
   };
 })();
